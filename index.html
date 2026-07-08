@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#2D5A27" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="PlantKeeper" />
   <title>PlantKeeper</title>
@@ -3744,9 +3745,9 @@ function PlantKeeper() {
     setStore(function(prev){ var n=Object.assign({},prev); n.__plantNotes=next; saveStore(n); return n; });
   }
 
-  var activePlant = myPlants.find(function(p){ return p.id===activePlantId; }) || myPlants[0];
-  var weeks = buildWeeks(activePlant);
-  var activeWeek = weeks[activeWeekIdx];
+  var activePlant = myPlants.find(function(p){ return p.id===activePlantId; }) || myPlants[0] || null;
+  var weeks = activePlant ? buildWeeks(activePlant) : [];
+  var activeWeek = weeks[activeWeekIdx] || null;
   var accent = activePlant ? activePlant.accentColor : T.green;
 
   useEffect(function() {
@@ -3808,7 +3809,7 @@ function PlantKeeper() {
     return acc.concat(wk.tasks.filter(function(t){ return !store[taskKey(p.id,wk.weekNum,t.id)]; }).map(function(t){ return {plant:p,task:t}; }));
   }, []);
 
-  var wInfo = weekInfo(activePlant, activeWeek ? activeWeek.weekNum : 0);
+  var wInfo = activePlant ? weekInfo(activePlant, activeWeek ? activeWeek.weekNum : 0) : {done:0,total:0};
   var wDone = wInfo.done, wTotal = wInfo.total;
   var weekComplete = activeWeek && wDone===wTotal && wTotal>0;
   var wrap = {maxWidth:680,margin:"0 auto",padding:"20px 16px 100px",width:"100%"};
