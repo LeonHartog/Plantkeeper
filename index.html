@@ -3099,6 +3099,7 @@ function parsePeriodWeeks(period) {
 }
 
 function getTasksForPlant(plant) {
+  if (!plant || !plant.id) return [];
   if (PALM_TASKS[plant.id]) return PALM_TASKS[plant.id];
   if (plant.dbId) {
     var palmKey = plant.dbId.replace("db-", "");
@@ -3141,6 +3142,7 @@ function getTasksForPlant(plant) {
 }
 
 function buildWeeks(plant) {
+  if (!plant) return [];
   var tasks = getTasksForPlant(plant);
   var out = [];
   for (var w = 14; w <= 44; w++) {
@@ -3751,7 +3753,9 @@ function PlantKeeper() {
   var accent = activePlant ? activePlant.accentColor : T.green;
 
   useEffect(function() {
-    var ws = buildWeeks(myPlants.find(function(p){ return p.id===activePlantId; }) || myPlants[0]);
+    var foundPlant = myPlants.find(function(p){ return p.id===activePlantId; }) || myPlants[0];
+    if (!foundPlant) return;
+    var ws = buildWeeks(foundPlant);
     var idx = ws.findIndex(function(w){ return w.weekNum>=currentWeek; });
     setActiveWeekIdx(Math.max(0, idx===-1 ? ws.length-1 : idx));
   }, [activePlantId]);
