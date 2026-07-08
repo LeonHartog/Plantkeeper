@@ -7,17 +7,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="PlantKeeper" />
   <title>PlantKeeper</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif; }
-  </style>
+  <style>* { margin: 0; padding: 0; box-sizing: border-box; } body { background: #EFF4EC; }</style>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.23.5/babel.min.js"></script>
 </head>
 <body>
   <div id="root"></div>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script type="text/babel" data-presets="react">
+  <script type="text/babel">
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 function getISOWeek(d) {
   const u = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
@@ -3253,12 +3250,12 @@ function SmallBtn({ children, onClick, href, variant, style: extra }) {
 
 // ─── GEGEVENS EDITOR (naam + stad zonder focus-verlies) ──────────────────────
 function GegevensEditor({ userName, userCity, T, onSave }) {
-  var [naam, setNaam] = useState(userName || "");
-  var [stad, setStad] = useState(userCity || "");
+  var [naam, setNaam] = React.useState(userName || "");
+  var [stad, setStad] = React.useState(userCity || "");
 
   // Sync als parent waarde verandert (bijv. na laden)
-  React.useEffect(function(){ setNaam(userName || ""); }, [userName]);
-  React.useEffect(function(){ setStad(userCity || ""); }, [userCity]);
+  React.React.useEffect(function(){ setNaam(userName || ""); }, [userName]);
+  React.React.useEffect(function(){ setStad(userCity || ""); }, [userCity]);
 
   function slaOp() { onSave(naam, stad); }
 
@@ -3290,9 +3287,9 @@ function GegevensEditor({ userName, userCity, T, onSave }) {
 
 // ─── LOCATIE INPUT (database toevoegen, zonder focus-verlies) ─────────────────
 function LocatieInput({ value, onChange, medium, T }) {
-  var [lokaal, setLokaal] = useState(value || "");
+  var [lokaal, setLokaal] = React.useState(value || "");
 
-  React.useEffect(function(){ setLokaal(value || ""); }, [value]);
+  React.React.useEffect(function(){ setLokaal(value || ""); }, [value]);
 
   return (
     <input
@@ -3306,11 +3303,11 @@ function LocatieInput({ value, onChange, medium, T }) {
 
 // ─── MISSING PLANT FORM ───────────────────────────────────────────────────────
 function MissingPlantForm({ dbSearch, T, userName }) {
-  var [plantnaam, setPlantnaam] = useState(dbSearch || "");
-  var [extra, setExtra]         = useState("");
-  var [verzonden, setVerzonden] = useState(false);
-  var [loading, setLoading]     = useState(false);
-  var [opgeslagen, setOpgeslagen] = useState(false);
+  var [plantnaam, setPlantnaam] = React.useState(dbSearch || "");
+  var [extra, setExtra]         = React.useState("");
+  var [verzonden, setVerzonden] = React.useState(false);
+  var [loading, setLoading]     = React.useState(false);
+  var [opgeslagen, setOpgeslagen] = React.useState(false);
 
   // Sla melding op in localStorage zodat Leon ze kan inzien
   function slaOp(naam, toelichting) {
@@ -3381,9 +3378,9 @@ function MissingPlantForm({ dbSearch, T, userName }) {
 
 // ─── BEHEERDER PANEL ─────────────────────────────────────────────────────────
 function BeheerderPanel({ T }) {
-  var [code, setCode]       = useState("");
-  var [unlocked, setUnlocked] = useState(false);
-  var [meldingen, setMeldingen] = useState([]);
+  var [code, setCode]       = React.useState("");
+  var [unlocked, setUnlocked] = React.useState(false);
+  var [meldingen, setMeldingen] = React.useState([]);
   var BEHEERDER_CODE = "Heej123=";
 
   function open() {
@@ -3475,10 +3472,10 @@ function BeheerderPanel({ T }) {
 
 // ─── PLANT NOTE EDITOR ───────────────────────────────────────────────────────
 function PlantNoteEditor({ plantId, notes, onSave, T, accent }) {
-  var [text, setText] = useState(notes[plantId] || "");
-  var [edit, setEdit] = useState(false);
+  var [text, setText] = React.useState(notes[plantId] || "");
+  var [edit, setEdit] = React.useState(false);
 
-  useEffect(function() {
+  React.useEffect(function() {
     setText(notes[plantId] || "");
   }, [plantId, notes]);
 
@@ -3510,8 +3507,8 @@ function PlantNoteEditor({ plantId, notes, onSave, T, accent }) {
 
 // ─── PLANT IMAGE ─────────────────────────────────────────────────────────────
 function PlantImage({ url, accentColor, height, borderRadius, style: extra }) {
-  var [loaded, setLoaded] = React.useState(false);
-  var [error, setError]   = React.useState(false);
+  var [loaded, setLoaded] = React.React.useState(false);
+  var [error, setError]   = React.React.useState(false);
   var h = height || 160;
   var br = borderRadius || 0;
   var base = {width:"100%",height:h,position:"relative",overflow:"hidden",borderRadius:br,background:"linear-gradient(135deg,"+(accentColor||"#2D5A27")+"CC,"+(accentColor||"#2D5A27")+"77)"};
@@ -3535,10 +3532,10 @@ function PlantImage({ url, accentColor, height, borderRadius, style: extra }) {
 // ─── NOTE BLOCK ──────────────────────────────────────────────────────────────
 function NoteBlock({ plantId, weekNum, accent, T }) {
   T = T || T_LIGHT;
-  const [noteText, setNoteText] = useState("");
-  const [editNote, setEditNote] = useState(false);
+  const [noteText, setNoteText] = React.useState("");
+  const [editNote, setEditNote] = React.useState(false);
 
-  useEffect(function() {
+  React.useEffect(function() {
     var s = loadStore();
     setNoteText(s[noteKey(plantId, weekNum)] || "");
     setEditNote(false);
@@ -3584,31 +3581,31 @@ function PlantKeeper() {
   const today       = new Date();
   const currentWeek = getISOWeek(today);
 
-  const [store, setStore]               = useState({});
-  const [onboardingDone, setOnboardingDone] = useState(false);
-  const [userName, setUserName]         = useState("");
-  const [userCity, setUserCity]         = useState("");
-  const [darkMode, setDarkMode]         = useState(false);
-  const [accentKey, setAccentKey]       = useState("groen");
-  const [myPlants, setMyPlants]         = useState(DEFAULT_PLANTS);
-  const [screen, setScreen]             = useState("dashboard");
-  const [activePlantId, setActivePlantId] = useState("archo");
-  const [activeWeekIdx, setActiveWeekIdx] = useState(0);
+  const [store, setStore]               = React.useState({});
+  const [onboardingDone, setOnboardingDone] = React.useState(false);
+  const [userName, setUserName]         = React.useState("");
+  const [userCity, setUserCity]         = React.useState("");
+  const [darkMode, setDarkMode]         = React.useState(false);
+  const [accentKey, setAccentKey]       = React.useState("groen");
+  const [myPlants, setMyPlants]         = React.useState(DEFAULT_PLANTS);
+  const [screen, setScreen]             = React.useState("dashboard");
+  const [activePlantId, setActivePlantId] = React.useState("archo");
+  const [activeWeekIdx, setActiveWeekIdx] = React.useState(0);
 
-  const [selectedDb, setSelectedDb]     = useState(null);
-  const [addLocation, setAddLocation]   = useState("");
-  const [addMedium, setAddMedium]       = useState("pot");
-  const [addSize, setAddSize]           = useState("medium");
-  const [confirmDelete, setConfirmDelete] = useState(null);
-  const [profielPlant, setProfielPlant]   = useState(null);
-  const [profielTab, setProfielTab]       = useState("info");
-  const [plantNotes, setPlantNotes]       = useState({});
-  const [reminders, setReminders]       = useState({});
-  const [pendingAlarm, setPendingAlarm] = useState(null);
-  const [weather, setWeather]           = useState(null);
-  const [weatherLoading, setWeatherLoading] = useState(false);
+  const [selectedDb, setSelectedDb]     = React.useState(null);
+  const [addLocation, setAddLocation]   = React.useState("");
+  const [addMedium, setAddMedium]       = React.useState("pot");
+  const [addSize, setAddSize]           = React.useState("medium");
+  const [confirmDelete, setConfirmDelete] = React.useState(null);
+  const [profielPlant, setProfielPlant]   = React.useState(null);
+  const [profielTab, setProfielTab]       = React.useState("info");
+  const [plantNotes, setPlantNotes]       = React.useState({});
+  const [reminders, setReminders]       = React.useState({});
+  const [pendingAlarm, setPendingAlarm] = React.useState(null);
+  const [weather, setWeather]           = React.useState(null);
+  const [weatherLoading, setWeatherLoading] = React.useState(false);
 
-  useEffect(function() {
+  React.useEffect(function() {
     try {
       var s = loadStore();
       setStore(s);
@@ -3623,7 +3620,7 @@ function PlantKeeper() {
     } catch(e) {}
   }, []);
 
-  useEffect(function() {
+  React.useEffect(function() {
     setWeatherLoading(true);
     var ctrl = new AbortController();
     var t = setTimeout(function(){ ctrl.abort(); }, 5000);
@@ -3633,7 +3630,7 @@ function PlantKeeper() {
       .catch(function(){ clearTimeout(t); setWeatherLoading(false); });
   }, []);
 
-  useEffect(function() {
+  React.useEffect(function() {
     function onAlarm(e) { setPendingAlarm(e.detail); }
     window.addEventListener("plantkeeper-alarm", onAlarm);
     return function() { window.removeEventListener("plantkeeper-alarm", onAlarm); };
@@ -3677,7 +3674,7 @@ function PlantKeeper() {
   var activeWeek = weeks[activeWeekIdx];
   var accent = activePlant ? activePlant.accentColor : T.green;
 
-  useEffect(function() {
+  React.useEffect(function() {
     var ws = buildWeeks(myPlants.find(function(p){ return p.id===activePlantId; }) || myPlants[0]);
     var idx = ws.findIndex(function(w){ return w.weekNum>=currentWeek; });
     setActiveWeekIdx(Math.max(0, idx===-1 ? ws.length-1 : idx));
@@ -4066,10 +4063,10 @@ function PlantKeeper() {
 
   // ── DATABASE ───────────────────────────────────────────────────────────────────
   function DatabaseScreen() {
-    var [dbSearch, setDbSearch]           = useState("");
-    var [dbFilter, setDbFilter]           = useState("alle");
-    var [dbLightFilter, setDbLightFilter] = useState("alle");
-    var [dbWaterFilter, setDbWaterFilter] = useState("alle");
+    var [dbSearch, setDbSearch]           = React.useState("");
+    var [dbFilter, setDbFilter]           = React.useState("alle");
+    var [dbLightFilter, setDbLightFilter] = React.useState("alle");
+    var [dbWaterFilter, setDbWaterFilter] = React.useState("alle");
 
     var CATS = ["alle","palm","citrus","mediterraan","tropisch","bamboe","exoot","kamerplant","succulent","fruit","vaste plant"];
     var LIGHT_FILTERS = ["alle","Volle zon","Halfschaduw","Schaduw"];
@@ -4238,11 +4235,11 @@ function PlantKeeper() {
       {id:"water",   label:"Water geven",   icon:"💧", color:"#4A90D9"},
       {id:"voeding", label:"Voeding geven", icon:"🌿", color:T.green},
     ];
-    var [editing,  setEditing]  = useState(null);
-    var [editDay,  setEditDay]  = useState(0);
-    var [editHour, setEditHour] = useState(8);
-    var [editMin,  setEditMin]  = useState(0);
-    var [justSet,  setJustSet]  = useState(null);
+    var [editing,  setEditing]  = React.useState(null);
+    var [editDay,  setEditDay]  = React.useState(0);
+    var [editHour, setEditHour] = React.useState(8);
+    var [editMin,  setEditMin]  = React.useState(0);
+    var [justSet,  setJustSet]  = React.useState(null);
 
     function openEdit(plant, type) {
       var rkey = plant.id+"-"+type.id;
@@ -4587,13 +4584,13 @@ function PlantKeeper() {
 
   // ── PLANT DOKTER ──────────────────────────────────────────────────────────────
   function PlantDokterScreen() {
-    var [selectedPlant, setSelectedPlant] = useState(null);
-    var [beschrijving, setBeschrijving]   = useState("");
-    var [foto, setFoto]                   = useState(null);
-    var [fotoBase64, setFotoBase64]       = useState(null);
-    var [loading, setLoading]             = useState(false);
-    var [diagnose, setDiagnose]           = useState(null);
-    var [history, setHistory]             = useState([]);
+    var [selectedPlant, setSelectedPlant] = React.useState(null);
+    var [beschrijving, setBeschrijving]   = React.useState("");
+    var [foto, setFoto]                   = React.useState(null);
+    var [fotoBase64, setFotoBase64]       = React.useState(null);
+    var [loading, setLoading]             = React.useState(false);
+    var [diagnose, setDiagnose]           = React.useState(null);
+    var [history, setHistory]             = React.useState([]);
 
     function handleFoto(e) {
       var file = e.target.files[0];
@@ -4796,9 +4793,9 @@ function PlantKeeper() {
 
   // ── ONBOARDING ────────────────────────────────────────────────────────────────
   function OnboardingScreen() {
-    var [naam, setNaam]   = useState("");
-    var [stad, setStad]   = useState("");
-    var [stap, setStap]   = useState(1);
+    var [naam, setNaam]   = React.useState("");
+    var [stad, setStad]   = React.useState("");
+    var [stap, setStap]   = React.useState(1);
 
     function opslaan() {
       if (!naam.trim()) return;
@@ -4981,8 +4978,8 @@ function PlantKeeper() {
   );
 }
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const domContainer = document.getElementById('root');
+const root = ReactDOM.createRoot(domContainer);
 root.render(React.createElement(PlantKeeper));
   </script>
 </body>
