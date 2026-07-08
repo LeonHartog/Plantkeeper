@@ -3151,11 +3151,7 @@ function buildWeeks(plant) {
   return out;
 }
 
-const DEFAULT_PLANTS = [
-  {id:"archo",dbId:"db-archo",accentColor:"#2D5A27",name:"Archontophoenix cunninghamiana",shortName:"Bangalow Palm",location:"Volle grond - Zuidgevel",winterHardy:"-3C",growthRate:"Snel",light:"Volle zon",isCustom:false},
-  {id:"para",dbId:"db-para",accentColor:"#A06020",name:"Butia x Parajubaea sunkha",shortName:"Butia x P. sunkha",location:"Pot - Halfschaduw",winterHardy:"-8C",growthRate:"Matig",light:"Zon",isCustom:false},
-  {id:"cham",dbId:"db-cham",accentColor:"#3D7A52",name:"Chamaedorea radicalis (x2)",shortName:"Chamaedorea radicalis",location:"Volle grond - Schaduw",winterHardy:"-12C",growthRate:"Traag",light:"Schaduw",isCustom:false},
-];
+const DEFAULT_PLANTS = [];
 
 // ─── WEATHER ──────────────────────────────────────────────────────────────────
 function wmoIcon(c) {
@@ -3298,6 +3294,83 @@ function LocatieInput({ value, onChange, medium, T }) {
       placeholder={medium==="pot" ? "Bijv. Terras zuidkant..." : "Bijv. Zuidgevel, border..."}
       style={{width:"100%",background:T.bg,border:"2px solid "+T.border,borderRadius:11,color:T.text,fontFamily:T.sans,fontSize:13,padding:"10px 13px",outline:"none",marginBottom:14,boxSizing:"border-box"}}
     />
+  );
+}
+
+
+// ─── INSTELLINGEN SCHERM (buiten main om crash te voorkomen) ─────────────────
+var ACCENTS_LIST = [
+  {key:"groen",  label:"Groen",  color:"#2D5A27"},
+  {key:"blauw",  label:"Blauw",  color:"#1E4A8E"},
+  {key:"oranje", label:"Oranje", color:"#A05020"},
+  {key:"paars",  label:"Paars",  color:"#5A2D8E"},
+  {key:"rood",   label:"Rood",   color:"#8E2D2D"},
+  {key:"teal",   label:"Teal",   color:"#1A6B5A"},
+];
+
+function ToggleSwitch({ on, onChange, color }) {
+  return (
+    <div onClick={onChange} style={{width:46,height:27,borderRadius:14,background:on?(color||"#2D5A27"):"#D4E0D0",position:"relative",cursor:"pointer",flexShrink:0,transition:"background 0.2s"}}>
+      <div style={{position:"absolute",top:3,left:on?21:3,width:21,height:21,borderRadius:11,background:"#fff",boxShadow:"0 1px 4px rgba(0,0,0,0.25)",transition:"left 0.18s"}}/>
+    </div>
+  );
+}
+
+function InstellingenScherm({ T, darkMode, accentKey, userName, userCity, onDarkMode, onAccent, onSaveGegevens }) {
+  return (
+    <div style={{maxWidth:680,margin:"0 auto",padding:"20px 16px 100px"}}>
+      <h1 style={{fontSize:26,fontWeight:900,color:T.text,margin:"0 0 6px"}}>Instellingen</h1>
+      <p style={{fontSize:13,color:T.textMuted,marginBottom:24}}>Personaliseer de app naar jouw voorkeur.</p>
+
+      <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Weergave</p>
+      <div style={{background:T.surface,borderRadius:16,overflow:"hidden",marginBottom:20,boxShadow:T.shadow}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 16px"}}>
+          <div>
+            <p style={{fontSize:14,fontWeight:700,color:T.text,margin:0}}>Donkere modus</p>
+            <p style={{fontSize:11,color:T.textMuted,margin:"2px 0 0"}}>{darkMode?"Actief":"Uitgeschakeld"}</p>
+          </div>
+          <ToggleSwitch on={darkMode} onChange={function(){ onDarkMode(!darkMode); }} color={T.green}/>
+        </div>
+      </div>
+
+      <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 10px"}}>Accentkleur</p>
+      <div style={{background:T.surface,borderRadius:16,padding:"16px",marginBottom:20,boxShadow:T.shadow}}>
+        <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
+          {ACCENTS_LIST.map(function(a) {
+            var isA = accentKey===a.key;
+            return (
+              <button key={a.key} onClick={function(){ onAccent(a.key); }}
+                style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:"10px 12px",borderRadius:12,
+                  border:"2.5px solid "+(isA?a.color:T.border),background:isA?a.color+"18":"transparent",cursor:"pointer",minWidth:58}}>
+                <div style={{width:26,height:26,borderRadius:13,background:a.color,boxShadow:isA?"0 2px 8px "+a.color+"66":"none"}}/>
+                <span style={{fontSize:10,fontWeight:isA?800:600,color:isA?a.color:T.textMid}}>{a.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Notificaties</p>
+      <div style={{background:T.surface,borderRadius:16,overflow:"hidden",marginBottom:20,boxShadow:T.shadow}}>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 16px"}}>
+          <div>
+            <p style={{fontSize:14,fontWeight:700,color:T.text,margin:0}}>Wekkers</p>
+            <p style={{fontSize:11,color:T.textMuted,margin:"2px 0 0"}}>Instellen via het Wekker scherm</p>
+          </div>
+          <ToggleSwitch on={true} onChange={function(){}} color={T.green}/>
+        </div>
+      </div>
+
+      <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Jouw gegevens</p>
+      <GegevensEditor userName={userName} userCity={userCity} T={T} onSave={onSaveGegevens}/>
+
+      <div style={{background:T.surface,borderRadius:16,padding:"14px 16px",boxShadow:T.shadow,marginBottom:20}}>
+        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 6px"}}>Over PlantKeeper</p>
+        <p style={{fontSize:13,color:T.textMid,margin:0,lineHeight:1.6}}>Versie 11.21 - Seizoen 2026</p>
+      </div>
+
+      <BeheerderPanel T={T} />
+    </div>
   );
 }
 
@@ -3740,74 +3813,122 @@ function PlantKeeper() {
 
   // ── WEATHER CARD ──────────────────────────────────────────────────────────────
   function WeatherCard() {
-    // Seizoensgebaseerde weerwidget met slimme plantenmeldingen
-    // Wordt live zodra de app gehost is (Open-Meteo API op basis van userCity)
+    var [weerData, setWeerData]       = React.useState(null);
+    var [weerLoading, setWeerLoading] = React.useState(false);
+    var [weerFout, setWeerFout]       = React.useState(false);
+    var fase = getPhase(currentWeek);
     var month = today.getMonth() + 1;
-    var dag   = today.getDate();
-    var fase  = getPhase(currentWeek);
 
-    // Seizoenstemperatuur simulatie voor NL
-    var gesimTemp = month<=2?3:month===3?8:month===4?12:month===5?17:month===6?20:month===7?23:month===8?22:month===9?17:month===10?11:month===11?6:4;
-    var gesimIcon = month>=6&&month<=8?"☀️":month>=3&&month<=5?"🌤️":month>=9&&month<=10?"🌦️":"🌧️";
-    var gesimLabel = month>=6&&month<=8?"Zonnig":month>=3&&month<=5?"Wisselend":month>=9&&month<=10?"Buiig":"Grijs";
+    // Geocoding: stad → lat/lon → weer ophalen
+    React.React.useEffect(function() {
+      if (!userCity) return;
+      setWeerLoading(true);
+      setWeerFout(false);
+      // Stap 1: stad naar coördinaten via Open-Meteo geocoding
+      fetch("https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(userCity) + "&count=1&language=nl&format=json")
+        .then(function(r){ return r.json(); })
+        .then(function(geo) {
+          if (!geo.results || geo.results.length === 0) { setWeerFout(true); setWeerLoading(false); return; }
+          var lat = geo.results[0].latitude;
+          var lon = geo.results[0].longitude;
+          // Stap 2: weer ophalen op die coördinaten
+          return fetch("https://api.open-meteo.com/v1/forecast?latitude="+lat+"&longitude="+lon+"&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m,precipitation&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max&timezone=auto&forecast_days=4");
+        })
+        .then(function(r){ return r && r.json(); })
+        .then(function(d) {
+          if (d && d.current) { setWeerData(d); }
+          setWeerLoading(false);
+        })
+        .catch(function(){ setWeerFout(true); setWeerLoading(false); });
+    }, [userCity]);
 
-    // Slimme plantenmeldingen op basis van seizoen + fase
+    function wmoIcon(c) {
+      if (c===0) return "☀️"; if (c<=2) return "🌤️"; if (c<=3) return "☁️";
+      if (c<=49) return "🌫️"; if (c<=67) return "🌧️"; if (c<=77) return "🌨️";
+      if (c<=82) return "🌦️"; if (c<=99) return "⛈️"; return "🌡️";
+    }
+    function wmoLabel(c) {
+      if (c===0) return "Helder"; if (c<=2) return "Licht bewolkt"; if (c<=3) return "Bewolkt";
+      if (c<=49) return "Mistig"; if (c<=67) return "Regen"; if (c<=77) return "Sneeuw";
+      if (c<=82) return "Buien"; if (c<=99) return "Onweer"; return "Onbekend";
+    }
+    var DKORT = ["Zo","Ma","Di","Wo","Do","Vr","Za"];
+
+    // Slimme plantenmeldingen op basis van weer + seizoen
     var meldingen = [];
-    if (month>=6&&month<=8&&gesimTemp>25) meldingen.push({type:"warn",icon:"🌡️",tekst:"Warme dagen verwacht — geef extra water, bij voorkeur voor 9u of na 18u."});
-    if (month>=6&&month<=8) meldingen.push({type:"info",icon:"💧",tekst:"Controleer dagelijks de vochtgraad. Palmen kunnen bij >28°C dagelijks water nodig hebben."});
-    if (month===9||month===10) meldingen.push({type:"warn",icon:"🍂",tekst:"Nazomer: bouw voeding af. Voeding na week 36 geeft zachte groei die vorstschade oploopt."});
-    if (month===10||month===11) meldingen.push({type:"alert",icon:"❄️",tekst:"Eerste nachtvorst mogelijk. Heb je vorstmaatregelen genomen voor je palmen en citrus?"});
-    if (month===11||month===12||month===1) meldingen.push({type:"alert",icon:"🥶",tekst:"Winterperiode: minimaal water geven. Controleer vliesdoek en mulch regelmatig."});
-    if (month===2||month===3) meldingen.push({type:"info",icon:"🌱",tekst:"Lente nadert. Controleer je planten op winterschade en maak ze klaar voor het seizoen."});
-    if (month>=3&&month<=4) meldingen.push({type:"info",icon:"☀️",tekst:"Tijd om te starten met bemesting. Check je voorraad meststoffen."});
-    if (month>=5&&month<=6) meldingen.push({type:"info",icon:"🌿",tekst:"Groeiseizoen in volle gang. Houd planten goed in de gaten op plagen en ziektes."});
-    if (meldingen.length===0) meldingen.push({type:"info",icon:"🌱",tekst:"Goede tuindag. Controleer of er taken open staan in de planner."});
-
+    if (weerData && weerData.current) {
+      var temp = weerData.current.temperature_2m;
+      var regen = weerData.current.precipitation || 0;
+      if (regen > 0) meldingen.push({type:"info",icon:"🌧️",tekst:"Het regent — gieten vandaag niet nodig."});
+      else if (temp > 28) meldingen.push({type:"warn",icon:"🌡️",tekst:"Warm ("+Math.round(temp)+"°) — geef extra water voor 9u of na 18u."});
+      else if (temp < 2) meldingen.push({type:"alert",icon:"❄️",tekst:"Vriespunt verwacht ("+Math.round(temp)+"°) — vorstgevoelige planten beschermen!"});
+      else meldingen.push({type:"info",icon:"🌱",tekst:"Goede tuindag. Controleer de taken in de planner."});
+    } else {
+      if (month>=10&&month<=11) meldingen.push({type:"alert",icon:"❄️",tekst:"Eerste nachtvorst mogelijk. Vorstmaatregelen genomen?"});
+      else if (month>=6&&month<=8) meldingen.push({type:"info",icon:"💧",tekst:"Warme periode — dagelijks vochtgraad controleren."});
+      else meldingen.push({type:"info",icon:"🌱",tekst:"Controleer de taken in de planner."});
+    }
     var meldingKleur = {warn:"#E8A020",alert:"#C04040",info:T.green};
+
+    if (!userCity) {
+      return (
+        <div style={{background:"linear-gradient(135deg,#1A4A7A,#2D6AAE)",borderRadius:18,padding:"14px 16px",marginBottom:18,boxShadow:T.shadow}}>
+          <p style={{fontSize:12,color:"rgba(255,255,255,0.7)",margin:0}}>Stel je stad in via Instellingen voor live weer.</p>
+        </div>
+      );
+    }
 
     return (
       <div style={{marginBottom:18}}>
         <div style={{background:"linear-gradient(135deg,#1A4A7A,#2D6AAE)",borderRadius:18,overflow:"hidden",boxShadow:T.shadow}}>
           <div style={{padding:"14px 16px"}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:10}}>
+            {weerLoading && <p style={{fontSize:13,color:"rgba(255,255,255,0.8)",margin:0}}>Weer laden voor {userCity}...</p>}
+            {weerFout && <p style={{fontSize:13,color:"rgba(255,255,255,0.8)",margin:0}}>Stad niet gevonden. Controleer de naam in Instellingen.</p>}
+            {weerData && weerData.current && (
               <div>
-                <p style={{fontSize:10,color:"rgba(255,255,255,0.6)",fontWeight:700,margin:"0 0 3px",textTransform:"uppercase",letterSpacing:1}}>{userCity||"Jouw tuin"} - {fmtDate(today)}</p>
-                <div style={{display:"flex",alignItems:"center",gap:10}}>
-                  <span style={{fontSize:36}}>{gesimIcon}</span>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:10}}>
                   <div>
-                    <p style={{fontSize:28,fontWeight:900,color:"#fff",margin:0,lineHeight:1}}>{gesimTemp}°</p>
-                    <p style={{fontSize:12,color:"rgba(255,255,255,0.75)",margin:"2px 0 0",fontWeight:600}}>{gesimLabel}</p>
+                    <p style={{fontSize:10,color:"rgba(255,255,255,0.6)",fontWeight:700,margin:"0 0 3px",textTransform:"uppercase",letterSpacing:1}}>{userCity} - {fmtDate(today)}</p>
+                    <div style={{display:"flex",alignItems:"center",gap:10}}>
+                      <span style={{fontSize:36}}>{wmoIcon(weerData.current.weather_code)}</span>
+                      <div>
+                        <p style={{fontSize:28,fontWeight:900,color:"#fff",margin:0,lineHeight:1}}>{Math.round(weerData.current.temperature_2m)}°</p>
+                        <p style={{fontSize:12,color:"rgba(255,255,255,0.75)",margin:"2px 0 0",fontWeight:600}}>{wmoLabel(weerData.current.weather_code)}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{display:"flex",gap:10,flexShrink:0}}>
+                    {[{icon:"💧",val:weerData.current.relative_humidity_2m+"%"},{icon:"💨",val:Math.round(weerData.current.wind_speed_10m)+"km/u"},{icon:"🌧️",val:weerData.current.precipitation+"mm"}].map(function(s,i){
+                      return (
+                        <div key={i} style={{textAlign:"center"}}>
+                          <p style={{fontSize:14,margin:"0 0 2px"}}>{s.icon}</p>
+                          <p style={{fontSize:10,color:"rgba(255,255,255,0.8)",margin:0,fontWeight:600}}>{s.val}</p>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-              </div>
-              <div style={{textAlign:"right"}}>
-                <div style={{background:"rgba(255,255,255,0.15)",borderRadius:12,padding:"8px 12px",marginBottom:4}}>
-                  <p style={{fontSize:10,color:"rgba(255,255,255,0.7)",margin:"0 0 1px",fontWeight:700}}>Seizoen</p>
-                  <p style={{fontSize:16,fontWeight:900,color:"#fff",margin:0}}>{Math.round((currentWeek-14)/(44-14)*100)}%</p>
-                </div>
-                <p style={{fontSize:10,color:"rgba(255,255,255,0.6)",margin:0,fontWeight:600}}>{fase.label} - Wk {currentWeek}</p>
-              </div>
-            </div>
-            <div style={{height:4,background:"rgba(255,255,255,0.15)",borderRadius:99,overflow:"hidden"}}>
-              <div style={{height:"100%",width:Math.round((currentWeek-14)/(44-14)*100)+"%",background:"rgba(255,255,255,0.8)",borderRadius:99}}/>
-            </div>
-          </div>
-          <div style={{borderTop:"1px solid rgba(255,255,255,0.12)",padding:"10px 14px",background:"rgba(0,0,0,0.12)"}}>
-            <p style={{fontSize:9,color:"rgba(255,255,255,0.4)",margin:"0 0 6px",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>Live weer beschikbaar na installatie</p>
-            <div style={{display:"flex",gap:14}}>
-              {[{icon:"💧",label:"Vochtig",val:month>=4&&month<=9?"65%":"80%"},{icon:"💨",label:"Wind",val:month>=10||month<=3?"18km/u":"11km/u"},{icon:"🌧️",label:"Neerslag",val:month>=10||month<=3?"Kans hoog":"Kans laag"}].map(function(s,i){
-                return (
-                  <div key={i} style={{textAlign:"center"}}>
-                    <p style={{fontSize:14,margin:"0 0 1px"}}>{s.icon}</p>
-                    <p style={{fontSize:9,color:"rgba(255,255,255,0.5)",margin:0,fontWeight:600}}>{s.val}</p>
+                {weerData.daily && (
+                  <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",borderTop:"1px solid rgba(255,255,255,0.15)"}}>
+                    {[0,1,2,3].map(function(i){
+                      var datum = new Date(weerData.daily.time[i]);
+                      return (
+                        <div key={i} style={{padding:"7px 4px",textAlign:"center",borderRight:i<3?"1px solid rgba(255,255,255,0.12)":"none",background:i===0?"rgba(255,255,255,0.12)":"transparent"}}>
+                          <p style={{fontSize:10,fontWeight:800,color:"rgba(255,255,255,0.75)",margin:"0 0 2px",textTransform:"uppercase"}}>{i===0?"Nu":DKORT[datum.getDay()]}</p>
+                          <p style={{fontSize:16,margin:"0 0 2px"}}>{wmoIcon(weerData.daily.weather_code[i])}</p>
+                          <p style={{fontSize:11,fontWeight:800,color:"#fff",margin:0}}>{Math.round(weerData.daily.temperature_2m_max[i])}°</p>
+                          <p style={{fontSize:10,color:"rgba(255,255,255,0.6)",margin:"1px 0 0"}}>{Math.round(weerData.daily.temperature_2m_min[i])}°</p>
+                          {weerData.daily.precipitation_probability_max[i]>20 && <p style={{fontSize:9,color:"#90CAF9",fontWeight:700,margin:"2px 0 0"}}>💧{weerData.daily.precipitation_probability_max[i]}%</p>}
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
-            </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
-
-        {meldingen.map(function(m, i){
+        {meldingen.map(function(m,i){
           var kleur = meldingKleur[m.type] || T.green;
           return (
             <div key={i} style={{marginTop:8,background:T.surface,borderRadius:14,padding:"11px 14px",boxShadow:T.shadow,display:"flex",alignItems:"flex-start",gap:10,borderLeft:"4px solid "+kleur}}>
@@ -3827,7 +3948,7 @@ function PlantKeeper() {
         <p style={{fontSize:13,color:T.textMuted,fontWeight:600,textTransform:"uppercase",letterSpacing:1,marginBottom:4}}>{fmtFull(today)}</p>
         <h1 style={{fontSize:28,fontWeight:900,color:T.text,lineHeight:1.2,margin:"0 0 6px"}}>{"Hoi "+userName+"!"}</h1>
         <p style={{fontSize:14,color:T.textMid,fontWeight:600,marginBottom:20}}>
-          {thisWeekTodo.length>0 ? thisWeekTodo.length+" taken staan klaar voor deze week" : "Alle taken voor deze week gedaan!"}
+          {myPlants.length===0 ? "Voeg je eerste plant toe via Zoeken" : thisWeekTodo.length>0 ? thisWeekTodo.length+" taken staan klaar voor deze week" : "Alle taken voor deze week gedaan!"}
         </p>
 
         <WeatherCard />
@@ -4355,86 +4476,27 @@ function PlantKeeper() {
 
   // ── INSTELLINGEN ──────────────────────────────────────────────────────────────
   function InstellingenScreen() {
-    var ACCENTS = [
-      {key:"groen",  label:"Groen",  color:"#2D5A27"},
-      {key:"blauw",  label:"Blauw",  color:"#1E4A8E"},
-      {key:"oranje", label:"Oranje", color:"#A05020"},
-      {key:"paars",  label:"Paars",  color:"#5A2D8E"},
-      {key:"rood",   label:"Rood",   color:"#8E2D2D"},
-      {key:"teal",   label:"Teal",   color:"#1A6B5A"},
-    ];
-
-    function Toggle(props) {
-      return (
-        <div onClick={props.onChange} style={{width:46,height:27,borderRadius:14,background:props.on?T.green:T.border,position:"relative",cursor:"pointer",flexShrink:0}}>
-          <div style={{position:"absolute",top:3,left:props.on?21:3,width:21,height:21,borderRadius:11,background:"#fff",boxShadow:"0 1px 4px rgba(0,0,0,0.25)",transition:"left 0.18s"}}/>
-        </div>
-      );
-    }
-
     return (
-      <div style={{maxWidth:680,margin:"0 auto",padding:"20px 16px 100px"}}>
-        <h1 style={{fontSize:26,fontWeight:900,color:T.text,margin:"0 0 6px"}}>Instellingen</h1>
-        <p style={{fontSize:13,color:T.textMuted,marginBottom:24}}>Personaliseer de app naar jouw voorkeur.</p>
-
-        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Weergave</p>
-        <div style={{background:T.surface,borderRadius:16,overflow:"hidden",marginBottom:20,boxShadow:T.shadow}}>
-          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 16px"}}>
-            <div>
-              <p style={{fontSize:14,fontWeight:700,color:T.text,margin:0}}>Donkere modus</p>
-              <p style={{fontSize:11,color:T.textMuted,margin:"2px 0 0"}}>{darkMode?"Actief":"Uitgeschakeld"}</p>
-            </div>
-            <Toggle on={darkMode} onChange={function(){
-              var next=!darkMode;
-              setDarkMode(next);
-              setStore(function(prev){var n=Object.assign({},prev);n.__darkMode=next;saveStore(n);return n;});
-            }}/>
-          </div>
-        </div>
-
-        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 10px"}}>Accentkleur</p>
-        <div style={{background:T.surface,borderRadius:16,padding:"16px",marginBottom:20,boxShadow:T.shadow}}>
-          <div style={{display:"flex",gap:10,flexWrap:"wrap"}}>
-            {ACCENTS.map(function(a) {
-              var isA = accentKey===a.key;
-              return (
-                <button key={a.key} onClick={function(){
-                  setAccentKey(a.key);
-                  setStore(function(prev){var n=Object.assign({},prev);n.__accentKey=a.key;saveStore(n);return n;});
-                }} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:5,padding:"10px 12px",borderRadius:12,border:"2.5px solid "+(isA?a.color:T.border),background:isA?a.color+"18":"transparent",cursor:"pointer",minWidth:58}}>
-                  <div style={{width:26,height:26,borderRadius:13,background:a.color,boxShadow:isA?"0 2px 8px "+a.color+"66":"none"}}/>
-                  <span style={{fontSize:10,fontWeight:isA?800:600,color:isA?a.color:T.textMid,fontFamily:T.sans}}>{a.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Notificaties</p>
-        <div style={{background:T.surface,borderRadius:16,overflow:"hidden",marginBottom:20,boxShadow:T.shadow}}>
-          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"14px 16px"}}>
-            <div>
-              <p style={{fontSize:14,fontWeight:700,color:T.text,margin:0}}>Wekkers</p>
-              <p style={{fontSize:11,color:T.textMuted,margin:"2px 0 0"}}>Water en voeding herinneringen</p>
-            </div>
-            <Toggle on={true} onChange={function(){ alert("Wekkers instellen via het Wekker scherm."); }}/>
-          </div>
-        </div>
-
-        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 8px"}}>Jouw gegevens</p>
-        <GegevensEditor userName={userName} userCity={userCity} T={T} onSave={function(naam, stad){
+      <InstellingenScherm
+        T={T}
+        darkMode={darkMode}
+        accentKey={accentKey}
+        userName={userName}
+        userCity={userCity}
+        onDarkMode={function(next){
+          setDarkMode(next);
+          setStore(function(prev){var n=Object.assign({},prev);n.__darkMode=next;saveStore(n);return n;});
+        }}
+        onAccent={function(key){
+          setAccentKey(key);
+          setStore(function(prev){var n=Object.assign({},prev);n.__accentKey=key;saveStore(n);return n;});
+        }}
+        onSaveGegevens={function(naam,stad){
           setUserName(naam);
           setUserCity(stad);
           setStore(function(prev){var n=Object.assign({},prev);n.__userName=naam;n.__userCity=stad;saveStore(n);return n;});
-        }}/>
-
-        <div style={{background:T.surface,borderRadius:16,padding:"14px 16px",boxShadow:T.shadow,marginBottom:20}}>
-          <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 6px"}}>Over PlantKeeper</p>
-          <p style={{fontSize:13,color:T.textMid,margin:0,lineHeight:1.6}}>Versie 11.19 - Seizoen 2026</p>
-        </div>
-
-        <BeheerderPanel T={T} />
-      </div>
+        }}
+      />
     );
   }
 
