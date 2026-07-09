@@ -97,6 +97,7 @@ function getPhase(w) { return PHASES.find(p => w >= p.weekStart && w <= p.weekEn
 // ─── PLANT DATABASE ───────────────────────────────────────────────────────────
 const PLANT_DB = [
   { id:"db-archo", name:"Bangalow Palm", latin:"Archontophoenix cunninghamiana", category:"palm",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Archontophoenix_cunninghamiana",
     winterHardy:"-3C", growthRate:"Snel", light:"Volle zon", accentColor:"#2D5A27", waterNeed:"Matig",
     origin:"Oost-Australie (Queensland, New South Wales)",
     idealTemp:"20-30C", minTemp:"-3C", maxHeight:"15-25m",
@@ -118,6 +119,7 @@ const PLANT_DB = [
     tips:["Beschutte zuidgevel geeft beste resultaten in NL","Inpakken bij verwachte vorst <-2C","Mulchlaag van 10-15cm boomschors in oktober","Palmkorrel 75g/m2 in april en juli"] },
 
   { id:"db-para", name:"Butia x Parajubaea sunkha", latin:"Butia x Parajubaea sunkha", category:"palm",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Butia_capitata",
     winterHardy:"-8C", growthRate:"Matig", light:"Zon / halfschaduw", accentColor:"#A06020", waterNeed:"Matig",
     origin:"Hybride: Butia (Zuid-Brazilie) x Parajubaea sunkha (Andes, Bolivia, 1700-2200m)",
     idealTemp:"10-25C", minTemp:"-8C", maxHeight:"6-10m",
@@ -138,6 +140,7 @@ const PLANT_DB = [
     tips:["Zeldzame hybride - wereldwijd slechts enkele exemplaren","Gevoelig voor zoutophoping in pot - regelmatig doorspoelen","Eerder stoppen met voeden dan grondpalmen (week 35)","In pot overwinteren bij langdurige vorst onder -5C","Hybride-vigeur: groeit energieker dan beide oudersoorten"] },
 
   { id:"db-cham", name:"Chamaedorea radicalis", latin:"Chamaedorea radicalis", category:"palm",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Chamaedorea_radicalis",
     winterHardy:"-12C", growthRate:"Traag", light:"Schaduw / halfschaduw", accentColor:"#3D7A52", waterNeed:"Matig",
     origin:"Mexico (Sierra Madre Orientale, 1000-2400m hoogte)",
     idealTemp:"15-25C", minTemp:"-12C", maxHeight:"1.5-2m",
@@ -158,6 +161,7 @@ const PLANT_DB = [
     tips:["Volledig winterhard in groot deel van Nederland","Ideaal voor schaduwrijke plekken waar andere palmen mislukken","Groeit traag maar is zeer duurzaam","Rode bessen zijn decoratief maar niet eetbaar","Mulchlaag aanbrengen in oktober"] },
 
   { id:"db-olijf", name:"Olijfboom", latin:"Olea europaea", category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Olea_europaea",
     winterHardy:"-10C", growthRate:"Traag", light:"Volle zon", accentColor:"#5A8030",
     origin:"Middellandse Zee, Nabije Oosten", idealTemp:"20-35C", minTemp:"-10C", maxHeight:"8-15m",
     humidity:"Laag (30-50%)", bloomSeason:"Lente (mei-jun)", fruit:"Herfst (sept-nov), olijven",
@@ -174,6 +178,7 @@ const PLANT_DB = [
     tips:["Niet overgieten - wortelrot is het grootste risico","Snoeien na bloei","In pot overwinteren bij -5C of kouder"] },
 
   { id:"db-oleander", name:"Oleander", latin:"Nerium oleander", category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Nerium_oleander",
     winterHardy:"-5C", growthRate:"Snel", light:"Volle zon", accentColor:"#B05070",
     origin:"Middellandse Zee tot Zuid-Azie", idealTemp:"20-40C", minTemp:"-5C", maxHeight:"2-5m",
     humidity:"Laag (30-50%)", bloomSeason:"Zomer (jun-sep)", fruit:"Langwerpige peulen, niet eetbaar",
@@ -190,6 +195,7 @@ const PLANT_DB = [
     tips:["Giftig - altijd handschoenen dragen","Overwinteren vorstvrij boven 0C","Na bloei snoeien"] },
 
   { id:"db-vijgenboom", name:"Vijgenboom", latin:"Ficus carica", category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ficus_carica",
     winterHardy:"-12C", growthRate:"Matig", light:"Volle zon", accentColor:"#705090",
     origin:"West-Azie (Turkije, Syrie), nu wereldwijd", idealTemp:"18-35C", minTemp:"-12C", maxHeight:"4-8m",
     humidity:"Laag-matig (40-60%)", bloomSeason:"Bloem onzichtbaar (mei)", fruit:"Aug-sept (groen/paars)",
@@ -206,6 +212,7 @@ const PLANT_DB = [
     tips:["Beschermen bij <-8C","Snoei in late winter"] },
 
   { id:"db-citroen", name:"Citroenboom", latin:"Citrus limon", category:"citrus",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_limon",
     winterHardy:"-3C", growthRate:"Matig", light:"Volle zon", accentColor:"#B09020",
     description:"Populaire citrusboom voor pot met heerlijke geur.",
     waterAdvice:"Regelmatig, goede drainage essentieel. 2x per week in zomer.",
@@ -215,6 +222,7 @@ const PLANT_DB = [
     tips:["Overwinteren binnen bij >5C","Luchtvochtigheid verhogen in winter"] },
 
   { id:"db-yuzu", name:"Yuzu", latin:"Citrus junos", category:"citrus",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_junos",
     winterHardy:"-9C", growthRate:"Traag", light:"Volle zon", accentColor:"#C8A020", waterNeed:"Matig",
     origin:"Japan en Korea (van oorsprong China, Yangtze-regio)",
     idealTemp:"15-30C", minTemp:"-9C", maxHeight:"2-4m",
@@ -235,6 +243,7 @@ const PLANT_DB = [
     tips:["Winterharder dan andere citrus - tot -5C buiten","Hoge luchtvochtigheid in winter","Bloeit wit met intense geur in voorjaar","Vruchten oogsten nov-dec als ze lichtgeel zijn"] },
 
   { id:"db-lavendel", name:"Lavendel", latin:"Lavandula angustifolia", category:"kruidachtig",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lavandula_angustifolia",
     winterHardy:"-20C", growthRate:"Matig", light:"Volle zon", accentColor:"#7050A0",
     description:"Winterharde mediterrane plant met heerlijke geur. Ideaal voor volle grond.",
     waterAdvice:"Droogtetolerant. 1x per week bij droog. Natte grond is dodelijk.",
@@ -244,6 +253,7 @@ const PLANT_DB = [
     tips:["Weinig bemesten - te veel N geeft minder bloei","Na bloei stevig terugsnoeien","Alkalische doorlatende grond essentieel"] },
 
   { id:"db-rozemarijn", name:"Rozemarijn", latin:"Rosmarinus officinalis", category:"kruidachtig",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Salvia_rosmarinus",
     winterHardy:"-15C", growthRate:"Matig", light:"Volle zon", accentColor:"#407860",
     description:"Aromatische mediterrane struik. Winterhard in NL. Eetbaar en decoratief.",
     waterAdvice:"Zeer droogtetolerant. 1x per 2 weken bij droog. Waterlogging is dodelijk.",
@@ -253,6 +263,7 @@ const PLANT_DB = [
     tips:["Arme grond geeft intensere smaak","Snoeien na bloei"] },
 
   { id:"db-agapanthus", name:"Afrikaanse lelie", latin:"Agapanthus africanus", category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Agapanthus_africanus",
     winterHardy:"-5C", growthRate:"Matig", light:"Volle zon", accentColor:"#3060A0",
     description:"Indrukwekkende blauwe bloemen in zomer. Populair in pot op terras.",
     waterAdvice:"Matig gieten. Droogtestress bevordert bloei.",
@@ -262,6 +273,7 @@ const PLANT_DB = [
     tips:["Potgebonden planten bloeien beter","Overwinteren vorstvrij bij <-3C"] },
 
   { id:"db-laurier", name:"Laurierboom", latin:"Laurus nobilis", category:"boom",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Laurus_nobilis",
     winterHardy:"-10C", growthRate:"Traag", light:"Zon/halfschaduw", accentColor:"#406040",
     description:"Mediterrane evergreen. Bladeren eetbaar. Goed voor pot of haag.",
     waterAdvice:"Matig gieten. Droogtetolerant als gevestigd.",
@@ -271,6 +283,7 @@ const PLANT_DB = [
     tips:["Snoeien in augustus voor topiary","Beschutting bij strenge vorst"] },
 
   { id:"db-bougainvillea", name:"Bougainvillea", latin:"Bougainvillea spp.", category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Bougainvillea",
     winterHardy:"-3C", growthRate:"Snel", light:"Volle zon", accentColor:"#B03090",
     description:"Spectaculaire klimmer met kleurrijke schutbladeren. In pot, binnenkomen in winter.",
     waterAdvice:"Matig gieten. Droogtestress stimuleert bloei.",
@@ -280,6 +293,7 @@ const PLANT_DB = [
     tips:["Droogtestress geeft meer bloei","Overwinteren bij 5-10C","Snoeien na de bloei"] },
 
   { id:"db-wisteria", name:"Blauweregen", latin:"Wisteria sinensis", category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Wisteria_sinensis",
     winterHardy:"-20C", growthRate:"Snel", light:"Zon/halfschaduw", accentColor:"#6050A0",
     description:"Spectaculaire klimmer. Bloeit pas na 3-7 jaar. Volledig winterhard in NL.",
     waterAdvice:"Regelmatig in droge perioden. Zelfstandig na vestiging.",
@@ -289,6 +303,7 @@ const PLANT_DB = [
     tips:["Geen hoog-N - geeft veel blad, weinig bloei","Stevig snoeien augustus en februari"] },
 
   { id:"db-pomerans", name:"Sinaasappelboom", latin:"Citrus sinensis", category:"citrus",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_sinensis",
     winterHardy:"-2C", growthRate:"Matig", light:"Volle zon", accentColor:"#C06020",
     description:"Prachtige geurende bloesem. In NL altijd in pot, binnenkomen in winter.",
     waterAdvice:"Consistent vochtig, goede drainage. Gele bladeren wijzen op een probleem.",
@@ -298,6 +313,7 @@ const PLANT_DB = [
     tips:["Overwinteren bij >5C met licht","Hoge luchtvochtigheid in winter"] },
 
   { id:"db-oleaster", name:"Olijfwilg", latin:"Elaeagnus angustifolia", category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Elaeagnus_angustifolia",
     winterHardy:"-25C", growthRate:"Snel", light:"Volle zon", accentColor:"#708040",
     waterNeed:"Laag", origin:"West-Azie", idealTemp:"15-35C", minTemp:"-25C", maxHeight:"6-10m",
     humidity:"Laag", bloomSeason:"Herfst", fruit:"Kleine oranjerode bessen", toxic:false, toxicNote:"",
@@ -311,7 +327,7 @@ const PLANT_DB = [
 
   // ── PALMEN ────────────────────────────────────────────────────────────────────
   { id:"db-trachycarpus",name:"Chinese Waaierpalm",latin:"Trachycarpus fortunei",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Trachycarpus_fortunei_-_Kunming_Botanical_Garden.jpg/320px-Trachycarpus_fortunei_-_Kunming_Botanical_Garden.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Trachycarpus_fortunei",
     winterHardy:"-18C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#3A6B30",waterNeed:"Matig",
     origin:"China, Himalaya",idealTemp:"10-25C",minTemp:"-18C",maxHeight:"10-15m",
     humidity:"Matig",bloomSeason:"Mei-jun",fruit:"Blauwe bessen",toxic:false,toxicNote:"",
@@ -323,7 +339,7 @@ const PLANT_DB = [
     tips:["Meest winterharde palm voor NL","Vezelmantel om de stam laten zitten","Geen staande water"] },
 
   { id:"db-phoenix",name:"Dadelpalm",latin:"Phoenix canariensis",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Phoenix_canariensis_Tenerife.jpg/320px-Phoenix_canariensis_Tenerife.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Phoenix_canariensis",
     winterHardy:"-8C",growthRate:"Traag",light:"Volle zon",accentColor:"#8B6914",waterNeed:"Laag",
     origin:"Canarische Eilanden",idealTemp:"20-35C",minTemp:"-8C",maxHeight:"15-20m",
     humidity:"Laag",bloomSeason:"Lente",fruit:"Dadels (oranje)",toxic:false,toxicNote:"",
@@ -337,7 +353,7 @@ const PLANT_DB = [
     tips:["Jaarlijks controleren op palmsnuitkever","Nooit groene bladeren snoeien","Beschermen bij strenge vorst"] },
 
   { id:"db-sabal",name:"Sabal Palm",latin:"Sabal minor",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Sabal_minor.jpg/320px-Sabal_minor.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sabal_minor",
     winterHardy:"-17C",growthRate:"Traag",light:"Zon/halfschaduw",accentColor:"#2D6B40",waterNeed:"Matig",
     origin:"Zuid-USA (Florida, Louisiana)",idealTemp:"15-30C",minTemp:"-17C",maxHeight:"1-3m",
     humidity:"Matig-hoog",bloomSeason:"Zomer",fruit:"Zwarte bessen",toxic:false,toxicNote:"",
@@ -349,7 +365,7 @@ const PLANT_DB = [
     tips:["Een van de winterhardste stamloze palmen","Ideaal voor schaduwrijke plekken"] },
 
   { id:"db-butia",name:"Geleipalm",latin:"Butia capitata",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Butia_capitata_2.jpg/320px-Butia_capitata_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Butia_capitata",
     winterHardy:"-12C",growthRate:"Traag",light:"Volle zon",accentColor:"#9B7020",waterNeed:"Laag",
     origin:"Brazilie, Uruguay, Argentinie",idealTemp:"15-30C",minTemp:"-12C",maxHeight:"5-8m",
     humidity:"Laag",bloomSeason:"Zomer",fruit:"Oranje vruchten, eetbaar",toxic:false,toxicNote:"",
@@ -361,7 +377,7 @@ const PLANT_DB = [
     tips:["Vruchten zijn eetbaar (geleiachtig)","Gebogen bladeren zijn decoratief","Goede drainage essentieel"] },
 
   { id:"db-rhapis",name:"Staafjespalm",latin:"Rhapis excelsa",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Rhapis_excelsa_1.jpg/320px-Rhapis_excelsa_1.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rhapis_excelsa",
     winterHardy:"-5C",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#2D5A40",waterNeed:"Matig",
     origin:"China, Japan",idealTemp:"15-25C",minTemp:"-5C",maxHeight:"2-4m",
     humidity:"Hoog",bloomSeason:"Zomer",fruit:"Kleine witte vruchten",toxic:false,toxicNote:"",
@@ -374,7 +390,7 @@ const PLANT_DB = [
 
   // ── CITRUS ────────────────────────────────────────────────────────────────────
   { id:"db-mandarijn",name:"Mandarijnboom",latin:"Citrus reticulata",category:"citrus",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Clementine_whole.jpg/320px-Clementine_whole.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_reticulata",
     winterHardy:"-4C",growthRate:"Matig",light:"Volle zon",accentColor:"#D4700A",waterNeed:"Matig",
     origin:"Zuid-Azie, China",idealTemp:"18-32C",minTemp:"-4C",maxHeight:"3-5m",
     humidity:"Matig",bloomSeason:"Lente",fruit:"November-december (oranje)",toxic:false,toxicNote:"",
@@ -386,7 +402,7 @@ const PLANT_DB = [
     tips:["Overwinteren bij >5C","Luchtvochtigheid verhogen in winter","Makkelijker dan sinaasappel"] },
 
   { id:"db-kumquat",name:"Kumquat",latin:"Fortunella margarita",category:"citrus",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Kumquat.jpg/320px-Kumquat.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Fortunella_margarita",
     winterHardy:"-8C",growthRate:"Traag",light:"Volle zon",accentColor:"#C8600A",waterNeed:"Matig",
     origin:"China",idealTemp:"15-30C",minTemp:"-8C",maxHeight:"2-3m",
     humidity:"Matig",bloomSeason:"Zomer",fruit:"Herfst-winter (oranje, eetbaar met schil)",toxic:false,toxicNote:"",
@@ -398,7 +414,7 @@ const PLANT_DB = [
     tips:["Winterhardst van alle citrus","Vruchten met schil eten","Weinig snoei nodig"] },
 
   { id:"db-bergamot",name:"Bergamot",latin:"Citrus bergamia",category:"citrus",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bergamot_orange.jpg/320px-Bergamot_orange.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_bergamia",
     winterHardy:"-2C",growthRate:"Matig",light:"Volle zon",accentColor:"#B8A010",waterNeed:"Matig",
     origin:"Italie (Calabrie)",idealTemp:"20-30C",minTemp:"-2C",maxHeight:"3-5m",
     humidity:"Matig",bloomSeason:"Lente",fruit:"Winter (geel-groen, aromatisch)",toxic:false,toxicNote:"",
@@ -411,7 +427,7 @@ const PLANT_DB = [
 
   // ── MEDITERRAAN ───────────────────────────────────────────────────────────────
   { id:"db-granaatappel",name:"Granaatappelboom",latin:"Punica granatum",category:"mediterraan",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Pomegranate_je.jpg/320px-Pomegranate_je.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Punica_granatum",
     winterHardy:"-12C",growthRate:"Matig",light:"Volle zon",accentColor:"#C02020",waterNeed:"Laag",
     origin:"Iran, Himalaya",idealTemp:"20-40C",minTemp:"-12C",maxHeight:"3-6m",
     humidity:"Laag",bloomSeason:"Mei-aug (rood-oranje bloemen)",fruit:"Herfst (rood, eetbaar)",toxic:false,toxicNote:"",
@@ -423,6 +439,7 @@ const PLANT_DB = [
     tips:["Maximale zon voor vruchtzetting","Winterhardst van de mediterrane fruitbomen","Droogtetolerant"] },
 
   { id:"db-lentisk",name:"Mastiekboom",latin:"Pistacia lentiscus",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pistacia_lentiscus",
     winterHardy:"-10C",growthRate:"Traag",light:"Volle zon",accentColor:"#506030",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"20-35C",minTemp:"-10C",maxHeight:"3-5m",
     humidity:"Laag",bloomSeason:"Lente",fruit:"Kleine rode bessen (later zwart)",toxic:false,toxicNote:"",
@@ -434,6 +451,7 @@ const PLANT_DB = [
     tips:["Immergroen","Zeer droogtetolerant","Hars was eerste kauwgom"] },
 
   { id:"db-ceratonia",name:"Johannesbroodboom",latin:"Ceratonia siliqua",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ceratonia_siliqua",
     winterHardy:"-7C",growthRate:"Traag",light:"Volle zon",accentColor:"#704020",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"20-35C",minTemp:"-7C",maxHeight:"10-15m",
     humidity:"Laag",bloomSeason:"Herfst",fruit:"Lange peulen (eetbaar, zoet)",toxic:false,toxicNote:"",
@@ -445,6 +463,7 @@ const PLANT_DB = [
     tips:["Peulen zijn eetbaar (carobe)","Zeer droogtetolerant","Immergroen"] },
 
   { id:"db-myrte",name:"Mirte",latin:"Myrtus communis",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Myrtus_communis",
     winterHardy:"-10C",growthRate:"Matig",light:"Volle zon",accentColor:"#2A6040",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-30C",minTemp:"-10C",maxHeight:"1-3m",
     humidity:"Laag",bloomSeason:"Zomer (witte bloemen)",fruit:"Blauwe bessen (aromatisch)",toxic:false,toxicNote:"",
@@ -456,6 +475,7 @@ const PLANT_DB = [
     tips:["Immergroen","Aromatisch blad","Topiary mogelijk"] },
 
   { id:"db-pijnboom",name:"Parasol Pijnboom",latin:"Pinus pinea",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pinus_pinea",
     winterHardy:"-15C",growthRate:"Matig",light:"Volle zon",accentColor:"#4A7030",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-30C",minTemp:"-15C",maxHeight:"15-25m",
     humidity:"Laag",bloomSeason:"Lente",fruit:"Pijnboompitten (eetbaar)",toxic:false,toxicNote:"",
@@ -468,7 +488,7 @@ const PLANT_DB = [
 
   // ── TROPISCHE BOMEN ───────────────────────────────────────────────────────────
   { id:"db-banaan",name:"Bananenplant",latin:"Musa basjoo",category:"tropisch",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Banana-Musa_basjoo.jpg/320px-Banana-Musa_basjoo.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Musa_basjoo",
     winterHardy:"-10C",growthRate:"Snel",light:"Volle zon",accentColor:"#5A9020",waterNeed:"Hoog",
     origin:"Japan, China",idealTemp:"20-35C",minTemp:"-10C",maxHeight:"3-5m",
     humidity:"Hoog",bloomSeason:"Zomer",fruit:"Kleine oneetbare bananen (NL)",toxic:false,toxicNote:"",
@@ -481,7 +501,7 @@ const PLANT_DB = [
     tips:["Stam mulchen in herfst (30cm stro)","Wortels overleven -10C","Explosieve groei elke lente"] },
 
   { id:"db-eucalyptus",name:"Eucalyptus",latin:"Eucalyptus gunnii",category:"tropisch",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Eucalyptus_gunnii_leaves.jpg/320px-Eucalyptus_gunnii_leaves.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Eucalyptus_gunnii",
     winterHardy:"-14C",growthRate:"Snel",light:"Volle zon",accentColor:"#507060",waterNeed:"Laag",
     origin:"Australie (Tasmanisch hoogland)",idealTemp:"10-25C",minTemp:"-14C",maxHeight:"15-25m",
     humidity:"Laag",bloomSeason:"Zomer (witte bloemen)",fruit:"Kleine houten capsules",toxic:false,toxicNote:"Bladeren giftig voor katten.",
@@ -493,6 +513,7 @@ const PLANT_DB = [
     tips:["Jaarlijks fors snoeien voor mooie ronde bladeren","Bladeren giftig voor katten","Snelste groeier"] },
 
   { id:"db-taro",name:"Olifantsoor",latin:"Colocasia esculenta",category:"tropisch",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Colocasia_esculenta",
     winterHardy:"-2C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#2A5040",waterNeed:"Hoog",
     origin:"Zuid-Azie, Polynesia",idealTemp:"20-35C",minTemp:"-2C",maxHeight:"1-2m",
     humidity:"Hoog",bloomSeason:"Zomer",fruit:"Eetbare knol",toxic:true,toxicNote:"Rauw giftig. Koken maakt het eetbaar.",
@@ -504,6 +525,7 @@ const PLANT_DB = [
     tips:["Knollen rooien in oktober","Rauw giftig, gekookt eetbaar","Kan in ondiep water groeien"] },
 
   { id:"db-canna",name:"Bloemriet",latin:"Canna indica",category:"tropisch",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Canna_indica",
     winterHardy:"-2C",growthRate:"Snel",light:"Volle zon",accentColor:"#D04020",waterNeed:"Hoog",
     origin:"Tropisch Amerika",idealTemp:"20-35C",minTemp:"-2C",maxHeight:"1-2m",
     humidity:"Hoog",bloomSeason:"Jun-okt (rood/oranje/geel)",fruit:"Ronde bruine zaden",toxic:false,toxicNote:"",
@@ -516,7 +538,7 @@ const PLANT_DB = [
 
   // ── BAMBOE ────────────────────────────────────────────────────────────────────
   { id:"db-bamboe-phyl",name:"Bamboe (niet-woekerende)",latin:"Fargesia murielae",category:"bamboe",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Fargesia_murielae.jpg/320px-Fargesia_murielae.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Fargesia_murielae",
     winterHardy:"-25C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#3A7040",waterNeed:"Matig",
     origin:"China (Sichuan, 2500-3500m)",idealTemp:"5-20C",minTemp:"-25C",maxHeight:"2-4m",
     humidity:"Matig",bloomSeason:"Eens in 80-120 jaar (bloei=dood)",fruit:"Na bloei zaden",toxic:false,toxicNote:"",
@@ -528,7 +550,7 @@ const PLANT_DB = [
     tips:["Woekervrij (geen wortelscherm nodig)","Ideale haagplant","Bladeren vallen bij droogte (stresssignaal)"] },
 
   { id:"db-bamboe-woel",name:"Bamboe (woekerende)",latin:"Phyllostachys aurea",category:"bamboe",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Phyllostachys_aurea.jpg/320px-Phyllostachys_aurea.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Phyllostachys_aurea",
     winterHardy:"-20C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#5A8020",waterNeed:"Matig",
     origin:"China",idealTemp:"10-30C",minTemp:"-20C",maxHeight:"5-10m",
     humidity:"Matig",bloomSeason:"Zelden",fruit:"Na bloei zaden",toxic:false,toxicNote:"",
@@ -541,7 +563,7 @@ const PLANT_DB = [
 
   // ── EXOTEN ────────────────────────────────────────────────────────────────────
   { id:"db-yucca",name:"Palmlelie",latin:"Yucca rostrata",category:"exoot",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Yucca_rostrata_2.jpg/320px-Yucca_rostrata_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Yucca_rostrata",
     winterHardy:"-18C",growthRate:"Traag",light:"Volle zon",accentColor:"#7A8030",waterNeed:"Laag",
     origin:"Noord-Mexico, Texas",idealTemp:"15-35C",minTemp:"-18C",maxHeight:"3-5m",
     humidity:"Laag",bloomSeason:"Zomer (witte pluim)",fruit:"Decoratieve capsules",toxic:false,toxicNote:"Puntige bladpunten gevaarlijk.",
@@ -553,7 +575,7 @@ const PLANT_DB = [
     tips:["Drainage is alles","Natte grond = wortelrot","Puntige bladpunten: voorzichtig"] },
 
   { id:"db-agave",name:"Agave",latin:"Agave americana",category:"exoot",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Agave_americana_2.jpg/320px-Agave_americana_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Agave_americana",
     winterHardy:"-12C",growthRate:"Traag",light:"Volle zon",accentColor:"#6A8040",waterNeed:"Laag",
     origin:"Mexico, Zuid-USA",idealTemp:"15-40C",minTemp:"-12C",maxHeight:"1-2m (bloeiwijze 8m)",
     humidity:"Laag",bloomSeason:"Eens in 20-30 jaar (bloei=dood)",fruit:"Na bloei zaden, veel uitlopers",toxic:true,toxicNote:"Sap veroorzaakt huidirritatie en brandwonden.",
@@ -565,7 +587,7 @@ const PLANT_DB = [
     tips:["Sap is bijtend - handschoenen en bril","Droog houden in winter","Uitlopers zijn bewortelde jonge planten"] },
 
   { id:"db-cordyline",name:"Drakenbloedboom",latin:"Cordyline australis",category:"exoot",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Cordyline_australis.jpg/320px-Cordyline_australis.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cordyline_australis",
     winterHardy:"-8C",growthRate:"Matig",light:"Volle zon",accentColor:"#802020",waterNeed:"Matig",
     origin:"Nieuw-Zeeland",idealTemp:"15-25C",minTemp:"-8C",maxHeight:"5-10m",
     humidity:"Matig",bloomSeason:"Zomer (witte pluimen)",fruit:"Kleine blauwe bessen",toxic:false,toxicNote:"",
@@ -577,6 +599,7 @@ const PLANT_DB = [
     tips:["Hart beschermen in winter","Vrij aan regen blootstellen in zomer","Meerstammig groeien is normaal"] },
 
   { id:"db-gunnera",name:"Reuzenrabarber",latin:"Gunnera manicata",category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Gunnera_manicata",
     winterHardy:"-10C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#3A6020",waterNeed:"Hoog",
     origin:"Brazilie (Atlantisch Woud)",idealTemp:"15-25C",minTemp:"-10C",maxHeight:"2-3m (blad 2m diameter)",
     humidity:"Hoog",bloomSeason:"Zomer (bruine pluim)",fruit:"Kleine rode bessen",toxic:false,toxicNote:"Ruwe haren op stengels: voorzichtig.",
@@ -589,6 +612,7 @@ const PLANT_DB = [
 
   // ── FRUIT ─────────────────────────────────────────────────────────────────────
   { id:"db-kiwi",name:"Kiwi",latin:"Actinidia deliciosa",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Actinidia_deliciosa",
     winterHardy:"-15C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#6A9030",waterNeed:"Matig",
     origin:"China",idealTemp:"15-25C",minTemp:"-15C",maxHeight:"Klimmer (10m)",
     humidity:"Matig",bloomSeason:"Mei-jun",fruit:"Sept-nov (eetbaar)",toxic:false,toxicNote:"",
@@ -600,6 +624,7 @@ const PLANT_DB = [
     tips:["1 mannetje op 6-8 vrouwtjes","Jaarlijks fors snoeien","Vrucht rijpt na eerste vorst"] },
 
   { id:"db-moerbei",name:"Moerbei",latin:"Morus nigra",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Morus_nigra",
     winterHardy:"-20C",growthRate:"Matig",light:"Volle zon",accentColor:"#501060",waterNeed:"Matig",
     origin:"West-Azie",idealTemp:"15-30C",minTemp:"-20C",maxHeight:"8-12m",
     humidity:"Matig",bloomSeason:"Lente",fruit:"Juli-aug (zwart-paars, eetbaar)",toxic:false,toxicNote:"",
@@ -611,6 +636,7 @@ const PLANT_DB = [
     tips:["Vruchten kleuren handen paars","Gazen onder boom voor oogst","Volledig winterhard"] },
 
   { id:"db-kers",name:"Japanse Sierkers",latin:"Prunus serrulata",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Prunus_avium",
     winterHardy:"-20C",growthRate:"Matig",light:"Volle zon",accentColor:"#D060A0",waterNeed:"Matig",
     origin:"Japan, Korea, China",idealTemp:"10-25C",minTemp:"-20C",maxHeight:"5-10m",
     humidity:"Matig",bloomSeason:"Mrt-apr (roze/wit)",fruit:"Kleine zwarte kersjes (bitter)",toxic:false,toxicNote:"",
@@ -623,7 +649,7 @@ const PLANT_DB = [
 
   // ── KAMERPLANTEN (voor pot/binnen) ────────────────────────────────────────────
   { id:"db-monstera",name:"Gatenplant",latin:"Monstera deliciosa",category:"kamerplant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Monstera_deliciosa.jpg/320px-Monstera_deliciosa.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Monstera_deliciosa",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Halfschaduw",accentColor:"#2A6030",waterNeed:"Matig",
     origin:"Midden-Amerika",idealTemp:"18-28C",minTemp:"10C",maxHeight:"3-5m (binnen)",
     humidity:"Hoog",bloomSeason:"Zelden binnen",fruit:"Eetbaar bij rijpheid",toxic:true,toxicNote:"Onrijpe vruchten en sap: irriterend voor huid en mond.",
@@ -635,7 +661,7 @@ const PLANT_DB = [
     tips:["Luchtworrtels naar aarde leiden","Bladeren afvegen voor meer licht","Grote pot geeft grotere bladeren"] },
 
   { id:"db-strelitzia",name:"Paradijsvogelplant",latin:"Strelitzia reginae",category:"kamerplant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Strelitzia_reginae_2.jpg/320px-Strelitzia_reginae_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Strelitzia_reginae",
     winterHardy:"-2C",growthRate:"Traag",light:"Volle zon",accentColor:"#F07010",waterNeed:"Laag",
     origin:"Zuid-Afrika",idealTemp:"18-30C",minTemp:"-2C",maxHeight:"1-1.5m",
     humidity:"Laag",bloomSeason:"Jaarrond (piekbloei winter-lente)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -648,7 +674,7 @@ const PLANT_DB = [
 
   // ── SUCCULENTEN ───────────────────────────────────────────────────────────────
   { id:"db-aloe",name:"Aloë Vera",latin:"Aloe vera",category:"succulent",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Aloe_vera_flower_inset.png/320px-Aloe_vera_flower_inset.png",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Aloe_vera",
     winterHardy:"-2C",growthRate:"Matig",light:"Volle zon",accentColor:"#6A9050",waterNeed:"Laag",
     origin:"Arabisch schiereiland",idealTemp:"18-30C",minTemp:"-2C",maxHeight:"0.5-1m",
     humidity:"Laag",bloomSeason:"Winter-lente (gele bloempluim)",fruit:"Capsules",toxic:false,toxicNote:"Aloelatex (geel sap) kan laxerend werken.",
@@ -660,7 +686,7 @@ const PLANT_DB = [
     tips:["Binnenste bladeren voor het gel gebruiken","Nauwelijks water in winter","Goede drainage essentieel"] },
 
   { id:"db-sedum",name:"Vetkruid",latin:"Sedum spectabile",category:"succulent",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sedum_spectabile.jpg/320px-Sedum_spectabile.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hylotelephium_spectabile",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#D06080",waterNeed:"Laag",
     origin:"China, Korea",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.3-0.6m",
     humidity:"Laag",bloomSeason:"Aug-okt (roze-paars)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -672,7 +698,7 @@ const PLANT_DB = [
     tips:["Volledig winterhard","Bijen- en vlindermagnet","Zaadpluimen als winterse sier laten staan"] },
 
   { id:"db-sempervivum",name:"Huislook",latin:"Sempervivum tectorum",category:"succulent",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Sempervivum_tectorum_1.jpg/320px-Sempervivum_tectorum_1.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sempervivum_tectorum",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#C04060",waterNeed:"Laag",
     origin:"Europa, Middellandse Zee",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"0.1-0.2m",
     humidity:"Laag",bloomSeason:"Zomer (na moederrozet bloei=dood)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -685,7 +711,7 @@ const PLANT_DB = [
 
   // ── VASTE PLANTEN ─────────────────────────────────────────────────────────────
   { id:"db-hosta",name:"Hartlelie",latin:"Hosta sieboldiana",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Hosta_sieboldiana_1.jpg/320px-Hosta_sieboldiana_1.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hosta_sieboldiana",
     winterHardy:"-30C",growthRate:"Matig",light:"Schaduw/halfschaduw",accentColor:"#3A7060",waterNeed:"Matig",
     origin:"Japan, Korea",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.5-1m",
     humidity:"Hoog",bloomSeason:"Zomer (lavendelblauwe bloemen)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -697,7 +723,7 @@ const PLANT_DB = [
     tips:["Slakken zijn de grootste bedreiging","Koperdraad of slakkenkorrels preventief","Elke 3-4 jaar verdelen"] },
 
   { id:"db-pampas",name:"Pampasgras",latin:"Cortaderia selloana",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Cortaderia_selloana.jpg/320px-Cortaderia_selloana.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cortaderia_selloana",
     winterHardy:"-15C",growthRate:"Snel",light:"Volle zon",accentColor:"#D0B060",waterNeed:"Laag",
     origin:"Zuid-Amerika (Pampa's)",idealTemp:"15-30C",minTemp:"-15C",maxHeight:"2-3m (pluimen 4m)",
     humidity:"Laag",bloomSeason:"Aug-nov (witte/roze pluimen)",fruit:"Verspreidt zaden via pluimen",toxic:false,toxicNote:"Bladranden snijdend scherp.",
@@ -709,7 +735,7 @@ const PLANT_DB = [
     tips:["Handschoenen bij snoeien (snijdende randen)","Snoeien in mrt-apr voor uitlopen","Pluimen voor droogboeketten"] },
 
   { id:"db-kniphofia",name:"Vuurpijl",latin:"Kniphofia uvaria",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Kniphofia_uvaria1.jpg/320px-Kniphofia_uvaria1.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Kniphofia_uvaria",
     winterHardy:"-15C",growthRate:"Matig",light:"Volle zon",accentColor:"#E05020",waterNeed:"Laag",
     origin:"Zuid-Afrika",idealTemp:"15-30C",minTemp:"-15C",maxHeight:"0.8-1.2m",
     humidity:"Laag",bloomSeason:"Jun-sept (rood-oranje-geel)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -722,7 +748,7 @@ const PLANT_DB = [
 
   // ── EXTRA PALMEN ─────────────────────────────────────────────────────────────
   { id:"db-washingtonia",name:"Washingtonia",latin:"Washingtonia robusta",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Washingtonia_robusta_trunk.jpg/320px-Washingtonia_robusta_trunk.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Washingtonia_robusta",
     winterHardy:"-8C",growthRate:"Snel",light:"Volle zon",accentColor:"#4A7A30",waterNeed:"Laag",
     origin:"Mexico (Sonora, Baja California)",idealTemp:"20-40C",minTemp:"-8C",maxHeight:"25-30m",
     humidity:"Laag",bloomSeason:"Zomer",fruit:"Kleine zwarte dadels",toxic:false,toxicNote:"",
@@ -735,7 +761,7 @@ const PLANT_DB = [
     tips:["Snel groeiend - kies locatie goed","Dode bladeren als rok laten zitten","Beschermen bij strenge vorst"] },
 
   { id:"db-chamaerops",name:"Dwergpalm",latin:"Chamaerops humilis",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Chamaerops_humilis_1.jpg/320px-Chamaerops_humilis_1.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Chamaerops_humilis",
     winterHardy:"-12C",growthRate:"Traag",light:"Volle zon",accentColor:"#5A8040",waterNeed:"Laag",
     origin:"Middellandse Zee (enige inheemse Europese palm)",idealTemp:"15-35C",minTemp:"-12C",maxHeight:"3-5m",
     humidity:"Laag",bloomSeason:"Lente",fruit:"Kleine bruine dadels",toxic:false,toxicNote:"",
@@ -748,7 +774,7 @@ const PLANT_DB = [
     tips:["Enige inheemse Europese palm","Verdraagt droogte en kou","Polvormig - meerstammig effect"] },
 
   { id:"db-livistona",name:"Livistona Palm",latin:"Livistona chinensis",category:"palm",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Livistona_chinensis_2.jpg/320px-Livistona_chinensis_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Livistona_chinensis",
     winterHardy:"-5C",growthRate:"Traag",light:"Halfschaduw",accentColor:"#3A6A40",waterNeed:"Matig",
     origin:"Zuid-Japan, China",idealTemp:"15-28C",minTemp:"-5C",maxHeight:"8-12m",
     humidity:"Matig-hoog",bloomSeason:"Zomer",fruit:"Kleine blauwe bessen",toxic:false,toxicNote:"",
@@ -761,6 +787,7 @@ const PLANT_DB = [
 
   // ── EXTRA CITRUS ──────────────────────────────────────────────────────────────
   { id:"db-lime",name:"Limoen",latin:"Citrus aurantifolia",category:"citrus",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_aurantiifolia",
     winterHardy:"0C",growthRate:"Matig",light:"Volle zon",accentColor:"#70A020",waterNeed:"Matig",
     origin:"Zuidoost-Azie",idealTemp:"20-35C",minTemp:"0C",maxHeight:"3-5m",
     humidity:"Matig-hoog",bloomSeason:"Jaarrond",fruit:"Jaarrond (groen)",toxic:false,toxicNote:"",
@@ -772,7 +799,7 @@ const PLANT_DB = [
     tips:["Warmer overwinteren dan andere citrus (>10C)","Hoge luchtvochtigheid","Gevoeliger dan citroen"] },
 
   { id:"db-clementine",name:"Clementine",latin:"Citrus clementina",category:"citrus",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Clementine_whole.jpg/320px-Clementine_whole.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Citrus_clementina",
     winterHardy:"-4C",growthRate:"Matig",light:"Volle zon",accentColor:"#D06010",waterNeed:"Matig",
     origin:"Algerije (hybride sinaasappel x mandarijn)",idealTemp:"18-30C",minTemp:"-4C",maxHeight:"3-4m",
     humidity:"Matig",bloomSeason:"Lente",fruit:"November-januari",toxic:false,toxicNote:"",
@@ -785,6 +812,7 @@ const PLANT_DB = [
 
   // ── EXTRA MEDITERRAAN ─────────────────────────────────────────────────────────
   { id:"db-oleander-wit",name:"Witte Oleander",latin:"Nerium oleander album",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Nerium_oleander",
     winterHardy:"-5C",growthRate:"Snel",light:"Volle zon",accentColor:"#C0C0A0",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"20-40C",minTemp:"-5C",maxHeight:"2-4m",
     humidity:"Laag",bloomSeason:"Jun-sept",fruit:"Peulen",toxic:true,toxicNote:"ALLE delen giftig. Sap gevaarlijk.",
@@ -796,6 +824,7 @@ const PLANT_DB = [
     tips:["GIFTIG - handschoenen","Vorstvrij overwinteren","Na bloei snoeien"] },
 
   { id:"db-pittosporum",name:"Tobira",latin:"Pittosporum tobira",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pittosporum_tobira",
     winterHardy:"-10C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#3A6040",waterNeed:"Laag",
     origin:"Japan, China",idealTemp:"15-30C",minTemp:"-10C",maxHeight:"2-4m",
     humidity:"Laag",bloomSeason:"Mei-jun (witte bloemen, jasmijngeur)",fruit:"Kleine oranje capsules",toxic:false,toxicNote:"",
@@ -807,6 +836,7 @@ const PLANT_DB = [
     tips:["Jasmijngeur in mei-juni","Immergroen","Topiary mogelijk"] },
 
   { id:"db-photinia",name:"Glansmispel",latin:"Photinia x fraseri",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Photinia",
     winterHardy:"-15C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#A02020",waterNeed:"Matig",
     origin:"Hybride (kwekerssoort)",idealTemp:"10-25C",minTemp:"-15C",maxHeight:"3-6m",
     humidity:"Matig",bloomSeason:"Apr-mei (wit)",fruit:"Kleine rode bessen",toxic:false,toxicNote:"",
@@ -818,6 +848,7 @@ const PLANT_DB = [
     tips:["Rode kleur bij jonge bladeren","2x per jaar snoeien voor meer rood","Populaire heegruik"] },
 
   { id:"db-cistus",name:"Cistus",latin:"Cistus ladanifer",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cistus_ladanifer",
     winterHardy:"-10C",growthRate:"Matig",light:"Volle zon",accentColor:"#D060A0",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-35C",minTemp:"-10C",maxHeight:"1-2m",
     humidity:"Laag",bloomSeason:"Mei-jul (papierachtige bloemen)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -829,6 +860,7 @@ const PLANT_DB = [
     tips:["Elke bloem leeft 1 dag","Nooit overgieten","Arme grond geeft meer bloei"] },
 
   { id:"db-teucrium",name:"Gamander",latin:"Teucrium fruticans",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Teucrium_fruticans",
     winterHardy:"-12C",growthRate:"Matig",light:"Volle zon",accentColor:"#7090A0",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-30C",minTemp:"-12C",maxHeight:"1-2m",
     humidity:"Laag",bloomSeason:"Mei-aug (blauw-paars)",fruit:"Geen",toxic:false,toxicNote:"",
@@ -841,7 +873,7 @@ const PLANT_DB = [
 
   // ── KLIMPLANTEN ───────────────────────────────────────────────────────────────
   { id:"db-klimop",name:"Klimop",latin:"Hedera helix",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Hedera_helix_leaves.jpg/320px-Hedera_helix_leaves.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hedera_helix",
     winterHardy:"-30C",growthRate:"Snel",light:"Schaduw/halfschaduw",accentColor:"#2A5030",waterNeed:"Laag",
     origin:"Europa, West-Azie",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"Klimmer (30m)",
     humidity:"Matig",bloomSeason:"Sept-nov (onopvallend)",fruit:"Zwarte giftige bessen",toxic:true,toxicNote:"Bessen giftig bij inslikken.",
@@ -853,7 +885,7 @@ const PLANT_DB = [
     tips:["Aggressieve groeier - snoeien","Bessen zijn giftig","Ideaal voor kale schaduwplekken"] },
 
   { id:"db-clematis",name:"Bosrank",latin:"Clematis montana",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Clematis_montana_2.jpg/320px-Clematis_montana_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Clematis_montana",
     winterHardy:"-25C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"D080C0",waterNeed:"Matig",
     origin:"Himalaya, China",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"Klimmer (10m)",
     humidity:"Matig",bloomSeason:"Mei-jun (roze/wit)",fruit:"Veervormige vruchten",toxic:true,toxicNote:"Alle delen licht giftig.",
@@ -865,7 +897,7 @@ const PLANT_DB = [
     tips:["Wortel in schaduw planten","Bloei in zon","Direct na bloei snoeien"] },
 
   { id:"db-campsis",name:"Trompetklimmer",latin:"Campsis radicans",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Campsis_radicans.jpg/320px-Campsis_radicans.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Campsis_radicans",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#D06020",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"15-35C",minTemp:"-20C",maxHeight:"Klimmer (10m)",
     humidity:"Laag",bloomSeason:"Jul-sept (oranje-rood)",fruit:"Lange capsules",toxic:false,toxicNote:"Sap huidirritatie mogelijk.",
@@ -877,6 +909,7 @@ const PLANT_DB = [
     tips:["Magneet voor insecten","Hard snoeien in februari","Klemt zelfstandig (geen draad nodig)"] },
 
   { id:"db-lonicera",name:"Kamperfoelie",latin:"Lonicera periclymenum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lonicera_periclymenum",
     winterHardy:"-25C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#D0A020",waterNeed:"Matig",
     origin:"Europa",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"Klimmer (6m)",
     humidity:"Matig",bloomSeason:"Jun-sept (geel-roze, geurend)",fruit:"Rode giftige bessen",toxic:true,toxicNote:"Bessen giftig bij inslikken.",
@@ -888,6 +921,7 @@ const PLANT_DB = [
     tips:["Geur s'avonds het sterkst","Vlinder- en bijenmagnet","Bessen giftig"] },
 
   { id:"db-parthenocissus",name:"Wilde Wingerd",latin:"Parthenocissus quinquefolia",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Parthenocissus_quinquefolia",
     winterHardy:"-30C",growthRate:"Snel",light:"Zon/schaduw",accentColor:"#A03020",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"Klimmer (15m)",
     humidity:"Laag",bloomSeason:"Jun (onopvallend)",fruit:"Blauwe giftige bessen",toxic:true,toxicNote:"Bessen licht giftig.",
@@ -900,7 +934,7 @@ const PLANT_DB = [
 
   // ── HEESTERS/STRUIKEN ─────────────────────────────────────────────────────────
   { id:"db-rododendron",name:"Rododendron",latin:"Rhododendron ponticum",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Rhododendron_flowers.jpg/320px-Rhododendron_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rhododendron",
     winterHardy:"-20C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#C040A0",waterNeed:"Matig",
     origin:"Zuidoost-Europa, Klein-Azie",idealTemp:"10-20C",minTemp:"-20C",maxHeight:"2-5m",
     humidity:"Hoog",bloomSeason:"Apr-jun (paars-roze)",fruit:"Capsules",toxic:true,toxicNote:"Alle delen giftig. Honinggif.",
@@ -912,7 +946,7 @@ const PLANT_DB = [
     tips:["Zure grond nodig (pH 4,5-5,5)","Nooit kalk of kalkrijke grond","Alle delen giftig"] },
 
   { id:"db-hydrangea",name:"Hortensia",latin:"Hydrangea macrophylla",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hydrangea_macrophylla.jpg/320px-Hydrangea_macrophylla.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hydrangea_macrophylla",
     winterHardy:"-20C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#6080D0",waterNeed:"Hoog",
     origin:"Japan",idealTemp:"10-22C",minTemp:"-20C",maxHeight:"1-2m",
     humidity:"Hoog",bloomSeason:"Jun-sept",fruit:"Geen",toxic:true,toxicNote:"Bladeren en knoppen licht giftig.",
@@ -924,7 +958,7 @@ const PLANT_DB = [
     tips:["Blauwmaker voor blauwe bloemen bij zure grond","Nooit uitdrogen","Niet in oud hout snoeien"] },
 
   { id:"db-buddleja",name:"Vlinderstruik",latin:"Buddleja davidii",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Buddleja_davidii_flowers.jpg/320px-Buddleja_davidii_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Buddleja_davidii",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#8040C0",waterNeed:"Laag",
     origin:"China",idealTemp:"10-30C",minTemp:"-25C",maxHeight:"2-4m",
     humidity:"Laag",bloomSeason:"Jul-sept (paars, wit, roze)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -936,7 +970,7 @@ const PLANT_DB = [
     tips:["Hard terugsnoeien in maart","Beste vlinderplant voor de tuin","Droogtetolerant"] },
 
   { id:"db-forsythia",name:"Forsythia",latin:"Forsythia x intermedia",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Forsythia_x_intermedia.jpg/320px-Forsythia_x_intermedia.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Forsythia",
     winterHardy:"-25C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#D0B000",waterNeed:"Laag",
     origin:"Hybride (China)",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"2-3m",
     humidity:"Laag",bloomSeason:"Mrt-apr (geel, voor de bladeren)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -948,6 +982,7 @@ const PLANT_DB = [
     tips:["Eerst na bloei snoeien","Bloeit op oud hout","Vroegste bloem van het seizoen"] },
 
   { id:"db-viburnum",name:"Sneeuwbal",latin:"Viburnum opulus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Viburnum_opulus",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#80A040",waterNeed:"Matig",
     origin:"Europa, Azie",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"3-5m",
     humidity:"Matig",bloomSeason:"Mei-jun (wit)",fruit:"Rode bessen (herfst)",toxic:false,toxicNote:"Bessen rauw licht giftig.",
@@ -959,6 +994,7 @@ const PLANT_DB = [
     tips:["Inheemse soort - goed voor biodiversiteit","Bessen voor vogels","Nauwelijks onderhoud"] },
 
   { id:"db-spiraea",name:"Spierstruik",latin:"Spiraea japonica",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Spiraea_japonica",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#E06080",waterNeed:"Laag",
     origin:"Japan, China",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.5-1.5m",
     humidity:"Laag",bloomSeason:"Jun-aug (roze-rood)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -970,6 +1006,7 @@ const PLANT_DB = [
     tips:["Fors terugsnoeien in maart","Kompakte groeivorm","Weinig onderhoud"] },
 
   { id:"db-cornus",name:"Kornoelje",latin:"Cornus alba",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cornus_alba",
     winterHardy:"-30C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#A02020",waterNeed:"Matig",
     origin:"Siberie, Oost-Azie",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"2-3m",
     humidity:"Matig",bloomSeason:"Mei-jun (witte bloemen)",fruit:"Witte bessen",toxic:false,toxicNote:"",
@@ -981,6 +1018,7 @@ const PLANT_DB = [
     tips:["Rode stengels in winter decoratief","Elk jaar 1/3 snoeien","Verdraagt natte standplaats"] },
 
   { id:"db-weigela",name:"Weigela",latin:"Weigela florida",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Weigela_florida",
     winterHardy:"-25C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E04080",waterNeed:"Matig",
     origin:"China, Korea",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"1-2m",
     humidity:"Matig",bloomSeason:"Mei-jun (roze-rood)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -993,6 +1031,7 @@ const PLANT_DB = [
 
   // ── ROZEN ─────────────────────────────────────────────────────────────────────
   { id:"db-roos-struik",name:"Struikroos",latin:"Rosa shrub",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rosa",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#E03060",waterNeed:"Matig",
     origin:"Kwekerssoort",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"1-2m",
     humidity:"Matig",bloomSeason:"Jun-okt",fruit:"Rozenbottels",toxic:false,toxicNote:"Doorns: voorzichtig.",
@@ -1004,6 +1043,7 @@ const PLANT_DB = [
     tips:["Preventief spuiten tegen rozenziekte","Niet op bladeren gieten","Snoeien in maart"] },
 
   { id:"db-klimroos",name:"Klimroos",latin:"Rosa climber",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rosa",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#E06080",waterNeed:"Matig",
     origin:"Kwekerssoort",idealTemp:"10-25C",minTemp:"-20C",maxHeight:"Klimmer (4-6m)",
     humidity:"Matig",bloomSeason:"Jun-sept",fruit:"Rozenbottels",toxic:false,toxicNote:"Doorns: voorzichtig.",
@@ -1016,7 +1056,7 @@ const PLANT_DB = [
 
   // ── SIERGRASSEN ───────────────────────────────────────────────────────────────
   { id:"db-miscanthus",name:"Miscanthus",latin:"Miscanthus sinensis",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Miscanthus_sinensis.jpg/320px-Miscanthus_sinensis.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Miscanthus_sinensis",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#C0A040",waterNeed:"Laag",
     origin:"Oost-Azie",idealTemp:"10-30C",minTemp:"-20C",maxHeight:"1-3m",
     humidity:"Laag",bloomSeason:"Aug-okt (zilverpluimen)",fruit:"Verspreidt zaden",toxic:false,toxicNote:"",
@@ -1028,6 +1068,7 @@ const PLANT_DB = [
     tips:["Laat pluimen staan voor winterse sier","Snoeien in feb-mrt","Droogtetolerant"] },
 
   { id:"db-festuca",name:"Schapengras",latin:"Festuca glauca",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Festuca_glauca",
     winterHardy:"-25C",growthRate:"Traag",light:"Volle zon",accentColor:"#70A0B0",waterNeed:"Laag",
     origin:"Europa (Alpen)",idealTemp:"5-20C",minTemp:"-25C",maxHeight:"0.2-0.4m",
     humidity:"Laag",bloomSeason:"Mei-jun",fruit:"Kleine aartjes",toxic:false,toxicNote:"",
@@ -1040,6 +1081,7 @@ const PLANT_DB = [
 
   // ── BOMEN ─────────────────────────────────────────────────────────────────────
   { id:"db-jacaranda",name:"Jacaranda",latin:"Jacaranda mimosifolia",category:"tropisch",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Jacaranda_mimosifolia",
     winterHardy:"0C",growthRate:"Matig",light:"Volle zon",accentColor:"#6040C0",waterNeed:"Matig",
     origin:"Argentinie, Bolivia",idealTemp:"18-30C",minTemp:"0C",maxHeight:"8-15m (in pot 3-4m)",
     humidity:"Laag",bloomSeason:"Mei-jun (blauw-paars)",fruit:"Houten schijfvormige capsules",toxic:false,toxicNote:"",
@@ -1051,7 +1093,7 @@ const PLANT_DB = [
     tips:["Overwinteren in vorstvrije ruimte","Spectaculaire bloesem","In grote pot houden"] },
 
   { id:"db-acer-palm",name:"Japanse Esdoorn",latin:"Acer palmatum",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Acer_palmatum_autumn.jpg/320px-Acer_palmatum_autumn.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Acer_palmatum",
     winterHardy:"-20C",growthRate:"Traag",light:"Halfschaduw",accentColor:"#C02020",waterNeed:"Matig",
     origin:"Japan, Korea, China",idealTemp:"10-25C",minTemp:"-20C",maxHeight:"2-8m",
     humidity:"Matig",bloomSeason:"Apr (onopvallend)",fruit:"Gevleugelde zaden",toxic:false,toxicNote:"",
@@ -1063,6 +1105,7 @@ const PLANT_DB = [
     tips:["Beschutte standplaats","Spectaculaire herfstkleur","Niet in volle zon"] },
 
   { id:"db-prunus-laur",name:"Laurierkers",latin:"Prunus laurocerasus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Prunus_laurocerasus",
     winterHardy:"-20C",growthRate:"Snel",light:"Zon/schaduw",accentColor:"#2A5A30",waterNeed:"Matig",
     origin:"Zuidoost-Europa, Klein-Azie",idealTemp:"10-25C",minTemp:"-20C",maxHeight:"3-6m",
     humidity:"Matig",bloomSeason:"Apr-mei (wit)",fruit:"Zwarte giftige bessen",toxic:true,toxicNote:"Zaden giftig (blauwzuur).",
@@ -1074,7 +1117,7 @@ const PLANT_DB = [
     tips:["2x per jaar snoeien","Snelst groeiende haag","Zaden giftig - let op kinderen"] },
 
   { id:"db-taxus",name:"Taxus",latin:"Taxus baccata",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Taxus_baccata_leaves_and_berries.jpg/320px-Taxus_baccata_leaves_and_berries.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Taxus_baccata",
     winterHardy:"-30C",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#1A4020",waterNeed:"Laag",
     origin:"Europa, Noord-Afrika",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"2-15m",
     humidity:"Laag",bloomSeason:"Mrt-apr (onopvallend)",fruit:"Rode arillus (zaadhuls niet giftig, zaad WEL)",toxic:true,toxicNote:"ALLE delen behalve rode zaadmantel GIFTIG. Levensgevaarlijk.",
@@ -1086,7 +1129,7 @@ const PLANT_DB = [
     tips:["GIFTIG - gevaarlijk voor kinderen en huisdieren","Ideaal voor topiary","Verdraagt diepe schaduw"] },
 
   { id:"db-buxus",name:"Buxus",latin:"Buxus sempervirens",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Buxus_sempervirens_leaves.jpg/320px-Buxus_sempervirens_leaves.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Buxus_sempervirens",
     winterHardy:"-25C",growthRate:"Traag",light:"Zon/halfschaduw",accentColor:"#2A5025",waterNeed:"Matig",
     origin:"Europa, Noord-Afrika, West-Azie",idealTemp:"5-20C",minTemp:"-25C",maxHeight:"1-6m",
     humidity:"Matig",bloomSeason:"Apr-mei (onopvallend)",fruit:"Kleine capsules",toxic:true,toxicNote:"Alle delen giftig.",
@@ -1098,6 +1141,7 @@ const PLANT_DB = [
     tips:["Preventief spuiten tegen buxusmot","Alternatief: ilex (hulst) of euonymus","Alle delen giftig"] },
 
   { id:"db-carpinus",name:"Haagbeuk",latin:"Carpinus betulus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Carpinus_betulus",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#506040",waterNeed:"Matig",
     origin:"Europa, Klein-Azie",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"5-25m",
     humidity:"Matig",bloomSeason:"Apr-mei",fruit:"Gevleugelde nootjes",toxic:false,toxicNote:"",
@@ -1110,7 +1154,7 @@ const PLANT_DB = [
 
   // ── VASTE PLANTEN EXTRA ───────────────────────────────────────────────────────
   { id:"db-peonies",name:"Pioenroos",latin:"Paeonia lactiflora",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Paeonia_lactiflora.jpg/320px-Paeonia_lactiflora.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Paeonia_lactiflora",
     winterHardy:"-30C",growthRate:"Traag",light:"Volle zon",accentColor:"#E06080",waterNeed:"Matig",
     origin:"China, Siberië",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.6-1m",
     humidity:"Matig",bloomSeason:"Mei-jun",fruit:"Sierlijke zaaddozen",toxic:false,toxicNote:"",
@@ -1122,7 +1166,7 @@ const PLANT_DB = [
     tips:["Niet te diep planten (2-3cm)","Decennia lang plezier","Mieren zijn onschadelijk"] },
 
   { id:"db-echinacea",name:"Zonnehoed",latin:"Echinacea purpurea",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Echinacea_purpurea_flowers.jpg/320px-Echinacea_purpurea_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Echinacea_purpurea",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#D05080",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"10-30C",minTemp:"-30C",maxHeight:"0.6-1.2m",
     humidity:"Laag",bloomSeason:"Jul-sept",fruit:"Zaadkegels voor vogels",toxic:false,toxicNote:"",
@@ -1134,7 +1178,7 @@ const PLANT_DB = [
     tips:["Zaadkegels laten staan voor vogels","Droogtetolerant","Weinig onderhoud"] },
 
   { id:"db-salvia",name:"Salie",latin:"Salvia nemorosa",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Salvia_nemorosa_flowers.jpg/320px-Salvia_nemorosa_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Salvia_nemorosa",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#5040C0",waterNeed:"Laag",
     origin:"Midden-Europa",idealTemp:"10-30C",minTemp:"-30C",maxHeight:"0.4-0.8m",
     humidity:"Laag",bloomSeason:"Jun-aug",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1146,6 +1190,7 @@ const PLANT_DB = [
     tips:["Terugsnoeien na eerste bloei = tweede bloei","Bijenmagnet","Droogtetolerant"] },
 
   { id:"db-verbena",name:"Verbena",latin:"Verbena bonariensis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Verbena_bonariensis",
     winterHardy:"-15C",growthRate:"Snel",light:"Volle zon",accentColor:"#8040C0",waterNeed:"Laag",
     origin:"Zuid-Amerika",idealTemp:"15-30C",minTemp:"-15C",maxHeight:"1-1.5m",
     humidity:"Laag",bloomSeason:"Jul-okt (paars)",fruit:"Zaad (zelfzaaier)",toxic:false,toxicNote:"",
@@ -1157,6 +1202,7 @@ const PLANT_DB = [
     tips:["Zelfzaaier - zaad achterlaten","Magneet voor vlinders","Doorschijnend - goed achterin border"] },
 
   { id:"db-geranium",name:"Ooievaarsbek",latin:"Geranium himalayense",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Geranium_himalayense",
     winterHardy:"-30C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#6060D0",waterNeed:"Matig",
     origin:"Himalaya",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"0.3-0.6m",
     humidity:"Matig",bloomSeason:"Mei-aug",fruit:"Snavelachtige zaaddoos",toxic:false,toxicNote:"",
@@ -1168,6 +1214,7 @@ const PLANT_DB = [
     tips:["Geen potgeranium!","Uitstekende bodembedekker","Na bloei snoeien voor hergroei"] },
 
   { id:"db-astilbe",name:"Pluimspirea",latin:"Astilbe arendsii",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Astilbe",
     winterHardy:"-30C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#E060A0",waterNeed:"Hoog",
     origin:"Kwekerssoort (Oost-Azie)",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"0.4-1.2m",
     humidity:"Hoog",bloomSeason:"Jun-aug (pluimen)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -1179,6 +1226,7 @@ const PLANT_DB = [
     tips:["Nooit laten uitdrogen","Ideaal naast vijver","Volledig winterhard"] },
 
   { id:"db-perovskia",name:"Russische salie",latin:"Perovskia atriplicifolia",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Salvia_yangii",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#7090C0",waterNeed:"Laag",
     origin:"Afghanistan, Himalaya",idealTemp:"10-35C",minTemp:"-25C",maxHeight:"0.8-1.5m",
     humidity:"Laag",bloomSeason:"Jul-sept (lavendelkleurig)",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1191,6 +1239,7 @@ const PLANT_DB = [
 
   // ── KRUIDEN (voor buiten) ─────────────────────────────────────────────────────
   { id:"db-thijm",name:"Thijm",latin:"Thymus vulgaris",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Thymus_vulgaris",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#8060A0",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-30C",minTemp:"-25C",maxHeight:"0.2-0.4m",
     humidity:"Laag",bloomSeason:"Mei-jul (paars-roze)",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1202,6 +1251,7 @@ const PLANT_DB = [
     tips:["Arme droge grond = intensere smaak","Bijenmagnet","Niet in oud hout snoeien"] },
 
   { id:"db-oregano",name:"Oregano",latin:"Origanum vulgare",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Origanum_vulgare",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#908040",waterNeed:"Laag",
     origin:"Middellandse Zee, Europa",idealTemp:"15-30C",minTemp:"-25C",maxHeight:"0.3-0.6m",
     humidity:"Laag",bloomSeason:"Jul-sept (roze-wit)",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1213,6 +1263,7 @@ const PLANT_DB = [
     tips:["Arme grond = beste smaak","Volledig winterhard","Bijenmagnet in bloei"] },
 
   { id:"db-munt",name:"Munt",latin:"Mentha spicata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Mentha",
     winterHardy:"-30C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#30A060",waterNeed:"Hoog",
     origin:"Europa, West-Azie",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.3-0.8m",
     humidity:"Matig-hoog",bloomSeason:"Jul-sept (lila)",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1225,7 +1276,7 @@ const PLANT_DB = [
 
   // ── BOLLEN/KNOLLEN ────────────────────────────────────────────────────────────
   { id:"db-dahlia",name:"Dahlia",latin:"Dahlia pinnata",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Dahlia_x_hybrida.jpg/320px-Dahlia_x_hybrida.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Dahlia",
     winterHardy:"-2C",growthRate:"Snel",light:"Volle zon",accentColor:"#E04080",waterNeed:"Hoog",
     origin:"Mexico",idealTemp:"18-28C",minTemp:"-2C",maxHeight:"0.5-2m",
     humidity:"Matig",bloomSeason:"Jul-okt",fruit:"Zaad",toxic:false,toxicNote:"",
@@ -1237,6 +1288,7 @@ const PLANT_DB = [
     tips:["Knollen rooien na eerste vorst","Toppen = meer bloei","Knollen droog bewaren bij 5-10C"] },
 
   { id:"db-gladiool",name:"Gladiool",latin:"Gladiolus hybridus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Gladiolus",
     winterHardy:"-2C",growthRate:"Snel",light:"Volle zon",accentColor:"#E06080",waterNeed:"Matig",
     origin:"Zuid-Afrika",idealTemp:"15-28C",minTemp:"-2C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Jul-sept",fruit:"Capsules",toxic:false,toxicNote:"Knollen licht giftig.",
@@ -1248,7 +1300,7 @@ const PLANT_DB = [
     tips:["Gespreide aanplant (apr-jun) voor langere bloei","Knollen rooien voor vorst","Droog bewaren"] },
 
   { id:"db-tulp",name:"Tulp",latin:"Tulipa spp.",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tulip_-_floriade_canberra.jpg/320px-Tulip_-_floriade_canberra.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Tulipa",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#E04060",waterNeed:"Laag",
     origin:"Centraal-Azie",idealTemp:"10-20C",minTemp:"-30C",maxHeight:"0.2-0.7m",
     humidity:"Laag",bloomSeason:"Mrt-mei",fruit:"Capsules",toxic:true,toxicNote:"Alle delen giftig voor katten en honden.",
@@ -1260,7 +1312,7 @@ const PLANT_DB = [
     tips:["Elk jaar verse bollen voor mooiste bloei","Bladeren laten staan na bloei","Bollen rotten bij waterlogging"] },
 
   { id:"db-narcis",name:"Narcis",latin:"Narcissus pseudonarcissus",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Narcissus_pseudonarcissus.jpg/320px-Narcissus_pseudonarcissus.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Narcissus_pseudonarcissus",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E0C000",waterNeed:"Laag",
     origin:"Europa",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"0.2-0.5m",
     humidity:"Laag",bloomSeason:"Mrt-apr",fruit:"Capsules",toxic:true,toxicNote:"Alle delen giftig. Sap irriteert huid.",
@@ -1273,6 +1325,7 @@ const PLANT_DB = [
 
   // ── POPULAIRE NEDERLANDSE TUINPLANTEN ────────────────────────────────────────
   { id:"db-lavatera",name:"Struikmauwe",latin:"Lavatera thuringiaca",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lavatera_thuringiaca",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#D080C0",waterNeed:"Laag",
     origin:"Zuid-Europa",idealTemp:"10-30C",minTemp:"-20C",maxHeight:"1-2m",
     humidity:"Laag",bloomSeason:"Jun-okt",fruit:"Kleine droge vruchten",toxic:false,toxicNote:"",
@@ -1284,6 +1337,7 @@ const PLANT_DB = [
     tips:["Hard terugsnoeien in maart","Maandenlange bloei","Droogtetolerant"] },
 
   { id:"db-helenium",name:"Zonnekruid",latin:"Helenium autumnale",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Helenium_autumnale",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#D08020",waterNeed:"Matig",
     origin:"Noord-Amerika",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Jul-okt",fruit:"Kleine zaaddozen",toxic:false,toxicNote:"",
@@ -1295,6 +1349,7 @@ const PLANT_DB = [
     tips:["Chelsea Chop in mei voor meer bloei","Herfstbloeier","Bijen- en vlindermagnet"] },
 
   { id:"db-rudbeckia",name:"Zonnehoed (geel)",latin:"Rudbeckia fulgida",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rudbeckia_fulgida",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#D0A000",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"10-30C",minTemp:"-30C",maxHeight:"0.6-1m",
     humidity:"Laag",bloomSeason:"Jul-okt",fruit:"Zaadkegels",toxic:false,toxicNote:"",
@@ -1306,6 +1361,7 @@ const PLANT_DB = [
     tips:["Zaadkegels laten staan voor vogels","Droogtetolerant","Heel weinig onderhoud"] },
 
   { id:"db-leucanthemum",name:"Margriet",latin:"Leucanthemum superbum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Leucanthemum_superbum",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#F0F0F0",waterNeed:"Matig",
     origin:"Tuinbastaard (Europa)",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.5-0.9m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Kleine achenen",toxic:false,toxicNote:"",
@@ -1317,6 +1373,7 @@ const PLANT_DB = [
     tips:["Na bloei snoeien voor tweede bloei","Klassieke Nederlandse tuin","Elke 3 jaar verdelen"] },
 
   { id:"db-digitalis",name:"Vingerhoedskruid",latin:"Digitalis purpurea",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Digitalis_purpurea",
     winterHardy:"-25C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#C060C0",waterNeed:"Matig",
     origin:"West-Europa",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Jun-jul",fruit:"Capsules met veel zaad",toxic:true,toxicNote:"ALLE delen giftig. Hartvergif.",
@@ -1328,6 +1385,7 @@ const PLANT_DB = [
     tips:["GIFTIG - gevaarlijk voor kinderen","Zelfzaaier","Tweejarig: jaar 1 bladeren, jaar 2 bloei"] },
 
   { id:"db-alchemilla",name:"Vrouwenmantel",latin:"Alchemilla mollis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Alchemilla_mollis",
     winterHardy:"-30C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#90C040",waterNeed:"Matig",
     origin:"Oost-Europa, Klein-Azie",idealTemp:"5-22C",minTemp:"-30C",maxHeight:"0.3-0.5m",
     humidity:"Matig",bloomSeason:"Mei-aug",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1339,6 +1397,7 @@ const PLANT_DB = [
     tips:["Waterdruppels op bladeren decoratief","Uitstekende bodembedekker","Na bloei snoeien voor frisse bladeren"] },
 
   { id:"db-nepeta",name:"Kattenkruid",latin:"Nepeta x faassenii",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Nepeta_faassenii",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#8080C0",waterNeed:"Laag",
     origin:"Hybride (Europa/Azie)",idealTemp:"10-30C",minTemp:"-25C",maxHeight:"0.3-0.6m",
     humidity:"Laag",bloomSeason:"Mei-sept",fruit:"Kleine nootjes",toxic:false,toxicNote:"Aantrekkelijk voor katten.",
@@ -1350,6 +1409,7 @@ const PLANT_DB = [
     tips:["Terugsnoeien na eerste bloei = tweede golf","Droogtetolerant","Katten zijn er dol op"] },
 
   { id:"db-bergenia",name:"Schoenlapper",latin:"Bergenia cordifolia",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Bergenia_cordifolia",
     winterHardy:"-30C",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#E06080",waterNeed:"Laag",
     origin:"Centraal-Azie, Siberië",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"0.3-0.5m",
     humidity:"Laag",bloomSeason:"Mrt-apr",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -1361,6 +1421,7 @@ const PLANT_DB = [
     tips:["Ideaal voor droge schaduw","Rode winterkleur","Nauwelijks onderhoud"] },
 
   { id:"db-ajuga",name:"Kruipend Zenegroen",latin:"Ajuga reptans",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ajuga_reptans",
     winterHardy:"-30C",growthRate:"Snel",light:"Schaduw/halfschaduw",accentColor:"#4040A0",waterNeed:"Matig",
     origin:"Europa",idealTemp:"5-22C",minTemp:"-30C",maxHeight:"0.1-0.2m",
     humidity:"Matig",bloomSeason:"Apr-mei",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1372,6 +1433,7 @@ const PLANT_DB = [
     tips:["Snelste bodembedekker voor schaduw","Paarse bladeren decoratief","Uitlopers bijhouden"] },
 
   { id:"db-lysimachia",name:"Weduwentraan",latin:"Lysimachia punctata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lysimachia_punctata",
     winterHardy:"-30C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#E0C000",waterNeed:"Hoog",
     origin:"Europa",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"0.5-0.8m",
     humidity:"Hoog",bloomSeason:"Jun-aug",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -1384,7 +1446,7 @@ const PLANT_DB = [
 
   // ── EETBARE PLANTEN ───────────────────────────────────────────────────────────
   { id:"db-tomaat",name:"Tomaat",latin:"Solanum lycopersicum",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Salad_garden.jpg/320px-Salad_garden.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Solanum_lycopersicum",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#D03020",waterNeed:"Hoog",
     origin:"Zuid-Amerika (Andes)",idealTemp:"20-28C",minTemp:"10C",maxHeight:"0.5-2m",
     humidity:"Matig",bloomSeason:"Jun-sept",fruit:"Jul-okt (rood)",toxic:true,toxicNote:"Bladeren en stengels giftig.",
@@ -1396,7 +1458,7 @@ const PLANT_DB = [
     tips:["Dieven verwijderen bij staaktorassen","Regelmatig en gelijkmatig water","Beschutte warme plek"] },
 
   { id:"db-komkommer",name:"Komkommer",latin:"Cucumis sativus",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Cucumbers_-_whole_and_slice.jpg/320px-Cucumbers_-_whole_and_slice.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cucumis_sativus",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#40A040",waterNeed:"Hoog",
     origin:"Zuidoost-Azie",idealTemp:"22-30C",minTemp:"15C",maxHeight:"Klimmer (2m)",
     humidity:"Hoog",bloomSeason:"Jun-aug",fruit:"Jul-sept",toxic:false,toxicNote:"",
@@ -1408,7 +1470,7 @@ const PLANT_DB = [
     tips:["Warmteminnend - kas of beschutte plek","Dagelijks water geven","Hoge luchtvochtigheid"] },
 
   { id:"db-courgette",name:"Courgette",latin:"Cucurbita pepo",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Courgette.jpg/320px-Courgette.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cucurbita_pepo",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#60A040",waterNeed:"Hoog",
     origin:"Midden-Amerika",idealTemp:"18-28C",minTemp:"10C",maxHeight:"0.5-1m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Jun-okt",toxic:false,toxicNote:"",
@@ -1420,6 +1482,7 @@ const PLANT_DB = [
     tips:["Jong oogsten = beste smaak","Zeer productief","Slakken beschermen jonge planten"] },
 
   { id:"db-sperzieboon",name:"Sperzieboon",latin:"Phaseolus vulgaris",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Phaseolus_vulgaris",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#50A030",waterNeed:"Matig",
     origin:"Midden-Amerika",idealTemp:"18-25C",minTemp:"10C",maxHeight:"0.4-0.5m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Jul-sept",toxic:false,toxicNote:"Rauw licht giftig. Altijd koken.",
@@ -1431,6 +1494,7 @@ const PLANT_DB = [
     tips:["Rauw giftig - altijd koken","Vruchtwisseling toepassen","Nooit op blad gieten"] },
 
   { id:"db-andijvie",name:"Andijvie",latin:"Cichorium endivia",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cichorium_endivia",
     winterHardy:"-5C",growthRate:"Snel",light:"Volle zon",accentColor:"#60C040",waterNeed:"Matig",
     origin:"Middellandse Zee",idealTemp:"15-22C",minTemp:"-5C",maxHeight:"0.3-0.4m",
     humidity:"Matig",bloomSeason:"Zomer (als niet geoogst)",fruit:"Oogst jun-okt",toxic:false,toxicNote:"",
@@ -1442,6 +1506,7 @@ const PLANT_DB = [
     tips:["Aanarden voor minder bitter","Makkelijk te telen","Kan lichte vorst hebben"] },
 
   { id:"db-snijbiet",name:"Snijbiet",latin:"Beta vulgaris cicla",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Beta_vulgaris",
     winterHardy:"-10C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#D04040",waterNeed:"Matig",
     origin:"Middellandse Zee",idealTemp:"15-22C",minTemp:"-10C",maxHeight:"0.5-0.8m",
     humidity:"Matig",bloomSeason:"Jaar 2",fruit:"Oogst mei-okt",toxic:false,toxicNote:"",
@@ -1453,7 +1518,7 @@ const PLANT_DB = [
     tips:["Decoratief en eetbaar","Van buiten naar binnen oogsten","Vrij winterhard"] },
 
   { id:"db-aardbeien",name:"Aardbei",latin:"Fragaria x ananassa",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/PerfectStrawberry.jpg/320px-PerfectStrawberry.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Fragaria_ananassa",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#E02040",waterNeed:"Matig",
     origin:"Kwekerssoort (18e eeuw)",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"0.2-0.3m",
     humidity:"Matig",bloomSeason:"Apr-mei",fruit:"Jun-aug",toxic:false,toxicNote:"",
@@ -1465,6 +1530,7 @@ const PLANT_DB = [
     tips:["Elke 3 jaar vernieuwen","Uitlopers gebruiken voor nieuwe planten","Niet op vruchten gieten"] },
 
   { id:"db-framboos",name:"Framboos",latin:"Rubus idaeus",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rubus_idaeus",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#D03060",waterNeed:"Matig",
     origin:"Europa, Noord-Azie",idealTemp:"15-22C",minTemp:"-25C",maxHeight:"1.5-2m",
     humidity:"Matig",bloomSeason:"Mei-jun",fruit:"Jul-aug (zomersoorten), aug-okt (herfstsoorten)",toxic:false,toxicNote:"",
@@ -1476,7 +1542,7 @@ const PLANT_DB = [
     tips:["Kies zomer- of herfstsoort","Na oogst oude stengels verwijderen","Ophinden aan draad of stok"] },
 
   { id:"db-blauwebes",name:"Blauwe Bosbes",latin:"Vaccinium corymbosum",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Blueberries.jpg/320px-Blueberries.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Vaccinium_corymbosum",
     winterHardy:"-25C",growthRate:"Traag",light:"Volle zon",accentColor:"#4040C0",waterNeed:"Matig",
     origin:"Noord-Amerika",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"1-2m",
     humidity:"Matig",bloomSeason:"Apr-mei",fruit:"Jul-aug",toxic:false,toxicNote:"",
@@ -1488,6 +1554,7 @@ const PLANT_DB = [
     tips:["Zure grond pH 4-5 verplicht","Minstens 2 struiken voor bestuiving","Regenwater gebruiken"] },
 
   { id:"db-kruisbes",name:"Kruisbes",latin:"Ribes uva-crispa",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ribes_uva-crispa",
     winterHardy:"-25C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#80C040",waterNeed:"Matig",
     origin:"Europa, Noord-Afrika",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"1-1.5m",
     humidity:"Matig",bloomSeason:"Mrt-apr",fruit:"Jun-aug",toxic:false,toxicNote:"Doorns aanwezig.",
@@ -1499,7 +1566,7 @@ const PLANT_DB = [
     tips:["Handschoenen bij oogsten (doorns)","Oudste takken jaarlijks verwijderen","Vroeg fruit (juni)"] },
 
   { id:"db-rode-bes",name:"Rode Bes",latin:"Ribes rubrum",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Ribes_rubrum_berries.jpg/320px-Ribes_rubrum_berries.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ribes_rubrum",
     winterHardy:"-25C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#C02040",waterNeed:"Matig",
     origin:"West-Europa",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"1-1.5m",
     humidity:"Matig",bloomSeason:"Mrt-apr",fruit:"Jul",toxic:false,toxicNote:"",
@@ -1512,7 +1579,7 @@ const PLANT_DB = [
 
   // ── EETBARE BOMEN ─────────────────────────────────────────────────────────────
   { id:"db-appel",name:"Appelboom",latin:"Malus domestica",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/320px-Red_Apple.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Malus_domestica",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#D04040",waterNeed:"Matig",
     origin:"Centraal-Azie (Kazachstan)",idealTemp:"15-22C",minTemp:"-30C",maxHeight:"3-8m (afhankelijk van onderstam)",
     humidity:"Matig",bloomSeason:"Apr-mei",fruit:"Aug-nov (afhankelijk van ras)",toxic:false,toxicNote:"Pitten bevatten cyanide - in kleine hoeveelheden onschadelijk.",
@@ -1524,7 +1591,7 @@ const PLANT_DB = [
     tips:["Kies zelfbestuivend ras of 2 soorten","Jan-feb snoeien","Kroon open voor licht en lucht"] },
 
   { id:"db-peer",name:"Perenboom",latin:"Pyrus communis",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pear.jpg/320px-Pear.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pyrus_communis",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#C0B040",waterNeed:"Matig",
     origin:"West-Azie, Europa",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"4-10m",
     humidity:"Matig",bloomSeason:"Apr (voor appel)",fruit:"Aug-okt",toxic:false,toxicNote:"",
@@ -1536,7 +1603,7 @@ const PLANT_DB = [
     tips:["Peervuur: aangetaste takken verbranden","Steviger snoeien dan appel","Bloeit voor appel - let op nachtvorst"] },
 
   { id:"db-pruim",name:"Pruimenboom",latin:"Prunus domestica",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Black_plum.jpg/320px-Black_plum.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Prunus_domestica",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#6040A0",waterNeed:"Matig",
     origin:"West-Azie",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"3-6m",
     humidity:"Matig",bloomSeason:"Mrt-apr",fruit:"Aug-sept",toxic:false,toxicNote:"Pitten giftig.",
@@ -1548,6 +1615,7 @@ const PLANT_DB = [
     tips:["NOOIT in winter snoeien - altijd na oogst","Pitten zijn giftig","Lekker als jam of vers"] },
 
   { id:"db-kers-zoet",name:"Zoete Kers",latin:"Prunus avium",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Prunus_avium",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#C02030",waterNeed:"Matig",
     origin:"Europa, Klein-Azie",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"5-15m",
     humidity:"Matig",bloomSeason:"Apr",fruit:"Jun-jul",toxic:false,toxicNote:"Pitten giftig.",
@@ -1559,7 +1627,7 @@ const PLANT_DB = [
     tips:["Net plaatsen voor vogels","Na oogst snoeien","Snel groeiend - locatie goed kiezen"] },
 
   { id:"db-walnoot",name:"Walnoot",latin:"Juglans regia",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Juglans_regia.jpg/320px-Juglans_regia.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Juglans_regia",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#806040",waterNeed:"Laag",
     origin:"Centraal-Azie, Iran",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"15-25m",
     humidity:"Laag",bloomSeason:"Apr-mei",fruit:"Sept-okt",toxic:false,toxicNote:"Sap kleurt huid bruinzwart.",
@@ -1571,7 +1639,7 @@ const PLANT_DB = [
     tips:["Remt andere planten eronder","Sap kleurt handen bruinzwart","Veel ruimte nodig - grote boom"] },
 
   { id:"db-hazelaar",name:"Hazelaar",latin:"Corylus avellana",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Corylus_avellana_catkins.jpg/320px-Corylus_avellana_catkins.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Corylus_avellana",
     winterHardy:"-30C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#806030",waterNeed:"Laag",
     origin:"Europa",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"4-6m",
     humidity:"Laag",bloomSeason:"Jan-mrt (katjes)",fruit:"Sept-okt",toxic:false,toxicNote:"",
@@ -1584,7 +1652,7 @@ const PLANT_DB = [
 
   // ── MEEST GEKOCHTE TUINPLANTEN ────────────────────────────────────────────────
   { id:"db-lavandula-ang",name:"Lavendel Angustifolia",latin:"Lavandula angustifolia Hidcote",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Lavandula_angustifolia_-_2.jpg/320px-Lavandula_angustifolia_-_2.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lavandula_angustifolia",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#7060B0",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-30C",minTemp:"-25C",maxHeight:"0.3-0.6m",
     humidity:"Laag",bloomSeason:"Jun-aug",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1596,6 +1664,7 @@ const PLANT_DB = [
     tips:["Meest populaire lavendelsoort","Na bloei snoeien voor compacte vorm","Nooit in oud hout snoeien"] },
 
   { id:"db-boxwood-alt",name:"Japanse Hulst",latin:"Ilex crenata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ilex_crenata",
     winterHardy:"-20C",growthRate:"Traag",light:"Zon/halfschaduw",accentColor:"#2A5525",waterNeed:"Matig",
     origin:"Japan, Korea, China",idealTemp:"10-22C",minTemp:"-20C",maxHeight:"1-3m",
     humidity:"Matig",bloomSeason:"Mei-jun (onopvallend)",fruit:"Kleine zwarte bessen",toxic:true,toxicNote:"Bessen licht giftig.",
@@ -1607,6 +1676,7 @@ const PLANT_DB = [
     tips:["Beste buxus-alternatief","Buxusmot-resistent","Identiek uiterlijk aan buxus"] },
 
   { id:"db-potentilla",name:"Ganzerik",latin:"Potentilla fruticosa",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Potentilla_fruticosa",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#E0C000",waterNeed:"Laag",
     origin:"Noord-Europa, Noord-Azie",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"0.5-1.2m",
     humidity:"Laag",bloomSeason:"Mei-okt",fruit:"Kleine droge vruchten",toxic:false,toxicNote:"",
@@ -1618,7 +1688,7 @@ const PLANT_DB = [
     tips:["5 maanden bloei (mei-okt)","Droogtetolerant","Weinig onderhoud"] },
 
   { id:"db-amelanchier",name:"Krentenboompje",latin:"Amelanchier lamarckii",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Amelanchier_lamarckii_flowers.jpg/320px-Amelanchier_lamarckii_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Amelanchier_lamarckii",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E0A0D0",waterNeed:"Matig",
     origin:"Noord-Amerika (ingeburgerd in NL)",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"4-8m",
     humidity:"Matig",bloomSeason:"Apr (spectaculaire witte bloesem)",fruit:"Jun (zwart-paars, eetbaar)",toxic:false,toxicNote:"",
@@ -1630,7 +1700,7 @@ const PLANT_DB = [
     tips:["Vier seizoenen interessant","Eetbare bessen (juni)","Meest verkochte sierstruik NL"] },
 
   { id:"db-syringa",name:"Sering",latin:"Syringa vulgaris",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Lilac_Syringa_vulgaris_Flowers.jpg/320px-Lilac_Syringa_vulgaris_Flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Syringa_vulgaris",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#A060C0",waterNeed:"Laag",
     origin:"Balkan",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"3-7m",
     humidity:"Laag",bloomSeason:"Mei (intense geur)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -1642,6 +1712,7 @@ const PLANT_DB = [
     tips:["Verlepte pluimen direct na bloei verwijderen","NIET na juni snoeien","Intense geur in mei"] },
 
   { id:"db-ceanothus",name:"Californische Sering",latin:"Ceanothus impressus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ceanothus",
     winterHardy:"-12C",growthRate:"Snel",light:"Volle zon",accentColor:"#4060C0",waterNeed:"Laag",
     origin:"Californie (VS)",idealTemp:"15-30C",minTemp:"-12C",maxHeight:"1.5-3m",
     humidity:"Laag",bloomSeason:"Mei-jun (blauw)",fruit:"Kleine droge vruchten",toxic:false,toxicNote:"",
@@ -1653,6 +1724,7 @@ const PLANT_DB = [
     tips:["Intenst blauwe bloemen","Beschutte zuidmuur","Niet in oud hout snoeien"] },
 
   { id:"db-perovskia-blue",name:"Blauwspirea",latin:"Perovskia Blue Spire",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Salvia_yangii",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#8090C0",waterNeed:"Laag",
     origin:"Kwekerssoort",idealTemp:"10-35C",minTemp:"-25C",maxHeight:"0.8-1.2m",
     humidity:"Laag",bloomSeason:"Jul-sept",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1665,7 +1737,7 @@ const PLANT_DB = [
 
 // ── EXTRA VASTE PLANTEN ───────────────────────────────────────────────────────
   { id:"db-achillea",name:"Duizendblad",latin:"Achillea millefolium",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Achillea_millefolium_flowers.jpg/320px-Achillea_millefolium_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Achillea_millefolium",
     winterHardy:"-30C",growthRate:"Snel",light:"Volle zon",accentColor:"#E0D040",waterNeed:"Laag",
     origin:"Europa, West-Azie",idealTemp:"10-30C",minTemp:"-30C",maxHeight:"0.4-0.8m",
     humidity:"Laag",bloomSeason:"Jun-sept",fruit:"Kleine achenen",toxic:false,toxicNote:"",
@@ -1677,6 +1749,7 @@ const PLANT_DB = [
     tips:["Droogtetolerant","Inheemse soort","Bijen- en vlindermagnet"] },
 
   { id:"db-hemerocallis",name:"Daglelie",latin:"Hemerocallis hybrida",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hemerocallis",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E08020",waterNeed:"Matig",
     origin:"Oost-Azie",idealTemp:"10-28C",minTemp:"-30C",maxHeight:"0.4-0.9m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Kleine capsules",toxic:true,toxicNote:"Giftig voor katten.",
@@ -1688,6 +1761,7 @@ const PLANT_DB = [
     tips:["Giftig voor katten","Elke bloem 1 dag","Weinig onderhoud"] },
 
   { id:"db-phlox",name:"Vlambloem",latin:"Phlox paniculata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Phlox_paniculata",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E060C0",waterNeed:"Matig",
     origin:"Noord-Amerika",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.6-1.2m",
     humidity:"Matig",bloomSeason:"Jul-sept",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -1699,6 +1773,7 @@ const PLANT_DB = [
     tips:["Goede luchtcirculatie tegen meeldauw","Geurende bloemen","Niet op blad gieten"] },
 
   { id:"db-liatris",name:"Prachtkaars",latin:"Liatris spicata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Liatris_spicata",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#8040C0",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"10-30C",minTemp:"-30C",maxHeight:"0.5-1m",
     humidity:"Laag",bloomSeason:"Jul-sept",fruit:"Kleine achenen",toxic:false,toxicNote:"",
@@ -1710,6 +1785,7 @@ const PLANT_DB = [
     tips:["Bloeit van boven naar beneden","Bijenmagnet","Droogtetolerant"] },
 
   { id:"db-monarda",name:"Bergamotplant",latin:"Monarda didyma",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Monarda_didyma",
     winterHardy:"-30C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#E04040",waterNeed:"Matig",
     origin:"Noord-Amerika",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.6-1.2m",
     humidity:"Hoog",bloomSeason:"Jul-aug",fruit:"Nootjes",toxic:false,toxicNote:"",
@@ -1721,6 +1797,7 @@ const PLANT_DB = [
     tips:["Vlinder- en bijenmagnet","Aromatisch blad","Vatbaar voor meeldauw"] },
 
   { id:"db-alstroemeria",name:"Incalelie",latin:"Alstroemeria hybrida",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Alstroemeria",
     winterHardy:"-15C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E06080",waterNeed:"Matig",
     origin:"Zuid-Amerika",idealTemp:"15-25C",minTemp:"-15C",maxHeight:"0.4-0.9m",
     humidity:"Matig",bloomSeason:"Jun-okt",fruit:"Capsules",toxic:true,toxicNote:"Sap veroorzaakt huidirritatie.",
@@ -1732,7 +1809,7 @@ const PLANT_DB = [
     tips:["Stengels uittrekken niet snijden","Lange houdbaardheid als snijbloem","Sap irriteert huid"] },
 
   { id:"db-iris-germ",name:"Baardiris",latin:"Iris germanica",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Iris_germanica_purple.jpg/320px-Iris_germanica_purple.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Iris_germanica",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#6040B0",waterNeed:"Laag",
     origin:"Tuinbastaard (Europa)",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.5-1m",
     humidity:"Laag",bloomSeason:"Mei-jun",fruit:"Capsules",toxic:true,toxicNote:"Rizoom giftig bij inslikken.",
@@ -1744,6 +1821,7 @@ const PLANT_DB = [
     tips:["Rizoom half bovengronds","Droogtetolerant","Niet overgieten"] },
 
   { id:"db-coreopsis",name:"Meisjesogen",latin:"Coreopsis grandiflora",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Coreopsis_grandiflora",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#E0C000",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"15-30C",minTemp:"-25C",maxHeight:"0.4-0.7m",
     humidity:"Laag",bloomSeason:"Jun-okt",fruit:"Zaaddozen",toxic:false,toxicNote:"",
@@ -1755,6 +1833,7 @@ const PLANT_DB = [
     tips:["Langste bloeitijd","Droogtetolerant","Makkelijkste vaste plant"] },
 
   { id:"db-gaillardia",name:"Kokardebloem",latin:"Gaillardia grandiflora",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Gaillardia",
     winterHardy:"-20C",growthRate:"Matig",light:"Volle zon",accentColor:"#E06020",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"15-30C",minTemp:"-20C",maxHeight:"0.4-0.7m",
     humidity:"Laag",bloomSeason:"Jun-okt",fruit:"Zaaddozen",toxic:false,toxicNote:"",
@@ -1766,6 +1845,7 @@ const PLANT_DB = [
     tips:["Dode bloemen verwijderen","Droogtetolerant","Lange bloeitijd"] },
 
   { id:"db-scabiosa",name:"Schurftkruid",latin:"Scabiosa caucasica",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Scabiosa_caucasica",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#8090D0",waterNeed:"Laag",
     origin:"Kaukasus",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"0.4-0.7m",
     humidity:"Laag",bloomSeason:"Jun-sept",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1778,6 +1858,7 @@ const PLANT_DB = [
 
   // ── EXTRA HEESTERS ────────────────────────────────────────────────────────────
   { id:"db-philadelphus",name:"Boerenjasmijn",latin:"Philadelphus coronarius",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Philadelphus_coronarius",
     winterHardy:"-25C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#F8F8F0",waterNeed:"Laag",
     origin:"Zuid-Europa, Klein-Azie",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"2-4m",
     humidity:"Laag",bloomSeason:"Jun (intense jasmijngeur)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -1789,6 +1870,7 @@ const PLANT_DB = [
     tips:["Intenste geur van heesters","Bloeit op oud hout","Volledig winterhard"] },
 
   { id:"db-deutzia",name:"Deutzia",latin:"Deutzia gracilis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Deutzia_gracilis",
     winterHardy:"-25C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#F0F0E8",waterNeed:"Matig",
     origin:"Japan",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Mei-jun",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -1800,7 +1882,7 @@ const PLANT_DB = [
     tips:["Na bloei snoeien","Makkelijk en winterhard","Witte bloemen in mei"] },
 
   { id:"db-mahonia",name:"Mahonia",latin:"Mahonia aquifolium",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mahonia_aquifolium_flowers.jpg/320px-Mahonia_aquifolium_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Mahonia_aquifolium",
     winterHardy:"-25C",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#E0C000",waterNeed:"Laag",
     origin:"West-Noord-Amerika",idealTemp:"5-20C",minTemp:"-25C",maxHeight:"1-2m",
     humidity:"Laag",bloomSeason:"Jan-apr (geel)",fruit:"Blauwe bessen (aug)",toxic:false,toxicNote:"",
@@ -1812,6 +1894,7 @@ const PLANT_DB = [
     tips:["Bloeit in januari","Eerste bijenvoeding","Ideaal voor droge schaduw"] },
 
   { id:"db-skimmia",name:"Skimmia",latin:"Skimmia japonica",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Skimmia_japonica",
     winterHardy:"-20C",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#C03030",waterNeed:"Matig",
     origin:"Japan, China",idealTemp:"5-20C",minTemp:"-20C",maxHeight:"0.5-1.5m",
     humidity:"Hoog",bloomSeason:"Mrt-apr",fruit:"Rode bessen (winter)",toxic:true,toxicNote:"Bessen giftig.",
@@ -1823,7 +1906,7 @@ const PLANT_DB = [
     tips:["Mannelijk en vrouwelijk nodig","Zure grond","Rode bessen in winter"] },
 
   { id:"db-pyracantha",name:"Vuurdoorn",latin:"Pyracantha coccinea",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pyracantha_berries.jpg/320px-Pyracantha_berries.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pyracantha_coccinea",
     winterHardy:"-20C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#E03020",waterNeed:"Laag",
     origin:"Zuidoost-Europa, Klein-Azie",idealTemp:"10-25C",minTemp:"-20C",maxHeight:"3-5m",
     humidity:"Laag",bloomSeason:"Mei-jun",fruit:"Oranje-rode bessen (herfst-winter)",toxic:false,toxicNote:"Doorns aanwezig.",
@@ -1835,6 +1918,7 @@ const PLANT_DB = [
     tips:["Handschoenen bij snoeien","Vogelparadijs in winter","Vuurziekte: takken verwijderen"] },
 
   { id:"db-cotoneaster",name:"Dwergmispel",latin:"Cotoneaster horizontalis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cotoneaster_horizontalis",
     winterHardy:"-25C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#C03030",waterNeed:"Laag",
     origin:"West-China",idealTemp:"5-25C",minTemp:"-25C",maxHeight:"0.5-1m",
     humidity:"Laag",bloomSeason:"Mei-jun",fruit:"Rode bessen (herfst)",toxic:false,toxicNote:"Bessen licht giftig.",
@@ -1847,7 +1931,7 @@ const PLANT_DB = [
 
   // ── EXTRA BOMEN ───────────────────────────────────────────────────────────────
   { id:"db-betula",name:"Berk",latin:"Betula pendula",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Betula_pendula_bark.jpg/320px-Betula_pendula_bark.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Betula_pendula",
     winterHardy:"-40C",growthRate:"Snel",light:"Volle zon",accentColor:"#D0D0C0",waterNeed:"Matig",
     origin:"Europa, Noord-Azie",idealTemp:"5-20C",minTemp:"-40C",maxHeight:"15-25m",
     humidity:"Matig",bloomSeason:"Apr",fruit:"Kleine gevleugelde nootjes",toxic:false,toxicNote:"",
@@ -1859,7 +1943,7 @@ const PLANT_DB = [
     tips:["Nooit snoeien in lente","Witte stam decoratief","Inheemse soort"] },
 
   { id:"db-sorbus",name:"Lijsterbes",latin:"Sorbus aucuparia",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Sorbus_aucuparia_berries.jpg/320px-Sorbus_aucuparia_berries.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sorbus_aucuparia",
     winterHardy:"-35C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E04020",waterNeed:"Laag",
     origin:"Europa",idealTemp:"5-20C",minTemp:"-35C",maxHeight:"8-15m",
     humidity:"Laag",bloomSeason:"Mei-jun",fruit:"Aug-okt (oranje-rode bessen)",toxic:false,toxicNote:"Rauw licht giftig.",
@@ -1871,7 +1955,7 @@ const PLANT_DB = [
     tips:["Inheemse soort","Vogelparadijs in herfst","Volledig winterhard"] },
 
   { id:"db-magnolia",name:"Magnolia",latin:"Magnolia x soulangeana",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Magnolia_x_soulangeana.jpg/320px-Magnolia_x_soulangeana.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Magnolia_soulangeana",
     winterHardy:"-25C",growthRate:"Traag",light:"Zon/halfschaduw",accentColor:"#E0A0C0",waterNeed:"Matig",
     origin:"Hybride (China x Japan)",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"4-8m",
     humidity:"Matig",bloomSeason:"Mrt-apr (voor de bladeren)",fruit:"Knobbelachtige capsules",toxic:false,toxicNote:"",
@@ -1883,7 +1967,7 @@ const PLANT_DB = [
     tips:["Late nachtvorst beschadigt bloemen","Minimaal snoeien","Langzame groeier"] },
 
   { id:"db-crataegus",name:"Meidoorn",latin:"Crataegus monogyna",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Crataegus_monogyna_flowers.jpg/320px-Crataegus_monogyna_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Crataegus_monogyna",
     winterHardy:"-35C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#E03040",waterNeed:"Laag",
     origin:"Europa, Noord-Afrika",idealTemp:"5-22C",minTemp:"-35C",maxHeight:"4-8m",
     humidity:"Laag",bloomSeason:"Mei (wit)",fruit:"Sept-okt (rode bessen)",toxic:false,toxicNote:"Doorns aanwezig.",
@@ -1895,6 +1979,7 @@ const PLANT_DB = [
     tips:["Beste plant voor biodiversiteit","Doorns = goede haag","Vogelparadijs"] },
 
   { id:"db-salix",name:"Treurwilg",latin:"Salix babylonica",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Salix_babylonica",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#608040",waterNeed:"Hoog",
     origin:"China",idealTemp:"10-25C",minTemp:"-20C",maxHeight:"10-15m",
     humidity:"Hoog",bloomSeason:"Mrt-apr",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -1907,6 +1992,7 @@ const PLANT_DB = [
 
   // ── BODEMBEDEKKERS ────────────────────────────────────────────────────────────
   { id:"db-pachysandra",name:"Schaduwkruiper",latin:"Pachysandra terminalis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pachysandra_terminalis",
     winterHardy:"-25C",growthRate:"Matig",light:"Schaduw",accentColor:"#2A5030",waterNeed:"Laag",
     origin:"Japan, China",idealTemp:"5-20C",minTemp:"-25C",maxHeight:"0.2-0.3m",
     humidity:"Matig",bloomSeason:"Apr-mei (wit)",fruit:"Kleine witte bessen",toxic:true,toxicNote:"Alle delen giftig.",
@@ -1918,7 +2004,7 @@ const PLANT_DB = [
     tips:["Beste bodembedekker voor droge schaduw","Verdringt onkruid","Alle delen giftig"] },
 
   { id:"db-vinca",name:"Maagdenpalm",latin:"Vinca minor",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vinca_minor_flowers.jpg/320px-Vinca_minor_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Vinca_minor",
     winterHardy:"-30C",growthRate:"Snel",light:"Schaduw/halfschaduw",accentColor:"#5060C0",waterNeed:"Laag",
     origin:"Europa",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"0.1-0.2m",
     humidity:"Laag",bloomSeason:"Mrt-mei",fruit:"Kleine capsules",toxic:true,toxicNote:"Alle delen giftig.",
@@ -1931,7 +2017,7 @@ const PLANT_DB = [
 
   // ── WATERPLANTEN ──────────────────────────────────────────────────────────────
   { id:"db-waterlelie",name:"Waterlelie",latin:"Nymphaea hybrida",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Nymphaea_marliacea_rosea.jpg/320px-Nymphaea_marliacea_rosea.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Nymphaea",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#F0C0D0",waterNeed:"Hoog",
     origin:"Wereldwijd (kwekerssoorten)",idealTemp:"15-28C",minTemp:"-25C",maxHeight:"Wateroppervlak",
     humidity:"Hoog",bloomSeason:"Jun-sept",fruit:"Capsules onder water",toxic:false,toxicNote:"",
@@ -1943,6 +2029,7 @@ const PLANT_DB = [
     tips:["5-6 uur zon voor bloei","Dieper dan 50cm voor winterhardheid","Regelmatig bladeren verwijderen"] },
 
   { id:"db-pontederia",name:"Moerashyacint",latin:"Pontederia cordata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pontederia_cordata",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#6070C0",waterNeed:"Hoog",
     origin:"Amerika",idealTemp:"15-28C",minTemp:"-20C",maxHeight:"0.6-1m",
     humidity:"Hoog",bloomSeason:"Jul-sept",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -1955,6 +2042,7 @@ const PLANT_DB = [
 
   // ── EXTRA GROENTEN ────────────────────────────────────────────────────────────
   { id:"db-pompoen",name:"Pompoen",latin:"Cucurbita maxima",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cucurbita_maxima",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#E06010",waterNeed:"Hoog",
     origin:"Zuid-Amerika",idealTemp:"18-28C",minTemp:"10C",maxHeight:"Kruiper (3-5m)",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Aug-okt",toxic:false,toxicNote:"",
@@ -1966,6 +2054,7 @@ const PLANT_DB = [
     tips:["Veel ruimte nodig","Uitlopers beperken voor grotere pompoen","1 plant = meerdere pompoenen"] },
 
   { id:"db-paprika",name:"Paprika",latin:"Capsicum annuum",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Capsicum_annuum",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Volle zon",accentColor:"#E03020",waterNeed:"Matig",
     origin:"Midden-Amerika",idealTemp:"20-30C",minTemp:"15C",maxHeight:"0.5-0.8m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Aug-okt",toxic:false,toxicNote:"",
@@ -1977,7 +2066,7 @@ const PLANT_DB = [
     tips:["Warmteminnend - kas of beschutte plek","Toppen voor meer vruchten","Spintmijt bij droog"] },
 
   { id:"db-broccoli",name:"Broccoli",latin:"Brassica oleracea italica",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Broccoli_and_cross_section_edit.jpg/320px-Broccoli_and_cross_section_edit.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Brassica_oleracea",
     winterHardy:"-5C",growthRate:"Snel",light:"Volle zon",accentColor:"#206020",waterNeed:"Matig",
     origin:"Middellandse Zee",idealTemp:"15-22C",minTemp:"-5C",maxHeight:"0.5-0.8m",
     humidity:"Matig",bloomSeason:"Oogst jun-okt",fruit:"Groene bloemkoolhoofden",toxic:false,toxicNote:"",
@@ -1989,7 +2078,7 @@ const PLANT_DB = [
     tips:["Vruchtwisseling tegen knolvoet","Rupsen verwijderen","Lichte vorst is ok"] },
 
   { id:"db-sla",name:"Sla",latin:"Lactuca sativa",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Lettuce_two.jpg/320px-Lettuce_two.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lactuca_sativa",
     winterHardy:"-3C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#60C040",waterNeed:"Hoog",
     origin:"Middellandse Zee",idealTemp:"12-20C",minTemp:"-3C",maxHeight:"0.2-0.4m",
     humidity:"Matig",bloomSeason:"Schieten bij warmte",fruit:"Oogst apr-okt",toxic:false,toxicNote:"",
@@ -2001,7 +2090,7 @@ const PLANT_DB = [
     tips:["Halfschaduw in zomer","Slakken zijn grootste vijand","Snel te kweken"] },
 
   { id:"db-peen",name:"Peen",latin:"Daucus carota sativa",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Carrots_orange_and_white.jpg/320px-Carrots_orange_and_white.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Daucus_carota",
     winterHardy:"-5C",growthRate:"Matig",light:"Volle zon",accentColor:"#E07020",waterNeed:"Matig",
     origin:"Afghanistan",idealTemp:"15-22C",minTemp:"-5C",maxHeight:"0.3-0.5m",
     humidity:"Laag",bloomSeason:"Oogst jul-nov",fruit:"Oranje wortels",toxic:false,toxicNote:"",
@@ -2013,7 +2102,7 @@ const PLANT_DB = [
     tips:["Losse grond zonder stenen","Wortelvlieg bestrijden met gaas","Niet te veel stikstof"] },
 
   { id:"db-ui",name:"Ui",latin:"Allium cepa",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Onion_on_white_background.jpg/320px-Onion_on_white_background.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Allium_cepa",
     winterHardy:"-5C",growthRate:"Matig",light:"Volle zon",accentColor:"#C08020",waterNeed:"Laag",
     origin:"Centraal-Azie",idealTemp:"15-25C",minTemp:"-5C",maxHeight:"0.4-0.6m",
     humidity:"Laag",bloomSeason:"Oogst aug-sept",fruit:"Bruine uien",toxic:false,toxicNote:"Giftig voor honden en katten.",
@@ -2025,7 +2114,7 @@ const PLANT_DB = [
     tips:["Giftig voor honden en katten","Droog bewaren na oogst","Makkelijk te telen"] },
 
   { id:"db-kool",name:"Boerenkool",latin:"Brassica oleracea acephala",category:"fruit",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kale-Bundle.jpg/320px-Kale-Bundle.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Brassica_oleracea",
     winterHardy:"-15C",growthRate:"Matig",light:"Volle zon",accentColor:"#306040",waterNeed:"Matig",
     origin:"West-Europa",idealTemp:"10-18C",minTemp:"-15C",maxHeight:"0.5-1m",
     humidity:"Matig",bloomSeason:"Oogst okt-feb",fruit:"Groene bladeren",toxic:false,toxicNote:"",
@@ -2038,7 +2127,7 @@ const PLANT_DB = [
 
   // ── EXTRA KRUIDEN ─────────────────────────────────────────────────────────────
   { id:"db-basilicum",name:"Basilicum",latin:"Ocimum basilicum",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Basil-Basilico-Ocimum_basilicum-albahaca.jpg/320px-Basil-Basilico-Ocimum_basilicum-albahaca.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ocimum_basilicum",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#20A040",waterNeed:"Matig",
     origin:"Tropisch Azie, Afrika",idealTemp:"20-30C",minTemp:"15C",maxHeight:"0.3-0.6m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -2050,7 +2139,7 @@ const PLANT_DB = [
     tips:["Bloemknoppen verwijderen","Warm en zonnig","Nooit in de koelkast"] },
 
   { id:"db-bieslook",name:"Bieslook",latin:"Allium schoenoprasum",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Allium_schoenoprasum.jpg/320px-Allium_schoenoprasum.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Allium_schoenoprasum",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#60B040",waterNeed:"Matig",
     origin:"Europa, Azie",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.2-0.4m",
     humidity:"Matig",bloomSeason:"Mei-jun (paars)",fruit:"Kleine nootjes",toxic:false,toxicNote:"Giftig voor honden en katten.",
@@ -2062,7 +2151,7 @@ const PLANT_DB = [
     tips:["Makkelijkste keukenkruid","Giftig voor honden en katten","Regelmatig knippen"] },
 
   { id:"db-peterselie",name:"Peterselie",latin:"Petroselinum crispum",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Petroselinum_crispum.jpg/320px-Petroselinum_crispum.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Petroselinum_crispum",
     winterHardy:"-10C",growthRate:"Traag",light:"Halfschaduw",accentColor:"#30A040",waterNeed:"Matig",
     origin:"Middellandse Zee",idealTemp:"10-22C",minTemp:"-10C",maxHeight:"0.3-0.5m",
     humidity:"Matig",bloomSeason:"Jaar 2 (tweejaarlijks)",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -2074,6 +2163,7 @@ const PLANT_DB = [
     tips:["Traag kiemend (3-4 weken)","Tweejarig","Van buiten naar binnen oogsten"] },
 
   { id:"db-koriander",name:"Koriander",latin:"Coriandrum sativum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Coriandrum_sativum",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Halfschaduw",accentColor:"#70C050",waterNeed:"Matig",
     origin:"Middellandse Zee, West-Azie",idealTemp:"15-22C",minTemp:"5C",maxHeight:"0.3-0.6m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Zaden zijn eetbaar",toxic:false,toxicNote:"",
@@ -2086,6 +2176,7 @@ const PLANT_DB = [
 
   // ── EXTRA BOLLEN ──────────────────────────────────────────────────────────────
   { id:"db-allium-sier",name:"Sierui",latin:"Allium giganteum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Allium_giganteum",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#9040C0",waterNeed:"Laag",
     origin:"Centraal-Azie",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"0.8-1.2m",
     humidity:"Laag",bloomSeason:"Jun",fruit:"Decoratieve zaaddozen",toxic:false,toxicNote:"Giftig voor honden en katten.",
@@ -2097,7 +2188,7 @@ const PLANT_DB = [
     tips:["Indrukwekkende bloemen","Zaaddozen laten staan","Giftig voor honden en katten"] },
 
   { id:"db-crocus",name:"Krokus",latin:"Crocus vernus",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Crocus_vernus_flowers.jpg/320px-Crocus_vernus_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Crocus_vernus",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#8040C0",waterNeed:"Laag",
     origin:"Europa, Middellandse Zee",idealTemp:"5-18C",minTemp:"-30C",maxHeight:"0.1-0.15m",
     humidity:"Laag",bloomSeason:"Feb-mrt",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -2109,7 +2200,7 @@ const PLANT_DB = [
     tips:["Vroegste bolbloem","Eerste bijenvoeding","Naturaliseert in gazon"] },
 
   { id:"db-hyacint",name:"Hyacint",latin:"Hyacinthus orientalis",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Hyacinthus_orientalis_flowers.jpg/320px-Hyacinthus_orientalis_flowers.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hyacinthus_orientalis",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#7060C0",waterNeed:"Laag",
     origin:"Klein-Azie",idealTemp:"10-20C",minTemp:"-25C",maxHeight:"0.2-0.3m",
     humidity:"Laag",bloomSeason:"Mrt-apr (geurend)",fruit:"Capsules",toxic:true,toxicNote:"Bol giftig. Sap irriteert huid.",
@@ -2121,7 +2212,7 @@ const PLANT_DB = [
     tips:["Intense geur","Handschoenen bij planten","Elke 3-4 jaar vernieuwen"] },
 
   { id:"db-muscari",name:"Druifhyacint",latin:"Muscari armeniacum",category:"vaste plant",
-    imageUrl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Muscari_armeniacum.jpg/320px-Muscari_armeniacum.jpg",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Muscari_armeniacum",
     winterHardy:"-30C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#4050C0",waterNeed:"Laag",
     origin:"Klein-Azie",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"0.15-0.25m",
     humidity:"Laag",bloomSeason:"Mrt-apr",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -2134,6 +2225,7 @@ const PLANT_DB = [
 
   // ── GRASSEN EN VARENS ─────────────────────────────────────────────────────────
   { id:"db-hakonechloa",name:"Japans Berggras",latin:"Hakonechloa macra",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Hakonechloa_macra",
     winterHardy:"-25C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#B0C040",waterNeed:"Matig",
     origin:"Japan",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"0.3-0.6m",
     humidity:"Matig",bloomSeason:"Aug-sept",fruit:"Kleine aartjes",toxic:false,toxicNote:"",
@@ -2145,6 +2237,7 @@ const PLANT_DB = [
     tips:["Ideaal voor halfschaduw","Golvende groeiwijze","Gouden herfstkleur"] },
 
   { id:"db-stipa",name:"Vedergras",latin:"Stipa tenuissima",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Nassella_tenuissima",
     winterHardy:"-20C",growthRate:"Matig",light:"Volle zon",accentColor:"#E0D080",waterNeed:"Laag",
     origin:"Noord-Amerika, Mexico",idealTemp:"10-35C",minTemp:"-20C",maxHeight:"0.4-0.7m",
     humidity:"Laag",bloomSeason:"Jun-okt",fruit:"Verspreidt zaden",toxic:false,toxicNote:"",
@@ -2156,6 +2249,7 @@ const PLANT_DB = [
     tips:["Zijdezachte pluimen","Droogtetolerant","Mooi in de wind"] },
 
   { id:"db-athyrium",name:"Wijfjesvaren",latin:"Athyrium filix-femina",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Athyrium_filix-femina",
     winterHardy:"-30C",growthRate:"Matig",light:"Schaduw",accentColor:"#40A040",waterNeed:"Matig",
     origin:"Europa, Noord-Amerika",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"0.6-1.2m",
     humidity:"Hoog",bloomSeason:"Geen (varen)",fruit:"Sporen",toxic:false,toxicNote:"",
@@ -2167,6 +2261,7 @@ const PLANT_DB = [
     tips:["Ideaal voor vochtige schaduw","Inheemse soort","Volledig winterhard"] },
 
   { id:"db-dryopteris",name:"Stekelvaren",latin:"Dryopteris filix-mas",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Dryopteris_filix-mas",
     winterHardy:"-30C",growthRate:"Matig",light:"Schaduw/halfschaduw",accentColor:"#306040",waterNeed:"Laag",
     origin:"Europa, Noord-Amerika",idealTemp:"5-20C",minTemp:"-30C",maxHeight:"0.6-1.2m",
     humidity:"Matig",bloomSeason:"Geen (varen)",fruit:"Sporen",toxic:false,toxicNote:"",
@@ -2179,6 +2274,7 @@ const PLANT_DB = [
 
 // ── KAMERPLANTEN EXTRA ────────────────────────────────────────────────────────
   { id:"db-pothos",name:"Epipremnum / Pothos",latin:"Epipremnum aureum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Epipremnum_aureum",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Halfschaduw",accentColor:"#40A040",waterNeed:"Laag",
     origin:"Polynesie",idealTemp:"18-28C",minTemp:"10C",maxHeight:"Klimmer (2-3m binnen)",
     humidity:"Matig",bloomSeason:"Zelden binnen",fruit:"Geen",toxic:true,toxicNote:"Giftig voor mensen en huisdieren.",
@@ -2190,6 +2286,7 @@ const PLANT_DB = [
     tips:["Makkelijkste kamerplant","Verdraagt weinig licht","Giftig voor huisdieren"] },
 
   { id:"db-sansevieria",name:"Vrouwentongen",latin:"Sansevieria trifasciata",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sansevieria_trifasciata",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#408040",waterNeed:"Laag",
     origin:"West-Afrika",idealTemp:"18-27C",minTemp:"10C",maxHeight:"0.5-1.2m",
     humidity:"Laag",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Giftig voor honden en katten.",
@@ -2201,6 +2298,7 @@ const PLANT_DB = [
     tips:["Bijna onverwoestbaar","Weinig water","Ideaal voor slaapkamer"] },
 
   { id:"db-ficus-ben",name:"Treurvijg",latin:"Ficus benjamina",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ficus_benjamina",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#306030",waterNeed:"Matig",
     origin:"Zuid-Azie, Australie",idealTemp:"18-28C",minTemp:"12C",maxHeight:"2-3m binnen",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Sap allergeen. Giftig voor huisdieren.",
@@ -2212,6 +2310,7 @@ const PLANT_DB = [
     tips:["NOOIT verplaatsen","Hoge luchtvochtigheid","Bladval = stress-signaal"] },
 
   { id:"db-spathiphyllum",name:"Lepelplant",latin:"Spathiphyllum wallisii",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Spathiphyllum",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Schaduw",accentColor:"#30A050",waterNeed:"Matig",
     origin:"Tropisch Amerika",idealTemp:"18-28C",minTemp:"12C",maxHeight:"0.4-0.8m",
     humidity:"Hoog",bloomSeason:"Lente-zomer",fruit:"Geen",toxic:true,toxicNote:"Alle delen giftig voor huisdieren.",
@@ -2223,6 +2322,7 @@ const PLANT_DB = [
     tips:["Geeft zelf aan wanneer water nodig","Top luchtzuiveraar","Bloeit in weinig licht"] },
 
   { id:"db-zamioculcas",name:"ZZ-plant",latin:"Zamioculcas zamiifolia",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Zamioculcas_zamiifolia",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Schaduw/halfschaduw",accentColor:"#2A6030",waterNeed:"Laag",
     origin:"Oost-Afrika",idealTemp:"18-26C",minTemp:"12C",maxHeight:"0.5-1m",
     humidity:"Laag",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Alle delen giftig bij inslikken.",
@@ -2234,6 +2334,7 @@ const PLANT_DB = [
     tips:["Kan maanden zonder water","Verdraagt diepe schaduw","Giftig bij inslikken"] },
 
   { id:"db-calathea",name:"Calathea",latin:"Calathea orbifolia",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Calathea_orbifolia",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Schaduw",accentColor:"#40A060",waterNeed:"Hoog",
     origin:"Tropisch Amerika",idealTemp:"18-25C",minTemp:"15C",maxHeight:"0.3-0.8m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2245,6 +2346,7 @@ const PLANT_DB = [
     tips:["Regenwater gebruiken","Hoge luchtvochtigheid","Geen directe zon"] },
 
   { id:"db-maranta",name:"Marantaplant",latin:"Maranta leuconeura",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Maranta_leuconeura",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#508040",waterNeed:"Matig",
     origin:"Brazilie",idealTemp:"18-25C",minTemp:"15C",maxHeight:"0.2-0.3m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2256,6 +2358,7 @@ const PLANT_DB = [
     tips:["Gebedspant","Hoge luchtvochtigheid","Regenwater gebruiken"] },
 
   { id:"db-dracaena",name:"Drakenboom",latin:"Dracaena marginata",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Dracaena_marginata",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Halfschaduw",accentColor:"#A02020",waterNeed:"Laag",
     origin:"Madagascar",idealTemp:"18-28C",minTemp:"12C",maxHeight:"1-3m binnen",
     humidity:"Laag",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Giftig voor honden en katten.",
@@ -2267,6 +2370,7 @@ const PLANT_DB = [
     tips:["Gedistilleerd water","Top afsnijden voor vertakking","Luchtzuiveraar"] },
 
   { id:"db-yucca-pot",name:"Yucca (kamer)",latin:"Yucca elephantipes",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Yucca_elephantipes",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Volle zon",accentColor:"#80A040",waterNeed:"Laag",
     origin:"Mexico, Midden-Amerika",idealTemp:"18-28C",minTemp:"7C",maxHeight:"2-4m binnen",
     humidity:"Laag",bloomSeason:"Zelden binnen",fruit:"Geen",toxic:true,toxicNote:"Licht giftig voor huisdieren.",
@@ -2278,6 +2382,7 @@ const PLANT_DB = [
     tips:["Verdraagt droogte uitstekend","S zomers buiten","Stam slaat water op"] },
 
   { id:"db-philodendron",name:"Philodendron",latin:"Philodendron hederaceum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Philodendron",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Halfschaduw",accentColor:"#308040",waterNeed:"Matig",
     origin:"Tropisch Amerika",idealTemp:"18-28C",minTemp:"12C",maxHeight:"Klimmer (2m+)",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Giftig voor mensen en huisdieren.",
@@ -2289,6 +2394,7 @@ const PLANT_DB = [
     tips:["Snelst groeiende kamerplant","Giftig","Hoge luchtvochtigheid"] },
 
   { id:"db-alocasia",name:"Olifantsoor (kamer)",latin:"Alocasia amazonica",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Alocasia",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#204030",waterNeed:"Matig",
     origin:"Aziatische tropisch woud",idealTemp:"18-28C",minTemp:"15C",maxHeight:"0.5-1.5m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Alle delen giftig.",
@@ -2300,6 +2406,7 @@ const PLANT_DB = [
     tips:["Hoge luchtvochtigheid","Niet te koud","Giftig"] },
 
   { id:"db-begonia-rex",name:"Begonia Rex",latin:"Begonia rex",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Begonia_rex",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#C04060",waterNeed:"Matig",
     origin:"India, Azie",idealTemp:"16-24C",minTemp:"12C",maxHeight:"0.3-0.6m",
     humidity:"Matig",bloomSeason:"Zelden (blad is decoratief)",fruit:"Geen",toxic:true,toxicNote:"Licht giftig voor huisdieren.",
@@ -2311,6 +2418,7 @@ const PLANT_DB = [
     tips:["Niet op blad gieten","Prachtige bladtekeningen","Koeler overwinteren"] },
 
   { id:"db-anthurium",name:"Flamingoplant",latin:"Anthurium andraeanum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Anthurium_andraeanum",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Halfschaduw",accentColor:"#E02040",waterNeed:"Matig",
     origin:"Colombia, Ecuador",idealTemp:"18-28C",minTemp:"15C",maxHeight:"0.4-0.8m",
     humidity:"Hoog",bloomSeason:"Jaarrond",fruit:"Kleine bessen",toxic:true,toxicNote:"Alle delen giftig.",
@@ -2322,6 +2430,7 @@ const PLANT_DB = [
     tips:["Bloeit maanden lang","Hoge luchtvochtigheid","Giftig"] },
 
   { id:"db-dieffenbachia",name:"Dieffenbachia",latin:"Dieffenbachia seguine",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Dieffenbachia",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#508050",waterNeed:"Matig",
     origin:"Tropisch Amerika",idealTemp:"18-28C",minTemp:"15C",maxHeight:"0.6-1.5m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"ZEER GIFTIG. Veroorzaakt tijdelijke stomheid bij inslikken.",
@@ -2333,6 +2442,7 @@ const PLANT_DB = [
     tips:["ZEER GIFTIG - handschoenen","Ver van kinderen en huisdieren","Hoge luchtvochtigheid"] },
 
   { id:"db-ctenanthe",name:"Ctenanthe",latin:"Ctenanthe burle-marxii",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Ctenanthe",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#508060",waterNeed:"Matig",
     origin:"Brazilie",idealTemp:"18-25C",minTemp:"15C",maxHeight:"0.3-0.5m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2344,6 +2454,7 @@ const PLANT_DB = [
     tips:["Niet giftig","Hoge luchtvochtigheid","Regenwater gebruiken"] },
 
   { id:"db-peperomia",name:"Peperomia",latin:"Peperomia obtusifolia",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Peperomia_obtusifolia",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Halfschaduw",accentColor:"#408040",waterNeed:"Laag",
     origin:"Tropisch Amerika",idealTemp:"18-26C",minTemp:"12C",maxHeight:"0.2-0.4m",
     humidity:"Laag",bloomSeason:"Lente (onopvallend)",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2355,6 +2466,7 @@ const PLANT_DB = [
     tips:["Niet giftig","Compact","Weinig water"] },
 
   { id:"db-bromeliad",name:"Bromelia",latin:"Guzmania lingulata",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Guzmania",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Halfschaduw",accentColor:"#E04020",waterNeed:"Matig",
     origin:"Tropisch Amerika",idealTemp:"18-26C",minTemp:"12C",maxHeight:"0.3-0.6m",
     humidity:"Hoog",bloomSeason:"Jaarrond (afhankelijk van soort)",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2366,6 +2478,7 @@ const PLANT_DB = [
     tips:["Water in de koker gieten","Moederplant sterft na bloei","Uitlopers bewaren"] },
 
   { id:"db-pilea",name:"Pannenkoekenplant",latin:"Pilea peperomioides",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pilea_peperomioides",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#50A040",waterNeed:"Matig",
     origin:"China (Yunnan)",idealTemp:"15-25C",minTemp:"10C",maxHeight:"0.3-0.5m",
     humidity:"Matig",bloomSeason:"Lente (klein)",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2377,6 +2490,7 @@ const PLANT_DB = [
     tips:["Draai regelmatig voor gelijkmatige groei","Uitlopers makkelijk te delen","Niet giftig"] },
 
   { id:"db-cactus-cereus",name:"Cactus (kolom)",latin:"Cereus peruvianus",category:"succulent",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cereus_repandus",
     winterHardy:"-3C",growthRate:"Traag",light:"Volle zon",accentColor:"#508030",waterNeed:"Laag",
     origin:"Zuid-Amerika",idealTemp:"18-35C",minTemp:"-3C",maxHeight:"5-10m buiten (1-2m binnen)",
     humidity:"Laag",bloomSeason:"Zomer (s nachts)",fruit:"Rode vruchten",toxic:false,toxicNote:"Stekels zijn scherp.",
@@ -2388,6 +2502,7 @@ const PLANT_DB = [
     tips:["Winterrust bij 5-10C","Bloeit s nachts","Weinig water"] },
 
   { id:"db-echeveria",name:"Echeveria",latin:"Echeveria elegans",category:"succulent",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Echeveria",
     winterHardy:"-3C",growthRate:"Traag",light:"Volle zon",accentColor:"#80B080",waterNeed:"Laag",
     origin:"Mexico",idealTemp:"15-30C",minTemp:"-3C",maxHeight:"0.1-0.2m",
     humidity:"Laag",bloomSeason:"Lente-zomer (koraalrood)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2399,6 +2514,7 @@ const PLANT_DB = [
     tips:["Waslaag niet beschadigen","Weinig water","Ideaal voor combinaties"] },
 
   { id:"db-haworthia",name:"Haworthia",latin:"Haworthia attenuata",category:"succulent",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Haworthia",
     winterHardy:"-2C",growthRate:"Traag",light:"Halfschaduw",accentColor:"#406040",waterNeed:"Laag",
     origin:"Zuid-Afrika",idealTemp:"16-26C",minTemp:"-2C",maxHeight:"0.1-0.2m",
     humidity:"Laag",bloomSeason:"Zomer (klein)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2410,6 +2526,7 @@ const PLANT_DB = [
     tips:["Verdraagt weinig licht","Ideaal voor kantoor","Weinig water"] },
 
   { id:"db-crassula",name:"Jade Plant / Stuiverplant",latin:"Crassula ovata",category:"succulent",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Crassula_ovata",
     winterHardy:"-2C",growthRate:"Traag",light:"Volle zon",accentColor:"#508040",waterNeed:"Laag",
     origin:"Zuid-Afrika",idealTemp:"15-28C",minTemp:"-2C",maxHeight:"0.5-2m (traag)",
     humidity:"Laag",bloomSeason:"Winter-lente (wit-roze)",fruit:"Kleine capsules",toxic:true,toxicNote:"Giftig voor honden en katten.",
@@ -2421,6 +2538,7 @@ const PLANT_DB = [
     tips:["Kan decennia oud worden","Koele winter voor bloei","Giftig voor huisdieren"] },
 
   { id:"db-gasteria",name:"Gasteria",latin:"Gasteria carinata",category:"succulent",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Gasteria",
     winterHardy:"-2C",growthRate:"Traag",light:"Halfschaduw",accentColor:"#507040",waterNeed:"Laag",
     origin:"Zuid-Afrika",idealTemp:"15-25C",minTemp:"-2C",maxHeight:"0.1-0.3m",
     humidity:"Laag",bloomSeason:"Lente-zomer (oranje-rood)",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2432,6 +2550,7 @@ const PLANT_DB = [
     tips:["Verdraagt halfschaduw","Familie van aloe","Weinig water"] },
 
   { id:"db-lithops",name:"Levensstenen",latin:"Lithops spp.",category:"succulent",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lithops",
     winterHardy:"-2C",growthRate:"Traag",light:"Volle zon",accentColor:"#A08060",waterNeed:"Laag",
     origin:"Zuid-Afrika, Namibie",idealTemp:"15-30C",minTemp:"-2C",maxHeight:"0.02-0.05m",
     humidity:"Laag",bloomSeason:"Herfst",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2445,6 +2564,7 @@ const PLANT_DB = [
 
   // ── MEER KAMERPLANTEN ─────────────────────────────────────────────────────────
   { id:"db-fittonia",name:"Mozaiekplant",latin:"Fittonia albivenis",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Fittonia_albivenis",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Schaduw",accentColor:"#E07060",waterNeed:"Hoog",
     origin:"Peru, Colombia",idealTemp:"18-26C",minTemp:"15C",maxHeight:"0.1-0.2m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2456,6 +2576,7 @@ const PLANT_DB = [
     tips:["Nooit uitdrogen","Herstelt snel na water","Hoge luchtvochtigheid"] },
 
   { id:"db-schefflera",name:"Vingerboom",latin:"Schefflera arboricola",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Schefflera_arboricola",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#308040",waterNeed:"Matig",
     origin:"Taiwan, Hainan",idealTemp:"18-28C",minTemp:"12C",maxHeight:"2-4m binnen",
     humidity:"Matig",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Giftig voor huisdieren.",
@@ -2467,6 +2588,7 @@ const PLANT_DB = [
     tips:["Kan fors gesnoeid worden","Giftig voor huisdieren","Verdraagt verwaarlozing"] },
 
   { id:"db-tradescantia",name:"Vaderplant",latin:"Tradescantia zebrina",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Tradescantia_zebrina",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Halfschaduw",accentColor:"#8040A0",waterNeed:"Matig",
     origin:"Mexico",idealTemp:"15-25C",minTemp:"10C",maxHeight:"Hangend (0.5m+)",
     humidity:"Matig",bloomSeason:"Lente-zomer",fruit:"Kleine capsules",toxic:true,toxicNote:"Sap veroorzaakt huidirritatie.",
@@ -2478,6 +2600,7 @@ const PLANT_DB = [
     tips:["Snelgroeiend hangplant","Sap irriteert huid","Regelmatig toppen"] },
 
   { id:"db-aglaonema",name:"Aglaonema",latin:"Aglaonema commutatum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Aglaonema",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Schaduw",accentColor:"#508050",waterNeed:"Laag",
     origin:"Zuidoost-Azie",idealTemp:"18-27C",minTemp:"15C",maxHeight:"0.3-0.8m",
     humidity:"Matig",bloomSeason:"Zelden",fruit:"Rode bessen (giftig)",toxic:true,toxicNote:"Alle delen giftig.",
@@ -2489,6 +2612,7 @@ const PLANT_DB = [
     tips:["Verdraagt diepe schaduw","Nooit onder 15C","Giftig"] },
 
   { id:"db-asplenium",name:"Vogelnest varen",latin:"Asplenium nidus",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Asplenium_nidus",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Halfschaduw",accentColor:"#408040",waterNeed:"Matig",
     origin:"Tropisch Azie, Australie",idealTemp:"18-27C",minTemp:"15C",maxHeight:"0.3-0.9m",
     humidity:"Hoog",bloomSeason:"Geen (varen)",fruit:"Sporen",toxic:false,toxicNote:"",
@@ -2500,6 +2624,7 @@ const PLANT_DB = [
     tips:["Niet in het midden gieten","Regenwater gebruiken","Hoge luchtvochtigheid"] },
 
   { id:"db-chlorophytum",name:"Grastlelie / Vliegend Hollander",latin:"Chlorophytum comosum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Chlorophytum_comosum",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Halfschaduw",accentColor:"#70A040",waterNeed:"Matig",
     origin:"Zuid-Afrika",idealTemp:"15-25C",minTemp:"8C",maxHeight:"0.3-0.5m (hangend)",
     humidity:"Laag",bloomSeason:"Zomer (klein wit)",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2511,6 +2636,7 @@ const PLANT_DB = [
     tips:["Ideale beginnerplant","Niet giftig","Uitlopers makkelijk te vermeerderen"] },
 
   { id:"db-cyclamen",name:"Cyclaam",latin:"Cyclamen persicum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cyclamen_persicum",
     winterHardy:"-5C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#E04080",waterNeed:"Matig",
     origin:"Middellandse Zee",idealTemp:"12-18C",minTemp:"-5C",maxHeight:"0.2-0.4m",
     humidity:"Matig",bloomSeason:"Okt-mrt",fruit:"Capsules",toxic:true,toxicNote:"Knol giftig voor huisdieren.",
@@ -2522,6 +2648,7 @@ const PLANT_DB = [
     tips:["Koel houden (12-15C) voor meer bloei","Van onderen gieten","Knol giftig voor huisdieren"] },
 
   { id:"db-orchidee",name:"Phalaenopsis",latin:"Phalaenopsis amabilis",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Phalaenopsis",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Halfschaduw",accentColor:"#F0D0E0",waterNeed:"Laag",
     origin:"Zuidoost-Azie, Australie",idealTemp:"18-28C",minTemp:"15C",maxHeight:"0.3-0.7m",
     humidity:"Hoog",bloomSeason:"Jaarrond (piekbloei winter)",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2533,6 +2660,7 @@ const PLANT_DB = [
     tips:["10min weken in water","Na bloei boven 2e knoop afknippen","Groene wortels = gezond"] },
 
   { id:"db-african-violet",name:"Kaaps Viooltje",latin:"Saintpaulia ionantha",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Saintpaulia",
     winterHardy:"Niet winterhard",growthRate:"Traag",light:"Halfschaduw",accentColor:"#6040C0",waterNeed:"Matig",
     origin:"Oost-Afrika",idealTemp:"18-24C",minTemp:"15C",maxHeight:"0.1-0.2m",
     humidity:"Matig",bloomSeason:"Jaarrond",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2544,6 +2672,7 @@ const PLANT_DB = [
     tips:["NOOIT water op bladeren","Van onderen gieten","Jaarrond bloeiend"] },
 
   { id:"db-croton",name:"Croton",latin:"Codiaeum variegatum",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Codiaeum_variegatum",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Volle zon",accentColor:"#E06010",waterNeed:"Matig",
     origin:"Polynesie, Maleisie",idealTemp:"18-28C",minTemp:"15C",maxHeight:"0.5-2m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:true,toxicNote:"Sap giftig en huidirritant.",
@@ -2555,6 +2684,7 @@ const PLANT_DB = [
     tips:["Meer licht = intensere kleuren","Handschoenen bij snoeien","Giftig sap"] },
 
   { id:"db-nerve-plant",name:"Zenuwplant",latin:"Fittonia verschaffeltii",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Fittonia_albivenis",
     winterHardy:"Niet winterhard",growthRate:"Matig",light:"Schaduw",accentColor:"#E06060",waterNeed:"Hoog",
     origin:"Peru",idealTemp:"18-26C",minTemp:"15C",maxHeight:"0.1-0.2m",
     humidity:"Hoog",bloomSeason:"Zelden",fruit:"Geen",toxic:false,toxicNote:"",
@@ -2567,6 +2697,7 @@ const PLANT_DB = [
 
   // ── ROOFPLANTEN / BIJZONDER ───────────────────────────────────────────────────
   { id:"db-dionaea",name:"Vleesetende plant",latin:"Dionaea muscipula",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Dionaea_muscipula",
     winterHardy:"-5C",growthRate:"Traag",light:"Volle zon",accentColor:"#A02020",waterNeed:"Hoog",
     origin:"Noord- en Zuid-Carolina (VS)",idealTemp:"20-35C",minTemp:"-5C",maxHeight:"0.1-0.2m",
     humidity:"Hoog",bloomSeason:"Jun (witte bloem)",fruit:"Kleine zwarte zaden",toxic:false,toxicNote:"",
@@ -2578,6 +2709,7 @@ const PLANT_DB = [
     tips:["NOOIT mineraalwater","Winterrust verplicht (3 mnd koud)","Laat hem zelf insecten vangen"] },
 
   { id:"db-sarracenia",name:"Bekerplant",latin:"Sarracenia purpurea",category:"kamerplant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sarracenia_purpurea",
     winterHardy:"-15C",growthRate:"Traag",light:"Volle zon",accentColor:"#803040",waterNeed:"Hoog",
     origin:"Noord-Amerika",idealTemp:"15-30C",minTemp:"-15C",maxHeight:"0.2-0.6m",
     humidity:"Hoog",bloomSeason:"Lente",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -2590,6 +2722,7 @@ const PLANT_DB = [
 
   // ── VASTE PLANTEN BORDER ──────────────────────────────────────────────────────
   { id:"db-campanula",name:"Klokjesbloem",latin:"Campanula persicifolia",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Campanula_persicifolia",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#7090C0",waterNeed:"Matig",
     origin:"Europa, West-Azie",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"0.5-1m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -2601,6 +2734,7 @@ const PLANT_DB = [
     tips:["Zelfzaaier","Na bloei snoeien voor meer bloei","Klassieke border plant"] },
 
   { id:"db-lupine",name:"Lupine",latin:"Lupinus polyphyllus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Lupinus_polyphyllus",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#6040C0",waterNeed:"Matig",
     origin:"West-Noord-Amerika",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"0.8-1.5m",
     humidity:"Laag",bloomSeason:"Mei-jun",fruit:"Peulen",toxic:true,toxicNote:"Zaden giftig.",
@@ -2612,6 +2746,7 @@ const PLANT_DB = [
     tips:["Zaden giftig","Stikstoffixerend","Na bloei snoeien voor tweede bloei"] },
 
   { id:"db-delphinium",name:"Ridderspoor",latin:"Delphinium elatum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Delphinium",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#4050C0",waterNeed:"Matig",
     origin:"Europa, Noord-Azie",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"1-2m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Capsules",toxic:true,toxicNote:"Alle delen giftig.",
@@ -2623,6 +2758,7 @@ const PLANT_DB = [
     tips:["Alle delen giftig","Steun nodig bij wind","Na bloei afsnijden voor tweede bloei"] },
 
   { id:"db-aquilegia",name:"Akelei",latin:"Aquilegia vulgaris",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Aquilegia_vulgaris",
     winterHardy:"-30C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#8050C0",waterNeed:"Matig",
     origin:"Europa",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"0.3-0.8m",
     humidity:"Matig",bloomSeason:"Apr-jun",fruit:"Capsules (zelfzaaier)",toxic:true,toxicNote:"Licht giftig.",
@@ -2634,6 +2770,7 @@ const PLANT_DB = [
     tips:["Inheemse soort","Zelfzaaier","Licht giftig"] },
 
   { id:"db-thalictrum",name:"Ruit",latin:"Thalictrum aquilegiifolium",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Thalictrum_aquilegiifolium",
     winterHardy:"-30C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#D080C0",waterNeed:"Matig",
     origin:"Europa, Noord-Azie",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Mei-jun",fruit:"Gevleugelde nootjes",toxic:false,toxicNote:"",
@@ -2645,6 +2782,7 @@ const PLANT_DB = [
     tips:["Elegant luchtig effect","Halfschaduw","Hoge border"] },
 
   { id:"db-eryngium",name:"Blauwe Distel",latin:"Eryngium planum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Eryngium_planum",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#4070A0",waterNeed:"Laag",
     origin:"Oost-Europa, West-Azie",idealTemp:"10-30C",minTemp:"-25C",maxHeight:"0.5-0.8m",
     humidity:"Laag",bloomSeason:"Jul-sept",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -2656,6 +2794,7 @@ const PLANT_DB = [
     tips:["Droogtetolerant","Metallic blauwe bloemen","Decoratief in winter"] },
 
   { id:"db-echinops",name:"Kogeldistel",latin:"Echinops ritro",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Echinops_ritro",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#5060A0",waterNeed:"Laag",
     origin:"Zuid- en Oost-Europa",idealTemp:"10-30C",minTemp:"-25C",maxHeight:"0.8-1.2m",
     humidity:"Laag",bloomSeason:"Jul-sept",fruit:"Kleine achenen",toxic:false,toxicNote:"",
@@ -2667,6 +2806,7 @@ const PLANT_DB = [
     tips:["Bolvormige blauwe bloemen","Droogtetolerant","Bijenmagnet"] },
 
   { id:"db-agastache",name:"Dropplant",latin:"Agastache foeniculum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Agastache_foeniculum",
     winterHardy:"-20C",growthRate:"Snel",light:"Volle zon",accentColor:"#8060C0",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"15-30C",minTemp:"-20C",maxHeight:"0.6-1.2m",
     humidity:"Laag",bloomSeason:"Jul-okt",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -2678,6 +2818,7 @@ const PLANT_DB = [
     tips:["Dropgeur","Vlinder- en bijenmagnet","Droogtetolerant"] },
 
   { id:"db-sanguisorba",name:"Pimpernel",latin:"Sanguisorba officinalis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sanguisorba_officinalis",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#A03040",waterNeed:"Matig",
     origin:"Europa, Noord-Azie",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Jun-sept",fruit:"Kleine vruchten",toxic:false,toxicNote:"",
@@ -2689,6 +2830,7 @@ const PLANT_DB = [
     tips:["Inheemse soort","Donkerrode bloemen","Bijenmagnet"] },
 
   { id:"db-veronicastrum",name:"Virginische ereprijs",latin:"Veronicastrum virginicum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Veronicastrum_virginicum",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#7090C0",waterNeed:"Matig",
     origin:"Noord-Amerika",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"1-2m",
     humidity:"Matig",bloomSeason:"Jul-sept",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2700,6 +2842,7 @@ const PLANT_DB = [
     tips:["Indrukwekkende hoogte","Kaarsvormige bloemen","Bijen- en vlindermagnet"] },
 
   { id:"db-persicaria",name:"Duizendknoop",latin:"Persicaria amplexicaulis",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Persicaria_amplexicaulis",
     winterHardy:"-25C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#C03040",waterNeed:"Matig",
     origin:"Himalaya",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"0.8-1.2m",
     humidity:"Matig",bloomSeason:"Jun-okt",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -2713,6 +2856,7 @@ const PLANT_DB = [
 
   // ── MEER BOMEN EN HEESTERS ────────────────────────────────────────────────────
   { id:"db-cercis",name:"Judasboom",latin:"Cercis siliquastrum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Cercis_siliquastrum",
     winterHardy:"-15C",growthRate:"Matig",light:"Volle zon",accentColor:"#E050A0",waterNeed:"Laag",
     origin:"Zuid-Europa, West-Azie",idealTemp:"15-30C",minTemp:"-15C",maxHeight:"5-10m",
     humidity:"Laag",bloomSeason:"Apr-mei (roze-paars voor de bladeren)",fruit:"Paarse peulen",toxic:false,toxicNote:"",
@@ -2724,6 +2868,7 @@ const PLANT_DB = [
     tips:["Bloeit op de stam","Beschutte warme plek","Spektaculaire voorjaarsbloeier"] },
 
   { id:"db-catalpa",name:"Trompetboom",latin:"Catalpa bignonioides",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Catalpa_bignonioides",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#F0F0E0",waterNeed:"Matig",
     origin:"Zuid-USA",idealTemp:"15-30C",minTemp:"-25C",maxHeight:"10-20m",
     humidity:"Matig",bloomSeason:"Jun-jul",fruit:"Lange peulen (25-50cm)",toxic:false,toxicNote:"",
@@ -2735,6 +2880,7 @@ const PLANT_DB = [
     tips:["Jaarlijks fors snoeien voor reusachtige bladeren","Tropisch effect","Volledig winterhard"] },
 
   { id:"db-robinia",name:"Robinia",latin:"Robinia pseudoacacia",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Robinia_pseudoacacia",
     winterHardy:"-30C",growthRate:"Snel",light:"Volle zon",accentColor:"#F0F0D0",waterNeed:"Laag",
     origin:"Oost-Noord-Amerika",idealTemp:"10-30C",minTemp:"-30C",maxHeight:"15-25m",
     humidity:"Laag",bloomSeason:"Mei-jun (wit, geurend)",fruit:"Peulen",toxic:true,toxicNote:"Bast en zaden giftig.",
@@ -2746,6 +2892,7 @@ const PLANT_DB = [
     tips:["Wortelopschot agressief verwijderen","Honingbij favoriet","Stikstoffixerend"] },
 
   { id:"db-aesculus",name:"Paardenkastanje",latin:"Aesculus hippocastanum",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Aesculus_hippocastanum",
     winterHardy:"-30C",growthRate:"Matig",light:"Volle zon",accentColor:"#F0E0C0",waterNeed:"Matig",
     origin:"Griekenland, Albanie",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"20-30m",
     humidity:"Matig",bloomSeason:"Apr-mei (wit)",fruit:"Kastanjes (sept-okt)",toxic:true,toxicNote:"Kastanjes giftig voor mensen en huisdieren.",
@@ -2757,6 +2904,7 @@ const PLANT_DB = [
     tips:["Kastanjes GIFTIG voor mensen","Spectaculaire kaarsbloesem","Grote boom - veel ruimte nodig"] },
 
   { id:"db-liriodendron",name:"Tulpenboom",latin:"Liriodendron tulipifera",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Liriodendron_tulipifera",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#80C040",waterNeed:"Matig",
     origin:"Oost-Noord-Amerika",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"20-40m",
     humidity:"Matig",bloomSeason:"Jun (tulpvormig)",fruit:"Gevleugelde nootjes",toxic:false,toxicNote:"",
@@ -2768,6 +2916,7 @@ const PLANT_DB = [
     tips:["Bloeit na 10-15 jaar","Spectaculaire herfstkleur","Veel ruimte nodig"] },
 
   { id:"db-koelreuteria",name:"Chinese Lampionboom",latin:"Koelreuteria paniculata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Koelreuteria_paniculata",
     winterHardy:"-20C",growthRate:"Matig",light:"Volle zon",accentColor:"#E0A020",waterNeed:"Laag",
     origin:"China, Korea",idealTemp:"15-30C",minTemp:"-20C",maxHeight:"8-15m",
     humidity:"Laag",bloomSeason:"Jul-aug (geel)",fruit:"Lampionvormige vruchten (rood-bruin)",toxic:false,toxicNote:"",
@@ -2779,6 +2928,7 @@ const PLANT_DB = [
     tips:["Unieke lampionvruchten","Zomerbloei (jul-aug)","Droogtetolerant"] },
 
   { id:"db-sambucus",name:"Vlier",latin:"Sambucus nigra",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Sambucus_nigra",
     winterHardy:"-30C",growthRate:"Snel",light:"Zon/halfschaduw",accentColor:"#506030",waterNeed:"Matig",
     origin:"Europa, Noord-Afrika",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"5-10m",
     humidity:"Matig",bloomSeason:"Jun (wit)",fruit:"Aug-sept (zwarte bessen)",toxic:true,toxicNote:"Rauwe bessen en bladeren giftig.",
@@ -2790,6 +2940,7 @@ const PLANT_DB = [
     tips:["Bloemen voor vlierbloesemdrank","Rauwe bessen giftig","Inheemse soort"] },
 
   { id:"db-corylus-max",name:"Bloedhazelaar",latin:"Corylus maxima Purpurea",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Corylus_maxima",
     winterHardy:"-25C",growthRate:"Matig",light:"Volle zon",accentColor:"#602030",waterNeed:"Laag",
     origin:"Zuidoost-Europa",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"4-6m",
     humidity:"Laag",bloomSeason:"Jan-feb (rode katjes)",fruit:"Rode hazelnoten",toxic:false,toxicNote:"",
@@ -2801,6 +2952,7 @@ const PLANT_DB = [
     tips:["Rode bladeren decoratief","Katjes in januari","Eetbare hazelnoten"] },
 
   { id:"db-eleagnus-aut",name:"Olijfwilg (herfst)",latin:"Elaeagnus umbellata",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Elaeagnus_umbellata",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#708040",waterNeed:"Laag",
     origin:"China, Japan, Himalaya",idealTemp:"10-25C",minTemp:"-25C",maxHeight:"4-6m",
     humidity:"Laag",bloomSeason:"Mei-jun (geurend)",fruit:"Rode bessen (sept-okt, eetbaar)",toxic:false,toxicNote:"",
@@ -2813,6 +2965,7 @@ const PLANT_DB = [
 
   // ── MEER KLIMPLANTEN ──────────────────────────────────────────────────────────
   { id:"db-schizophragma",name:"Klimhortensia",latin:"Schizophragma hydrangeoides",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Schizophragma_hydrangeoides",
     winterHardy:"-25C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#F0F0E0",waterNeed:"Matig",
     origin:"Japan, Korea",idealTemp:"10-22C",minTemp:"-25C",maxHeight:"Klimmer (8-10m)",
     humidity:"Matig",bloomSeason:"Jul-aug",fruit:"Kleine capsules",toxic:false,toxicNote:"",
@@ -2824,6 +2977,7 @@ const PLANT_DB = [
     tips:["Zelfhechtend","Bloeit in halfschaduw","Langzaam maar imposant"] },
 
   { id:"db-actinidia-col",name:"Bonte Kiwi",latin:"Actinidia kolomikta",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Actinidia_kolomikta",
     winterHardy:"-30C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#F090A0",waterNeed:"Matig",
     origin:"Oost-Azie",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"Klimmer (5m)",
     humidity:"Matig",bloomSeason:"Jun",fruit:"Kleine eetbare kiwis",toxic:false,toxicNote:"",
@@ -2835,6 +2989,7 @@ const PLANT_DB = [
     tips:["Bonte roze-witte bladeren","Katten zijn er dol op","Kleine eetbare kiwis"] },
 
   { id:"db-humulus",name:"Hop",latin:"Humulus lupulus",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Humulus_lupulus",
     winterHardy:"-30C",growthRate:"Snel",light:"Volle zon",accentColor:"#70A030",waterNeed:"Matig",
     origin:"Europa",idealTemp:"10-25C",minTemp:"-30C",maxHeight:"Klimmer (6-8m)",
     humidity:"Matig",bloomSeason:"Jul-aug",fruit:"Hopbellen (voor bier)",toxic:false,toxicNote:"",
@@ -2847,6 +3002,7 @@ const PLANT_DB = [
 
   // ── MEER MEDITERRANE PLANTEN ──────────────────────────────────────────────────
   { id:"db-artemisia",name:"Alsem",latin:"Artemisia absinthium",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Artemisia_absinthium",
     winterHardy:"-25C",growthRate:"Snel",light:"Volle zon",accentColor:"#C0C080",waterNeed:"Laag",
     origin:"Europa, Noord-Azie",idealTemp:"10-30C",minTemp:"-25C",maxHeight:"0.5-1.2m",
     humidity:"Laag",bloomSeason:"Jul-aug (onopvallend)",fruit:"Kleine achenen",toxic:false,toxicNote:"Grote hoeveelheden giftig.",
@@ -2858,6 +3014,7 @@ const PLANT_DB = [
     tips:["Zilverachtig blad","Droogtetolerant","Aromatisch"] },
 
   { id:"db-phlomis",name:"Salie-struik",latin:"Phlomis fruticosa",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Phlomis_fruticosa",
     winterHardy:"-10C",growthRate:"Matig",light:"Volle zon",accentColor:"#E0C020",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-35C",minTemp:"-10C",maxHeight:"0.8-1.5m",
     humidity:"Laag",bloomSeason:"Jun-jul (geel)",fruit:"Decoratieve zaaddozen",toxic:false,toxicNote:"",
@@ -2869,6 +3026,7 @@ const PLANT_DB = [
     tips:["Wollige bladeren","Decoratieve zaaddozen","Droogtetolerant"] },
 
   { id:"db-santolina",name:"Heiligbloem",latin:"Santolina chamaecyparissus",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Santolina_chamaecyparissus",
     winterHardy:"-15C",growthRate:"Matig",light:"Volle zon",accentColor:"#E0D020",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-35C",minTemp:"-15C",maxHeight:"0.3-0.6m",
     humidity:"Laag",bloomSeason:"Jun-aug (geel)",fruit:"Kleine achenen",toxic:false,toxicNote:"",
@@ -2880,6 +3038,7 @@ const PLANT_DB = [
     tips:["Zilverachtig aromatisch","Ideaal als lage haag","Droogtetolerant"] },
 
   { id:"db-rosmarinus-off",name:"Rozemarijn (prostrata)",latin:"Rosmarinus officinalis Prostratus",category:"mediterraan",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Salvia_rosmarinus",
     winterHardy:"-10C",growthRate:"Matig",light:"Volle zon",accentColor:"#407060",waterNeed:"Laag",
     origin:"Middellandse Zee",idealTemp:"15-30C",minTemp:"-10C",maxHeight:"0.3-0.5m (kruipend)",
     humidity:"Laag",bloomSeason:"Mrt-mei",fruit:"Kleine nootjes",toxic:false,toxicNote:"",
@@ -2892,6 +3051,7 @@ const PLANT_DB = [
 
   // ── MEER EXOTEN ───────────────────────────────────────────────────────────────
   { id:"db-tetrapanax",name:"Rijstpapierplant",latin:"Tetrapanax papyrifer",category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Tetrapanax_papyrifer",
     winterHardy:"-10C",growthRate:"Snel",light:"Halfschaduw",accentColor:"#706040",waterNeed:"Matig",
     origin:"China, Taiwan",idealTemp:"15-28C",minTemp:"-10C",maxHeight:"3-5m",
     humidity:"Matig",bloomSeason:"Herfst",fruit:"Kleine zwarte bessen",toxic:false,toxicNote:"Haren van blad irriteren huid.",
@@ -2903,6 +3063,7 @@ const PLANT_DB = [
     tips:["Spectaculaire bladeren","Haren irriteren huid - handschoenen","Wortels overleven -10C"] },
 
   { id:"db-melianthus",name:"Honigstruik",latin:"Melianthus major",category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Melianthus_major",
     winterHardy:"-8C",growthRate:"Snel",light:"Volle zon",accentColor:"#6080A0",waterNeed:"Matig",
     origin:"Zuid-Afrika",idealTemp:"15-28C",minTemp:"-8C",maxHeight:"2-3m",
     humidity:"Matig",bloomSeason:"Zomer (rood-bruin)",fruit:"Blazige capsules",toxic:true,toxicNote:"Alle delen giftig.",
@@ -2914,6 +3075,7 @@ const PLANT_DB = [
     tips:["Blauw-grijs spectaculair blad","Blad ruikt naar pindakaas","Giftig"] },
 
   { id:"db-fatsia",name:"Vingerplant",latin:"Fatsia japonica",category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Fatsia_japonica",
     winterHardy:"-12C",growthRate:"Matig",light:"Schaduw/halfschaduw",accentColor:"#204030",waterNeed:"Matig",
     origin:"Japan, Korea",idealTemp:"5-22C",minTemp:"-12C",maxHeight:"2-4m",
     humidity:"Matig",bloomSeason:"Okt-nov (wit)",fruit:"Zwarte bessen",toxic:false,toxicNote:"",
@@ -2925,6 +3087,7 @@ const PLANT_DB = [
     tips:["Bloeit in herfst","Verdraagt diepe schaduw","Immergroen"] },
 
   { id:"db-beschorneria",name:"Beschorneria",latin:"Beschorneria yuccoides",category:"exoot",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Beschorneria_yuccoides",
     winterHardy:"-12C",growthRate:"Traag",light:"Volle zon",accentColor:"#80A040",waterNeed:"Laag",
     origin:"Mexico",idealTemp:"15-35C",minTemp:"-12C",maxHeight:"1-2m (bloeistengel 2-3m)",
     humidity:"Laag",bloomSeason:"Jun-jul (rode stengel)",fruit:"Capsules",toxic:false,toxicNote:"",
@@ -2937,6 +3100,7 @@ const PLANT_DB = [
 
   // ── GRASSEN EXTRA ─────────────────────────────────────────────────────────────
   { id:"db-pennisetum",name:"Lampenpoetsersgras",latin:"Pennisetum alopecuroides",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Pennisetum_alopecuroides",
     winterHardy:"-20C",growthRate:"Matig",light:"Volle zon",accentColor:"#A08040",waterNeed:"Laag",
     origin:"Oost-Azie, Australie",idealTemp:"10-30C",minTemp:"-20C",maxHeight:"0.5-1.2m",
     humidity:"Laag",bloomSeason:"Aug-okt",fruit:"Pluimen",toxic:false,toxicNote:"",
@@ -2948,6 +3112,7 @@ const PLANT_DB = [
     tips:["Gebogen pluimen decoratief","Herfstkleur","Droogtetolerant"] },
 
   { id:"db-deschampsia",name:"Smilegras",latin:"Deschampsia cespitosa",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Deschampsia_cespitosa",
     winterHardy:"-30C",growthRate:"Matig",light:"Halfschaduw",accentColor:"#90B060",waterNeed:"Matig",
     origin:"Europa, Noord-Amerika",idealTemp:"5-22C",minTemp:"-30C",maxHeight:"0.4-1.2m",
     humidity:"Matig",bloomSeason:"Jun-aug",fruit:"Kleine aartjes",toxic:false,toxicNote:"",
@@ -2959,6 +3124,7 @@ const PLANT_DB = [
     tips:["Ideaal voor halfschaduw","Vochtige standplaats","Fijn wiegelend"] },
 
   { id:"db-molinia",name:"Pijpenstro",latin:"Molinia caerulea",category:"vaste plant",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Molinia_caerulea",
     winterHardy:"-30C",growthRate:"Matig",light:"Zon/halfschaduw",accentColor:"#B09040",waterNeed:"Matig",
     origin:"Europa, West-Azie",idealTemp:"5-25C",minTemp:"-30C",maxHeight:"0.4-0.8m (pluimen hoger)",
     humidity:"Matig",bloomSeason:"Aug-okt",fruit:"Pluimen",toxic:false,toxicNote:"",
@@ -2971,6 +3137,7 @@ const PLANT_DB = [
 
   // ── MEER GROENTEN ─────────────────────────────────────────────────────────────
   { id:"db-venkel",name:"Knolvenkel",latin:"Foeniculum vulgare azoricum",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Foeniculum_vulgare",
     winterHardy:"-5C",growthRate:"Matig",light:"Volle zon",accentColor:"#90C060",waterNeed:"Matig",
     origin:"Middellandse Zee",idealTemp:"15-22C",minTemp:"-5C",maxHeight:"0.5-0.8m",
     humidity:"Matig",bloomSeason:"Zomer",fruit:"Oogst aug-okt",toxic:false,toxicNote:"",
@@ -2982,6 +3149,7 @@ const PLANT_DB = [
     tips:["Geheel eetbaar","Anijssmaak","Vruchtwisseling toepassen"] },
 
   { id:"db-postelein",name:"Postelein",latin:"Portulaca oleracea",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Portulaca_oleracea",
     winterHardy:"Niet winterhard",growthRate:"Snel",light:"Volle zon",accentColor:"#50C050",waterNeed:"Laag",
     origin:"India, Perzije",idealTemp:"18-28C",minTemp:"10C",maxHeight:"0.1-0.3m",
     humidity:"Laag",bloomSeason:"Zomer",fruit:"Oogst jun-sept",toxic:false,toxicNote:"",
@@ -2993,6 +3161,7 @@ const PLANT_DB = [
     tips:["Extreem droogtetolerant","Zelfzaaier","Bladeren in salade"] },
 
   { id:"db-rabarber",name:"Rabarber",latin:"Rheum rhabarbarum",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Rheum_rhabarbarum",
     winterHardy:"-30C",growthRate:"Snel",light:"Volle zon",accentColor:"#C04040",waterNeed:"Matig",
     origin:"Siberié, Noord-China",idealTemp:"10-22C",minTemp:"-30C",maxHeight:"0.8-1.5m",
     humidity:"Matig",bloomSeason:"Lente-zomer",fruit:"Oogst mrt-jun",toxic:true,toxicNote:"Bladeren GIFTIG. Alleen stelen eetbaar.",
@@ -3004,6 +3173,7 @@ const PLANT_DB = [
     tips:["Bladeren GIFTIG","Alleen stelen eetbaar","Niet oogsten in eerste jaar"] },
 
   { id:"db-asperge",name:"Asperge",latin:"Asparagus officinalis",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Asparagus_officinalis",
     winterHardy:"-25C",growthRate:"Traag",light:"Volle zon",accentColor:"#70B050",waterNeed:"Matig",
     origin:"Europa, Noord-Afrika",idealTemp:"15-25C",minTemp:"-25C",maxHeight:"1-2m",
     humidity:"Matig",bloomSeason:"Zomer",fruit:"Rode bessen (decoratief)",toxic:false,toxicNote:"Bessen licht giftig.",
@@ -3015,6 +3185,7 @@ const PLANT_DB = [
     tips:["Pas na 3 jaar oogsten","Decennia lang opbrengst","Aparte dames- en herenbedden"] },
 
   { id:"db-aardpeer",name:"Aardpeer",latin:"Helianthus tuberosus",category:"fruit",
+    imageUrl:"https://en.wikipedia.org/api/rest_v1/page/summary/Helianthus_tuberosus",
     winterHardy:"-30C",growthRate:"Snel",light:"Volle zon",accentColor:"#E0B020",waterNeed:"Laag",
     origin:"Noord-Amerika",idealTemp:"15-30C",minTemp:"-30C",maxHeight:"1.5-3m",
     humidity:"Laag",bloomSeason:"Aug-sept (geel)",fruit:"Knollen (oogst nov-feb)",toxic:false,toxicNote:"",
@@ -3585,18 +3756,36 @@ function PlantNoteEditor({ plantId, notes, onSave, T, accent }) {
 
 // ─── PLANT IMAGE ─────────────────────────────────────────────────────────────
 function PlantImage({ url, accentColor, height, borderRadius, style: extra }) {
-  var [loaded, setLoaded] = React.useState(false);
-  var [error, setError]   = React.useState(false);
+  var [imgSrc, setImgSrc]   = React.useState(null);
+  var [loaded, setLoaded]   = React.useState(false);
+  var [error, setError]     = React.useState(false);
   var h = height || 160;
   var br = borderRadius || 0;
   var base = {width:"100%",height:h,position:"relative",overflow:"hidden",borderRadius:br,background:"linear-gradient(135deg,"+(accentColor||"#2D5A27")+"CC,"+(accentColor||"#2D5A27")+"77)"};
   if (extra) Object.assign(base, extra);
+
+  React.useEffect(function() {
+    if (!url) return;
+    if (url.indexOf("wikipedia.org/api/rest_v1/page/summary/") !== -1) {
+      fetch(url)
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (d && d.thumbnail && d.thumbnail.source) {
+            setImgSrc(d.thumbnail.source);
+          } else { setError(true); }
+        })
+        .catch(function(){ setError(true); });
+    } else {
+      setImgSrc(url);
+    }
+  }, [url]);
+
   return (
     <div style={base}>
       <div style={{position:"absolute",inset:0,opacity:0.07,backgroundImage:"radial-gradient(circle,#fff 1px,transparent 1px)",backgroundSize:"20px 20px"}}/>
-      {url && !error && (
+      {imgSrc && !error && (
         <img
-          src={url}
+          src={imgSrc}
           onLoad={function(){ setLoaded(true); }}
           onError={function(){ setError(true); }}
           style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:loaded?1:0,transition:"opacity 0.4s"}}
