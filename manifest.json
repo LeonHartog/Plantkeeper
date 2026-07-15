@@ -1,6 +1,6 @@
 {
-  "name": "PlantKeeper",
-  "short_name": "PlantKeeper",
+  "name": "GrowMate",
+  "short_name": "GrowMate",
   "description": "Jouw persoonlijke tuinassistent",
   "start_url": "/",
   "display": "standalone",
