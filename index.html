@@ -6,10 +6,10 @@
   <meta name="theme-color" content="#2D5A27" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="PlantKeeper" />
+  <meta name="apple-mobile-web-app-title" content="GrowMate" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="apple-touch-icon" href="/icon-192.png" />
-  <title>PlantKeeper</title>
+  <title>GrowMate</title>
   <style>* { margin: 0; padding: 0; box-sizing: border-box; } body { background: #EFF4EC; }</style>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -45,7 +45,7 @@ function taskKey(pid, w, tid) { return pid + "-" + w + "-" + tid; }
 function noteKey(pid, w)      { return "note-" + pid + "-" + w; }
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
-const SK = "plantkeeper-v11.10";
+const SK = "growmate-v11.10";
 let _mem = {};
 function loadStore() {
   try { const r = localStorage.getItem(SK); if (r) { _mem = JSON.parse(r); return _mem; } } catch(e) {}
@@ -3562,7 +3562,7 @@ function InstellingenScherm({ T, darkMode, accentKey, userName, userCity, onDark
       <SuggestieForm T={T} />
 
       <div style={{background:T.surface,borderRadius:16,padding:"14px 16px",boxShadow:T.shadow,marginBottom:20}}>
-        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 6px"}}>Over PlantKeeper</p>
+        <p style={{fontSize:11,fontWeight:800,color:T.textMuted,textTransform:"uppercase",letterSpacing:1,margin:"0 0 6px"}}>Over GrowMate</p>
         <p style={{fontSize:13,color:T.textMid,margin:0,lineHeight:1.6}}>Versie 11.21 - Seizoen 2026</p>
       </div>
 
@@ -3580,7 +3580,7 @@ function SuggestieForm({ T }) {
   function slaOp() {
     if (!tekst.trim()) return;
     try {
-      var key = "plantkeeper-suggesties";
+      var key = "growmate-suggesties";
       var bestaand = JSON.parse(localStorage.getItem(key) || "[]");
       bestaand.push({
         id: Date.now(),
@@ -3628,7 +3628,7 @@ function MissingPlantForm({ dbSearch, T, userName }) {
   // Sla melding op in localStorage zodat Leon ze kan inzien
   function slaOp(naam, toelichting) {
     try {
-      var key = "plantkeeper-meldingen";
+      var key = "growmate-meldingen";
       var bestaand = JSON.parse(localStorage.getItem(key) || "[]");
       bestaand.push({
         id: Date.now(),
@@ -3705,8 +3705,8 @@ function BeheerderPanel({ T }) {
   function open() {
     if (code === BEHEERDER_CODE) {
       try {
-        var data = JSON.parse(localStorage.getItem("plantkeeper-meldingen") || "[]");
-        var sugg = JSON.parse(localStorage.getItem("plantkeeper-suggesties") || "[]");
+        var data = JSON.parse(localStorage.getItem("growmate-meldingen") || "[]");
+        var sugg = JSON.parse(localStorage.getItem("growmate-suggesties") || "[]");
         setMeldingen(data);
         setSuggesties(sugg);
         setUnlocked(true);
@@ -3718,18 +3718,18 @@ function BeheerderPanel({ T }) {
 
   function markeerGelezen(id) {
     try {
-      var data = JSON.parse(localStorage.getItem("plantkeeper-meldingen") || "[]");
+      var data = JSON.parse(localStorage.getItem("growmate-meldingen") || "[]");
       data = data.map(function(m){ return m.id===id ? Object.assign({},m,{gelezen:true}) : m; });
-      localStorage.setItem("plantkeeper-meldingen", JSON.stringify(data));
+      localStorage.setItem("growmate-meldingen", JSON.stringify(data));
       setMeldingen(data);
     } catch(e) {}
   }
 
   function verwijder(id) {
     try {
-      var data = JSON.parse(localStorage.getItem("plantkeeper-meldingen") || "[]");
+      var data = JSON.parse(localStorage.getItem("growmate-meldingen") || "[]");
       data = data.filter(function(m){ return m.id!==id; });
-      localStorage.setItem("plantkeeper-meldingen", JSON.stringify(data));
+      localStorage.setItem("growmate-meldingen", JSON.stringify(data));
       setMeldingen(data);
     } catch(e) {}
   }
@@ -3779,9 +3779,9 @@ function BeheerderPanel({ T }) {
                 <p style={{fontSize:12,color:T.text,margin:0,lineHeight:1.5}}>{s.tekst}</p>
                 <button onClick={function(){
                   try {
-                    var data = JSON.parse(localStorage.getItem("plantkeeper-suggesties")||"[]");
+                    var data = JSON.parse(localStorage.getItem("growmate-suggesties")||"[]");
                     data = data.map(function(x){ return x.id===s.id?Object.assign({},x,{gelezen:true}):x; });
-                    localStorage.setItem("plantkeeper-suggesties",JSON.stringify(data));
+                    localStorage.setItem("growmate-suggesties",JSON.stringify(data));
                     setSuggesties(data);
                   } catch(e){}
                 }} style={{marginTop:6,background:T.green,border:"none",color:"#fff",borderRadius:8,padding:"3px 8px",fontSize:10,fontWeight:700,cursor:"pointer",fontFamily:T.sans}}>Gelezen</button>
@@ -3856,7 +3856,7 @@ function PlantNoteEditor({ plantId, notes, onSave, T, accent }) {
 // ─── VERTALINGEN ─────────────────────────────────────────────────────────────
 var VERTALINGEN = {
   nl: {
-    appNaam:"PlantKeeper", welkom:"Jouw persoonlijke tuinassistent",
+    appNaam:"GrowMate", welkom:"Jouw persoonlijke tuinassistent",
     naamLabel:"Hoe heet jij?", naamUitleg:"Zodat de app je persoonlijk begroet.",
     stadLabel:"Waar woon je?", stadUitleg:"Voor lokaal weeradvies en seizoenstips.",
     volgende:"Volgende →", aanDeSlag:"Aan de slag",
@@ -3873,7 +3873,7 @@ var VERTALINGEN = {
     accentkleur:"Accentkleur", notificaties:"Notificaties", wekkers:"Wekkers",
     wekkerUitleg:"Instellen via het Wekker scherm",
     jouwGegevens:"Jouw gegevens", naam:"Naam", stad:"Stad / Locatie",
-    overApp:"Over PlantKeeper", taal:"Taal",
+    overApp:"Over GrowMate", taal:"Taal",
     suggestie:"Suggestie sturen", suggestiePlaceholder:"Idee, feedback of verbetering...",
     suggestieVerstuur:"Verstuur suggestie",
     suggestieOntvangen:"Suggestie ontvangen! Bedankt.",
@@ -3887,7 +3887,7 @@ var VERTALINGEN = {
     vergrendel:"Vergrendel",
   },
   en: {
-    appNaam:"PlantKeeper", welkom:"Your personal garden assistant",
+    appNaam:"GrowMate", welkom:"Your personal garden assistant",
     naamLabel:"What is your name?", naamUitleg:"So the app can greet you personally.",
     stadLabel:"Where do you live?", stadUitleg:"For local weather advice and seasonal tips.",
     volgende:"Next →", aanDeSlag:"Let's go",
@@ -3904,7 +3904,7 @@ var VERTALINGEN = {
     accentkleur:"Accent colour", notificaties:"Notifications", wekkers:"Alarms",
     wekkerUitleg:"Set via the Alarms screen",
     jouwGegevens:"Your details", naam:"Name", stad:"City / Location",
-    overApp:"About PlantKeeper", taal:"Language",
+    overApp:"About GrowMate", taal:"Language",
     suggestie:"Send suggestion", suggestiePlaceholder:"Idea, feedback or improvement...",
     suggestieVerstuur:"Send suggestion",
     suggestieOntvangen:"Suggestion received! Thank you.",
@@ -3918,7 +3918,7 @@ var VERTALINGEN = {
     vergrendel:"Lock",
   },
   de: {
-    appNaam:"PlantKeeper", welkom:"Dein persönlicher Gartenassistent",
+    appNaam:"GrowMate", welkom:"Dein persönlicher Gartenassistent",
     naamLabel:"Wie heißt du?", naamUitleg:"Damit die App dich persönlich begrüßen kann.",
     stadLabel:"Wo wohnst du?", stadUitleg:"Für lokale Wettertipps und Saisontipps.",
     volgende:"Weiter →", aanDeSlag:"Los geht's",
@@ -3935,7 +3935,7 @@ var VERTALINGEN = {
     accentkleur:"Akzentfarbe", notificaties:"Benachrichtigungen", wekkers:"Wecker",
     wekkerUitleg:"Im Wecker-Bildschirm einstellen",
     jouwGegevens:"Deine Daten", naam:"Name", stad:"Stadt / Ort",
-    overApp:"Über PlantKeeper", taal:"Sprache",
+    overApp:"Über GrowMate", taal:"Sprache",
     suggestie:"Vorschlag senden", suggestiePlaceholder:"Idee, Feedback oder Verbesserung...",
     suggestieVerstuur:"Vorschlag senden",
     suggestieOntvangen:"Vorschlag erhalten! Danke.",
@@ -3949,7 +3949,7 @@ var VERTALINGEN = {
     vergrendel:"Sperren",
   },
   fr: {
-    appNaam:"PlantKeeper", welkom:"Votre assistant jardin personnel",
+    appNaam:"GrowMate", welkom:"Votre assistant jardin personnel",
     naamLabel:"Comment vous appelez-vous?", naamUitleg:"Pour que l'appli vous accueille personnellement.",
     stadLabel:"Où habitez-vous?", stadUitleg:"Pour les conseils météo locaux et saisonniers.",
     volgende:"Suivant →", aanDeSlag:"Commencer",
@@ -3966,7 +3966,7 @@ var VERTALINGEN = {
     accentkleur:"Couleur d'accentuation", notificaties:"Notifications", wekkers:"Alarmes",
     wekkerUitleg:"À définir via l'écran Alarmes",
     jouwGegevens:"Vos données", naam:"Nom", stad:"Ville / Localisation",
-    overApp:"À propos de PlantKeeper", taal:"Langue",
+    overApp:"À propos de GrowMate", taal:"Langue",
     suggestie:"Envoyer une suggestion", suggestiePlaceholder:"Idée, commentaire ou amélioration...",
     suggestieVerstuur:"Envoyer",
     suggestieOntvangen:"Suggestion reçue! Merci.",
@@ -4071,7 +4071,7 @@ function NoteBlock({ plantId, weekNum, accent, T }) {
 }
 
 // ─── MAIN APP ─────────────────────────────────────────────────────────────────
-function PlantKeeper() {
+export default function GrowMate() {
   const today       = new Date();
   const currentWeek = getISOWeek(today);
 
@@ -4128,8 +4128,8 @@ function PlantKeeper() {
 
   useEffect(function() {
     function onAlarm(e) { setPendingAlarm(e.detail); }
-    window.addEventListener("plantkeeper-alarm", onAlarm);
-    return function() { window.removeEventListener("plantkeeper-alarm", onAlarm); };
+    window.addEventListener("growmate-alarm", onAlarm);
+    return function() { window.removeEventListener("growmate-alarm", onAlarm); };
   }, []);
 
   function update(k, v) {
@@ -4802,7 +4802,7 @@ function PlantKeeper() {
       if (withAlarm) {
         var detail = {hour:editHour, minute:editMin, day:editDay, message:editing.typeLabel+" - "+editing.plantName};
         setPendingAlarm(detail);
-        window.dispatchEvent(new CustomEvent("plantkeeper-alarm", {detail:detail}));
+        window.dispatchEvent(new CustomEvent("growmate-alarm", {detail:detail}));
         setJustSet(Object.assign({},editing,{day:editDay,hour:editHour,minute:editMin}));
       }
       setEditing(null);
@@ -5110,7 +5110,7 @@ function PlantKeeper() {
           </svg>
         </div>
 
-        <h1 style={{fontSize:32,fontWeight:900,color:"#fff",margin:"0 0 6px",textAlign:"center",textShadow:"0 2px 8px rgba(0,0,0,0.15)"}}>PlantKeeper</h1>
+        <h1 style={{fontSize:32,fontWeight:900,color:"#fff",margin:"0 0 6px",textAlign:"center",textShadow:"0 2px 8px rgba(0,0,0,0.15)"}}>GrowMate</h1>
         <p style={{fontSize:14,color:"rgba(255,255,255,0.8)",margin:"0 0 16px",textAlign:"center",fontWeight:600}}>Jouw persoonlijke tuinassistent</p>
         <div style={{display:"flex",gap:6,marginBottom:24,justifyContent:"center",flexWrap:"wrap"}}>
           {[{code:"nl",vlag:"🇳🇱",naam:"NL"},{code:"en",vlag:"🇬🇧",naam:"EN"},{code:"de",vlag:"🇩🇪",naam:"DE"},{code:"fr",vlag:"🇫🇷",naam:"FR"}].map(function(l){
@@ -5218,7 +5218,7 @@ function PlantKeeper() {
           </svg>
         </div>
         <div>
-          <p style={{fontSize:17,fontWeight:900,color:T.text,margin:0,lineHeight:1}}>PlantKeeper</p>
+          <p style={{fontSize:17,fontWeight:900,color:T.text,margin:0,lineHeight:1}}>GrowMate</p>
           <p style={{fontSize:10,color:T.textMuted,margin:"1px 0 0",fontWeight:700,textTransform:"uppercase",letterSpacing:1}}>Seizoen 2026</p>
         </div>
         <div style={{marginLeft:"auto",display:"flex",gap:8,alignItems:"center"}}>
